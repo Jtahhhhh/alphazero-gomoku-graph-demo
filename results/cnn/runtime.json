@@ -1,0 +1,6 @@
+{
+  "python": "3.12.13",
+  "pytorch": "2.13.0+cpu",
+  "device": "cpu",
+  "inference_latency_ms": 0.6180049997055903
+}
