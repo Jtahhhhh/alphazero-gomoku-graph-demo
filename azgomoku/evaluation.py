@@ -29,10 +29,10 @@ def inspect_tactics(model,path):
     report=[]; model.eval()
     for name,state,label in tactical_positions():
         x=torch.from_numpy(state.features()).unsqueeze(0)
-        with torch.no_grad(): logits,value=model(x); probs=torch.softmax(logits.masked_fill(torch.tensor(state.board.reshape(-1)!=0)[None],-torch.inf),1)[0]
+        with torch.no_grad(): logits,value,evidence=model(x,return_evidence=True); probs=torch.softmax(logits.masked_fill(torch.tensor(state.board.reshape(-1)!=0)[None],-torch.inf),1)[0]
         top=torch.topk(probs,3); item={"name":name,"inspection_label":label,"top_moves":[{"action":int(a),"probability":float(p)} for p,a in zip(top.values,top.indices)],"value":float(value)}
-        if hasattr(model,"last_attention"):
-            item["attention_mean_by_relation"]={k:float(v.mean()) for k,v in model.last_attention.items()}
-        if getattr(model,"last_semantic_attention",None) is not None: item["semantic_attention"]=[float(x) for x in model.last_semantic_attention]
+        attention=evidence.get("relation_attention") or evidence.get("node_attention")
+        if attention: item["attention_mean_by_relation"]={k:float(v.mean()) for k,v in attention.items()}
+        if evidence.get("semantic_attention") is not None: item["semantic_attention"]=[float(x) for x in evidence["semantic_attention"]]
         report.append(item)
     path.write_text(json.dumps({"disclaimer":"Attention weights are descriptive inspection values, not causal explanations.","positions":report},indent=2))

@@ -19,7 +19,8 @@ class RGCN(nn.Module):
         super().__init__(); self.board_size=board_size
         for i,e in enumerate(cell_graph(board_size)): self.register_buffer(f"edge_{i}",e)
         self.layers=nn.ModuleList((RelGraphConv(6,hidden_dim),RelGraphConv(hidden_dim,hidden_dim))); self.heads=PolicyValueHeads(hidden_dim)
-    def forward(self,x):
+    def forward(self,x,return_evidence=False):
         h=x.flatten(2).transpose(1,2); edges=tuple(getattr(self,f"edge_{i}") for i in range(4))
         for layer in self.layers: h=layer(h,edges)
-        return self.heads(h)
+        outputs=self.heads(h)
+        return (*outputs,{"attention_available":False}) if return_evidence else outputs

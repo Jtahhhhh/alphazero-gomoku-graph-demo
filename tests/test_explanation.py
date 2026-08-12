@@ -1,0 +1,78 @@
+import json
+import numpy as np
+import torch
+
+from azgomoku.explanation.explanation_export import explain_decision, write_svgs
+from azgomoku.explanation.mcts_trace import extract_mcts_trace
+from azgomoku.explanation.rendering import render_decision_svg, render_graph_svg, select_render_edges
+from azgomoku.game import GomokuState
+from azgomoku.mcts import Node, search
+from models.han import HAN
+from models.rgat import RGAT
+from models.rgcn import RGCN
+
+
+def state3(): return GomokuState(np.array([[1,-1,0],[0,1,0],[0,0,-1]],dtype=np.int8),1,8,3)
+
+
+def test_selected_action_orientation_and_pre_move_state(tmp_path):
+    state=state3(); before=state.board.copy(); result=explain_decision(state,RGCN(board_size=3,hidden_dim=8),5,output_dir=tmp_path)
+    assert result["selected_move"]=={"action":5,"row":1,"col":2}
+    assert result["state"]["board"][1][2]==0 and np.array_equal(state.board,before)
+    svg=(tmp_path/"board.svg").read_text(); assert 'data-node-row="1" data-node-col="2" data-action="5" data-role="selected_move"' in svg
+    assert (tmp_path/"decision.svg").is_file() and not (tmp_path/"graph.png").exists()
+
+
+def test_rgcn_has_structure_but_no_attention():
+    result=explain_decision(state3(),RGCN(board_size=3,hidden_dim=8),5)
+    assert not result["graph_evidence"]["attention_available"]
+    assert result["graph_evidence"]["edges"] and all(x["attention"] is None for x in result["graph_evidence"]["edges"])
+
+
+def test_rgat_values_and_head_mean_are_exact():
+    model=RGAT(board_size=3,hidden_dim=8,attention_heads=2); result=explain_decision(state3(),model,5); first=result["graph_evidence"]["edges"][0]
+    x=torch.from_numpy(state3().features()).unsqueeze(0)
+    with torch.no_grad(): _,_,raw=model(x,return_evidence=True)
+    expected=[float(v) for v in raw["relation_attention"][first["relation"]][0,0].tolist()]
+    assert first["head_attention"]==expected and first["attention"]==sum(expected)/len(expected)
+
+
+def test_han_node_and_semantic_values_are_exact():
+    model=HAN(board_size=3,hidden_dim=8); result=explain_decision(state3(),model,5); first=result["graph_evidence"]["edges"][0]
+    x=torch.from_numpy(state3().features()).unsqueeze(0)
+    with torch.no_grad(): _,_,raw=model(x,return_evidence=True)
+    assert first["attention"]==float(raw["node_attention"][first["relation"]][0,0])
+    expected={name:float(value) for name,value in zip(("horizontal","vertical","diagonal_down","diagonal_up"),raw["semantic_attention"])}
+    assert result["semantic_attention"]==expected and 'data-role="semantic_attention"' in render_decision_svg(result)
+
+
+def test_mcts_root_statistics():
+    root=Node(); root.children={2:Node(.6),5:Node(.4)}; root.children[2].n,root.children[2].w=3,1.5; root.children[5].n,root.children[5].w=7,4.2
+    trace=extract_mcts_trace(root,5,3,[0,0,.55,0,0,.45,0,0,0],top_k=2,playouts=10)
+    assert trace["selected"]["visits"]==7 and trace["selected"]["q"]==4.2/7 and trace["selected"]["pi"]==.7
+    assert trace["selected"]["raw_policy_prior"]==.45 and trace["selected"]["search_prior"]==.4
+
+
+def test_deterministic_filter_and_trace_only_render(tmp_path):
+    torch.manual_seed(11); document=explain_decision(state3(),HAN(board_size=3,hidden_dim=8),5,top_k_edges=3)
+    assert len(select_render_edges(document))==3
+    assert render_graph_svg(document)==render_graph_svg(document)
+    saved=tmp_path/"saved.json"; saved.write_text(json.dumps(document)); out=tmp_path/"rendered"; write_svgs(json.loads(saved.read_text()),out)
+    assert (out/"decision.svg").read_text()==render_decision_svg(document)
+
+
+def test_normal_mcts_forces_evidence_off():
+    class Spy(RGCN):
+        def __init__(self): super().__init__(board_size=3,hidden_dim=8); self.flags=[]
+        def forward(self,x,return_evidence=False): self.flags.append(return_evidence); return super().forward(x,return_evidence)
+    model=Spy(); _,root=search(model,GomokuState.initial(3,3),playouts=2,return_root=True)
+    assert model.flags and not any(model.flags)
+    assert sum(child.n for child in root.children.values())==2
+
+
+def test_one_explanation_forward_and_off_mode():
+    class Spy(HAN):
+        def __init__(self): super().__init__(board_size=3,hidden_dim=8); self.flags=[]
+        def forward(self,x,return_evidence=False): self.flags.append(return_evidence); return super().forward(x,return_evidence)
+    model=Spy(); assert explain_decision(state3(),model,5,mode="off") is None and model.flags==[]
+    explain_decision(state3(),model,5); assert model.flags==[True]

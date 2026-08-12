@@ -10,12 +10,12 @@ class Node:
 def predict(model,state):
     device=next(model.parameters()).device
     x=torch.from_numpy(state.features()).unsqueeze(0).to(device)
-    with torch.no_grad(): logits,value=model(x)
+    with torch.no_grad(): logits,value=model(x,return_evidence=False)
     legal=state.legal_actions(); masked=torch.full_like(logits,-torch.inf); masked[0,legal]=logits[0,legal]
     probs=torch.softmax(masked,dim=-1)[0].cpu().numpy()
     return probs,float(value.item())
 
-def search(model,state,playouts=50,c_puct=1.5,temperature=1.0):
+def search(model,state,playouts=50,c_puct=1.5,temperature=1.0,return_root=False):
     root=Node(); priors,_=predict(model,state)
     root.children={int(a):Node(float(priors[a])) for a in state.legal_actions()}
     for _ in range(playouts):
@@ -27,7 +27,8 @@ def search(model,state,playouts=50,c_puct=1.5,temperature=1.0):
         if s.terminal(): value=s.outcome_for(s.to_play)
         else:
             priors,value=predict(model,s); node.children={int(a):Node(float(priors[a])) for a in s.legal_actions()}
-        for parent,child in reversed(path): child.n+=1; child.w+=value; parent.n+=1; value=-value
+        for _,child in reversed(path): child.n+=1; child.w+=value; value=-value
+        root.n+=1
     visits=np.zeros(state.size**2,np.float32)
     for a,c in root.children.items(): visits[a]=c.n
     if visits.sum()==0: visits[state.legal_actions()]=1
@@ -35,4 +36,4 @@ def search(model,state,playouts=50,c_puct=1.5,temperature=1.0):
         pi=np.zeros_like(visits); pi[int(visits.argmax())]=1
     else:
         visits=visits**(1/temperature); pi=visits/visits.sum()
-    return pi
+    return (pi,root) if return_root else pi
