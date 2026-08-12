@@ -5,6 +5,7 @@ import torch
 from .game import GomokuState
 from .mcts import search
 from .replay import ReplayBuffer
+from .evaluation import evaluate_vs_random,inspect_tactics
 
 def self_play(model,cfg):
     samples=[]; lengths=[]; start=time.perf_counter()
@@ -35,11 +36,12 @@ def latency_ms(model,size,runs=20):
 
 def run_experiment(name,model,cfg,outdir):
     torch.manual_seed(cfg.seed); np.random.seed(cfg.seed); out=Path(outdir); out.mkdir(parents=True,exist_ok=True)
-    replay=ReplayBuffer(cfg.replay_capacity); samples,sp=self_play(model,cfg); replay.extend(samples); rows=train(model,replay,cfg); lat=latency_ms(model,cfg.board_size)
+    replay=ReplayBuffer(cfg.replay_capacity); samples,sp=self_play(model,cfg); replay.extend(samples); rows=train(model,replay,cfg); lat=latency_ms(model,cfg.board_size); evaluation=evaluate_vs_random(model,cfg)
     for row in rows: row.update(sp); row["inference_latency_ms"]=lat
     (out/"config.json").write_text(json.dumps(cfg.dict(),indent=2)); torch.save(model.state_dict(),out/"model.pt")
     with (out/"metrics.csv").open("w",newline="") as f:
         w=csv.DictWriter(f,fieldnames=rows[0]); w.writeheader(); w.writerows(rows)
     runtime={"python":platform.python_version(),"pytorch":torch.__version__,"device":"cpu","inference_latency_ms":lat}; (out/"runtime.json").write_text(json.dumps(runtime,indent=2))
-    (out/"summary.md").write_text(f"# {name} summary\n\nProfile completed with {len(samples)} positions. Batch-1 latency: {lat:.3f} ms.\n")
+    inspect_tactics(model,out/"tactical_inspection.json")
+    (out/"summary.md").write_text(f"# {name} summary\n\nProfile completed with {len(samples)} positions. Batch-1 latency: {lat:.3f} ms. Evaluation: {evaluation}.\n\nTactical examples are inspection-only. Attention weights, where present, are not causal explanations.\n")
     return rows

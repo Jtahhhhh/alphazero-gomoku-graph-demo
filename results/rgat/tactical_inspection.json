@@ -1,0 +1,80 @@
+{
+  "disclaimer": "Attention weights are descriptive inspection values, not causal explanations.",
+  "positions": [
+    {
+      "name": "complete horizontal four",
+      "inspection_label": 10,
+      "top_moves": [
+        {
+          "action": 30,
+          "probability": 0.03617841377854347
+        },
+        {
+          "action": 24,
+          "probability": 0.035721007734537125
+        },
+        {
+          "action": 18,
+          "probability": 0.03551869839429855
+        }
+      ],
+      "value": 0.06436365097761154,
+      "attention_mean_by_relation": {
+        "horizontal": 0.5999999642372131,
+        "vertical": 0.6000000238418579,
+        "diagonal_down": 0.6800000071525574,
+        "diagonal_up": 0.6800000071525574
+      }
+    },
+    {
+      "name": "block vertical four",
+      "inspection_label": 26,
+      "top_moves": [
+        {
+          "action": 30,
+          "probability": 0.036306820809841156
+        },
+        {
+          "action": 24,
+          "probability": 0.03585438057780266
+        },
+        {
+          "action": 18,
+          "probability": 0.03565456345677376
+        }
+      ],
+      "value": 0.06253762543201447,
+      "attention_mean_by_relation": {
+        "horizontal": 0.6000000834465027,
+        "vertical": 0.5999999642372131,
+        "diagonal_down": 0.6800000071525574,
+        "diagonal_up": 0.6800000071525574
+      }
+    },
+    {
+      "name": "complete diagonal four",
+      "inspection_label": 21,
+      "top_moves": [
+        {
+          "action": 30,
+          "probability": 0.036209587007761
+        },
+        {
+          "action": 24,
+          "probability": 0.03575076907873154
+        },
+        {
+          "action": 18,
+          "probability": 0.03555295988917351
+        }
+      ],
+      "value": 0.06401834636926651,
+      "attention_mean_by_relation": {
+        "horizontal": 0.6000000238418579,
+        "vertical": 0.6000000238418579,
+        "diagonal_down": 0.6800000071525574,
+        "diagonal_up": 0.6799999475479126
+      }
+    }
+  ]
+}

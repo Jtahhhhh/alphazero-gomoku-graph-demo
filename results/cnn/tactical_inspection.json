@@ -1,0 +1,62 @@
+{
+  "disclaimer": "Attention weights are descriptive inspection values, not causal explanations.",
+  "positions": [
+    {
+      "name": "complete horizontal four",
+      "inspection_label": 10,
+      "top_moves": [
+        {
+          "action": 34,
+          "probability": 0.036178670823574066
+        },
+        {
+          "action": 33,
+          "probability": 0.03539206087589264
+        },
+        {
+          "action": 32,
+          "probability": 0.034958820790052414
+        }
+      ],
+      "value": 0.10837480425834656
+    },
+    {
+      "name": "block vertical four",
+      "inspection_label": 26,
+      "top_moves": [
+        {
+          "action": 34,
+          "probability": 0.03632594645023346
+        },
+        {
+          "action": 32,
+          "probability": 0.03514450415968895
+        },
+        {
+          "action": 33,
+          "probability": 0.034908734261989594
+        }
+      ],
+      "value": 0.10862122476100922
+    },
+    {
+      "name": "complete diagonal four",
+      "inspection_label": 21,
+      "top_moves": [
+        {
+          "action": 34,
+          "probability": 0.03626636788249016
+        },
+        {
+          "action": 33,
+          "probability": 0.03547785058617592
+        },
+        {
+          "action": 32,
+          "probability": 0.035043563693761826
+        }
+      ],
+      "value": 0.10827610641717911
+    }
+  ]
+}

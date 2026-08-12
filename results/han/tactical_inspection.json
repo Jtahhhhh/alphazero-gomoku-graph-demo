@@ -1,0 +1,98 @@
+{
+  "disclaimer": "Attention weights are descriptive inspection values, not causal explanations.",
+  "positions": [
+    {
+      "name": "complete horizontal four",
+      "inspection_label": 10,
+      "top_moves": [
+        {
+          "action": 11,
+          "probability": 0.03399202227592468
+        },
+        {
+          "action": 10,
+          "probability": 0.03396325930953026
+        },
+        {
+          "action": 4,
+          "probability": 0.03382614254951477
+        }
+      ],
+      "value": 0.016198771074414253,
+      "attention_mean_by_relation": {
+        "horizontal": 0.1666666716337204,
+        "vertical": 0.1666666716337204,
+        "diagonal_down": 0.2361111044883728,
+        "diagonal_up": 0.2361111044883728
+      },
+      "semantic_attention": [
+        0.24957852065563202,
+        0.24948041141033173,
+        0.25046220421791077,
+        0.2504788637161255
+      ]
+    },
+    {
+      "name": "block vertical four",
+      "inspection_label": 26,
+      "top_moves": [
+        {
+          "action": 4,
+          "probability": 0.03387058153748512
+        },
+        {
+          "action": 11,
+          "probability": 0.03386294096708298
+        },
+        {
+          "action": 3,
+          "probability": 0.033807359635829926
+        }
+      ],
+      "value": 0.01638215035200119,
+      "attention_mean_by_relation": {
+        "horizontal": 0.1666666716337204,
+        "vertical": 0.1666666716337204,
+        "diagonal_down": 0.2361111044883728,
+        "diagonal_up": 0.2361111044883728
+      },
+      "semantic_attention": [
+        0.24957852065563202,
+        0.24948041141033173,
+        0.25046220421791077,
+        0.2504788637161255
+      ]
+    },
+    {
+      "name": "complete diagonal four",
+      "inspection_label": 21,
+      "top_moves": [
+        {
+          "action": 10,
+          "probability": 0.03389577567577362
+        },
+        {
+          "action": 11,
+          "probability": 0.03386077284812927
+        },
+        {
+          "action": 4,
+          "probability": 0.03383779525756836
+        }
+      ],
+      "value": 0.016273217275738716,
+      "attention_mean_by_relation": {
+        "horizontal": 0.1666666716337204,
+        "vertical": 0.166666641831398,
+        "diagonal_down": 0.2361111044883728,
+        "diagonal_up": 0.2361111044883728
+      },
+      "semantic_attention": [
+        0.24957852065563202,
+        0.24948041141033173,
+        0.25046220421791077,
+        0.2504788637161255
+      ]
+    }
+  ]
+}
