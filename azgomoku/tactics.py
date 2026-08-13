@@ -179,7 +179,16 @@ def threat_moves(
         raise ValueError("method must be 'vcf' or 'vct'")
     candidates = []
     for move in map(int, state.legal_actions()):
-        classified = classify_threat_move(state, move, player)
+        # VCF must neither admit nor pay to enumerate three candidates.
+        if method == "vcf":
+            classified = MoveThreats(
+                move=move,
+                creates_five=creates_five(state, move, player),
+                fours=_fours_after_move(state, move, player),
+                three_extensions=(),
+            )
+        else:
+            classified = classify_threat_move(state, move, player)
         if classified.creates_five or classified.creates_four:
             candidates.append(classified)
         elif method == "vct" and classified.creates_three:
