@@ -10,7 +10,6 @@ import torch
 
 from azgomoku.game import GomokuState
 from azgomoku.mcts import search
-from models.han import HAN
 from models.rgat import RGAT
 from models.rgcn import RGCN
 
@@ -20,7 +19,7 @@ from .model_evidence import collect_model_evidence
 from .rendering import render_board_svg, render_decision_svg, render_graph_svg
 
 
-MODEL_CLASSES={"rgcn":RGCN,"rgat":RGAT,"han":HAN}
+MODEL_CLASSES={"rgcn":RGCN,"rgat":RGAT}
 
 
 def write_svgs(document,output_dir):
@@ -39,7 +38,7 @@ def explain_decision(state,model,selected_move,mcts_root=None,output_dir=None,to
     if selected_move not in set(map(int,state.legal_actions())): raise ValueError(f"selected move {selected_move} is illegal")
     total_start=time.perf_counter(); evidence_start=time.perf_counter(); evidence=collect_model_evidence(state,model,selected_move); evidence_ms=(time.perf_counter()-evidence_start)*1000
     document=make_document(state,evidence["model_type"],checkpoint,selected_move,top_k_edges)
-    document["network"]=evidence["network"]; document["graph_evidence"]=evidence["graph_evidence"]; document["semantic_attention"]=evidence["semantic_attention"]; document["limitations"].extend(evidence["limitations"])
+    document["network"]=evidence["network"]; document["graph_evidence"]=evidence["graph_evidence"]; document["limitations"].extend(evidence["limitations"])
     document["mcts"]=extract_mcts_trace(mcts_root,selected_move,state.size,evidence["network"]["raw_policy_priors"],top_k_candidates,playouts)
     document["runtime_ms"]={"mcts_search_ms":mcts_search_ms,"evidence_forward_ms":evidence_ms,"json_export_ms":None,"svg_render_ms":None,"total_explanation_ms":None}
     if output_dir is not None:

@@ -1,0 +1,17 @@
+{
+  "states": 24,
+  "rows": 48,
+  "models": [
+    "han",
+    "rgat"
+  ],
+  "mean": {
+    "policy_optimal_mass": 0.34049871113772195,
+    "value_error": 0.8727940509173399,
+    "graph_critical_mass": 0.029638145764049908,
+    "random_critical_mass": 0.0316966819496718,
+    "structural_critical_mass": 0.02969494047619047,
+    "mcts_optimal_mass": 0.8666666566083828,
+    "search_gain_optimal_mass": 0.5261679440736771
+  }
+}

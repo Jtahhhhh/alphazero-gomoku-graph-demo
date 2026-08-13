@@ -1,0 +1,3948 @@
+{
+  "artifact_type": "state_specific_decision_evidence",
+  "graph_evidence": {
+    "attention_available": false,
+    "edges": [
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "horizontal",
+        "source": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "vertical",
+        "source": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_down",
+        "source": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": null,
+        "head_attention": null,
+        "relation": "diagonal_up",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      }
+    ],
+    "evidence_kind": "structural_relations"
+  },
+  "limitations": [
+    "Attention weights are state-specific model evidence, not causal explanations.",
+    "MCTS decision trace and neural-network evidence are reported separately.",
+    "R-GCN exposes structural relations but no learned attention coefficients."
+  ],
+  "mcts": {
+    "available": true,
+    "candidates": [
+      {
+        "action": 30,
+        "col": 0,
+        "pi": 0.12,
+        "q": -0.5536093066136042,
+        "raw_policy_prior": 0.10954553633928299,
+        "row": 5,
+        "search_prior": 0.10954553633928299,
+        "selected": true,
+        "visits": 6
+      },
+      {
+        "action": 35,
+        "col": 5,
+        "pi": 0.08,
+        "q": -0.5488541647791862,
+        "raw_policy_prior": 0.07863467931747437,
+        "row": 5,
+        "search_prior": 0.07863467931747437,
+        "selected": false,
+        "visits": 4
+      },
+      {
+        "action": 0,
+        "col": 0,
+        "pi": 0.06,
+        "q": -0.539881964524587,
+        "raw_policy_prior": 0.055204395204782486,
+        "row": 0,
+        "search_prior": 0.055204395204782486,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 5,
+        "col": 5,
+        "pi": 0.06,
+        "q": -0.5390715897083282,
+        "raw_policy_prior": 0.04858764261007309,
+        "row": 0,
+        "search_prior": 0.04858764261007309,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 24,
+        "col": 0,
+        "pi": 0.04,
+        "q": -0.5216300934553146,
+        "raw_policy_prior": 0.04405466094613075,
+        "row": 4,
+        "search_prior": 0.04405466094613075,
+        "selected": false,
+        "visits": 2
+      },
+      {
+        "action": 18,
+        "col": 0,
+        "pi": 0.04,
+        "q": -0.5250120759010315,
+        "raw_policy_prior": 0.04149022698402405,
+        "row": 3,
+        "search_prior": 0.04149022698402405,
+        "selected": false,
+        "visits": 2
+      },
+      {
+        "action": 12,
+        "col": 0,
+        "pi": 0.02,
+        "q": -0.5677576661109924,
+        "raw_policy_prior": 0.03449222072958946,
+        "row": 2,
+        "search_prior": 0.03449222072958946,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 25,
+        "col": 1,
+        "pi": 0.02,
+        "q": -0.5709450244903564,
+        "raw_policy_prior": 0.02794221043586731,
+        "row": 4,
+        "search_prior": 0.02794221043586731,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 19,
+        "col": 1,
+        "pi": 0.02,
+        "q": -0.5701460242271423,
+        "raw_policy_prior": 0.026118358597159386,
+        "row": 3,
+        "search_prior": 0.026118358597159386,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 32,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.5678621530532837,
+        "raw_policy_prior": 0.022371359169483185,
+        "row": 5,
+        "search_prior": 0.022371359169483185,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 31,
+        "col": 1,
+        "pi": 0.02,
+        "q": -0.5680767893791199,
+        "raw_policy_prior": 0.022010263055562973,
+        "row": 5,
+        "search_prior": 0.022010263055562973,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 26,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.5700438022613525,
+        "raw_policy_prior": 0.021553874015808105,
+        "row": 4,
+        "search_prior": 0.021553874015808105,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 23,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.5670248866081238,
+        "raw_policy_prior": 0.02149941399693489,
+        "row": 3,
+        "search_prior": 0.02149941399693489,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 13,
+        "col": 1,
+        "pi": 0.02,
+        "q": -0.5699315071105957,
+        "raw_policy_prior": 0.021321168169379234,
+        "row": 2,
+        "search_prior": 0.021321168169379234,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 2,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.5685625672340393,
+        "raw_policy_prior": 0.021027743816375732,
+        "row": 0,
+        "search_prior": 0.021027743816375732,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 6,
+        "col": 0,
+        "pi": 0.02,
+        "q": -0.5690685510635376,
+        "raw_policy_prior": 0.020865192636847496,
+        "row": 1,
+        "search_prior": 0.020865192636847496,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 7,
+        "col": 1,
+        "pi": 0.02,
+        "q": -0.5714952945709229,
+        "raw_policy_prior": 0.020303716883063316,
+        "row": 1,
+        "search_prior": 0.020303716883063316,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 4,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.5671237111091614,
+        "raw_policy_prior": 0.020213807001709938,
+        "row": 0,
+        "search_prior": 0.020213807001709938,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 11,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.5651288032531738,
+        "raw_policy_prior": 0.020130882039666176,
+        "row": 1,
+        "search_prior": 0.020130882039666176,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 22,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.5717922449111938,
+        "raw_policy_prior": 0.020052244886755943,
+        "row": 3,
+        "search_prior": 0.020052244886755943,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 27,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.5703851580619812,
+        "raw_policy_prior": 0.019719930365681648,
+        "row": 4,
+        "search_prior": 0.019719930365681648,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 20,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.5695291757583618,
+        "raw_policy_prior": 0.019707104191184044,
+        "row": 3,
+        "search_prior": 0.019707104191184044,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 10,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.5696440935134888,
+        "raw_policy_prior": 0.019692106172442436,
+        "row": 1,
+        "search_prior": 0.019692106172442436,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 3,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.567703366279602,
+        "raw_policy_prior": 0.019664231687784195,
+        "row": 0,
+        "search_prior": 0.019664231687784195,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 17,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.5662391781806946,
+        "raw_policy_prior": 0.019610315561294556,
+        "row": 2,
+        "search_prior": 0.019610315561294556,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 1,
+        "col": 1,
+        "pi": 0.02,
+        "q": -0.568738579750061,
+        "raw_policy_prior": 0.01943119615316391,
+        "row": 0,
+        "search_prior": 0.01943119615316391,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 8,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.5705761313438416,
+        "raw_policy_prior": 0.019408732652664185,
+        "row": 1,
+        "search_prior": 0.019408732652664185,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 14,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.5703712105751038,
+        "raw_policy_prior": 0.01931794174015522,
+        "row": 2,
+        "search_prior": 0.01931794174015522,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 29,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.5675768852233887,
+        "raw_policy_prior": 0.019198888912796974,
+        "row": 4,
+        "search_prior": 0.019198888912796974,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 33,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.5685795545578003,
+        "raw_policy_prior": 0.01914205774664879,
+        "row": 5,
+        "search_prior": 0.01914205774664879,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 16,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.5707318186759949,
+        "raw_policy_prior": 0.018853802233934402,
+        "row": 2,
+        "search_prior": 0.018853802233934402,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 21,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.5702453255653381,
+        "raw_policy_prior": 0.01881195232272148,
+        "row": 3,
+        "search_prior": 0.01881195232272148,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 15,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.5699121952056885,
+        "raw_policy_prior": 0.01868848316371441,
+        "row": 2,
+        "search_prior": 0.01868848316371441,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 9,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.5698882937431335,
+        "raw_policy_prior": 0.01774686947464943,
+        "row": 1,
+        "search_prior": 0.01774686947464943,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 28,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.5732423663139343,
+        "raw_policy_prior": 0.0174820888787508,
+        "row": 4,
+        "search_prior": 0.0174820888787508,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 34,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.5696438550949097,
+        "raw_policy_prior": 0.01610463112592697,
+        "row": 5,
+        "search_prior": 0.01610463112592697,
+        "selected": false,
+        "visits": 1
+      }
+    ],
+    "mcts_value_convention_version": 2,
+    "playouts": 50,
+    "q_perspective": "player_who_selects_action_at_parent",
+    "root_visits": 50,
+    "selected": {
+      "action": 30,
+      "col": 0,
+      "pi": 0.12,
+      "q": -0.5536093066136042,
+      "raw_policy_prior": 0.10954553633928299,
+      "row": 5,
+      "search_prior": 0.10954553633928299,
+      "selected": true,
+      "visits": 6
+    },
+    "top_candidates": [
+      {
+        "action": 30,
+        "col": 0,
+        "pi": 0.12,
+        "q": -0.5536093066136042,
+        "raw_policy_prior": 0.10954553633928299,
+        "row": 5,
+        "search_prior": 0.10954553633928299,
+        "selected": true,
+        "visits": 6
+      },
+      {
+        "action": 35,
+        "col": 5,
+        "pi": 0.08,
+        "q": -0.5488541647791862,
+        "raw_policy_prior": 0.07863467931747437,
+        "row": 5,
+        "search_prior": 0.07863467931747437,
+        "selected": false,
+        "visits": 4
+      },
+      {
+        "action": 0,
+        "col": 0,
+        "pi": 0.06,
+        "q": -0.539881964524587,
+        "raw_policy_prior": 0.055204395204782486,
+        "row": 0,
+        "search_prior": 0.055204395204782486,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 5,
+        "col": 5,
+        "pi": 0.06,
+        "q": -0.5390715897083282,
+        "raw_policy_prior": 0.04858764261007309,
+        "row": 0,
+        "search_prior": 0.04858764261007309,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 24,
+        "col": 0,
+        "pi": 0.04,
+        "q": -0.5216300934553146,
+        "raw_policy_prior": 0.04405466094613075,
+        "row": 4,
+        "search_prior": 0.04405466094613075,
+        "selected": false,
+        "visits": 2
+      }
+    ]
+  },
+  "model": {
+    "checkpoint": "results/h3_pilot/rgcn/seed_7/model.pt",
+    "type": "rgcn"
+  },
+  "network": {
+    "raw_policy_prior": 0.10954553633928299,
+    "raw_policy_priors": [
+      0.055204395204782486,
+      0.01943119615316391,
+      0.021027743816375732,
+      0.019664231687784195,
+      0.020213807001709938,
+      0.04858764261007309,
+      0.020865192636847496,
+      0.020303716883063316,
+      0.019408732652664185,
+      0.01774686947464943,
+      0.019692106172442436,
+      0.020130882039666176,
+      0.03449222072958946,
+      0.021321168169379234,
+      0.01931794174015522,
+      0.01868848316371441,
+      0.018853802233934402,
+      0.019610315561294556,
+      0.04149022698402405,
+      0.026118358597159386,
+      0.019707104191184044,
+      0.01881195232272148,
+      0.020052244886755943,
+      0.02149941399693489,
+      0.04405466094613075,
+      0.02794221043586731,
+      0.021553874015808105,
+      0.019719930365681648,
+      0.0174820888787508,
+      0.019198888912796974,
+      0.10954553633928299,
+      0.022010263055562973,
+      0.022371359169483185,
+      0.01914205774664879,
+      0.01610463112592697,
+      0.07863467931747437
+    ],
+    "value": -0.5091861486434937
+  },
+  "rendering": {
+    "edge_filter": "selected_related_then_candidate_then_global_top_k",
+    "head_aggregation": "mean across attention heads",
+    "top_k_edges": 12
+  },
+  "runtime_ms": {
+    "evidence_forward_ms": 2.7730780002457323,
+    "json_export_ms": 5.707904001610586,
+    "mcts_search_ms": 277.38104299896804,
+    "svg_render_ms": 39.45465700053319,
+    "total_explanation_ms": 54.184507998797926
+  },
+  "schema_version": "1.0",
+  "selected_move": {
+    "action": 30,
+    "col": 0,
+    "row": 5
+  },
+  "semantic_attention": {},
+  "semantic_evidence": null,
+  "state": {
+    "board": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "board_size": 6,
+    "current_player": 1,
+    "last_move": null,
+    "legal_actions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "win_length": 4
+  },
+  "state_id": "8b50ecdb24b132c7"
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "iteration": 0,
+    "seconds": 2.4293304000020726,
+    "mcts_enabled": true
+  },
+  {
+    "iteration": 5,
+    "seconds": 1.5547456999920541,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 10,
+    "seconds": 1.635922900008154,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 15,
+    "seconds": 1.4434582999965642,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 20,
+    "seconds": 2.406148599999142,
+    "mcts_enabled": true
+  },
+  {
+    "iteration": 25,
+    "seconds": 1.3991280999907758,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 30,
+    "seconds": 1.6100363000005018,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 35,
+    "seconds": 1.421040200002608,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 40,
+    "seconds": 2.439142199989874,
+    "mcts_enabled": true
+  },
+  {
+    "iteration": 45,
+    "seconds": 1.517984999998589,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 50,
+    "seconds": 1.479136699999799,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 55,
+    "seconds": 1.5389887999917846,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 60,
+    "seconds": 2.274768599992967,
+    "mcts_enabled": true
+  }
+]

@@ -13,8 +13,14 @@ class Config:
     hidden_dim: int = 64
     attention_heads: int = 4
     train_epochs: int = 2
+    training_iterations: int = 1
     c_puct: float = 1.5
     temperature: float = 1.0
+    opening_temperature_moves: int = 10
+    late_temperature: float = 0.0
+    dirichlet_alpha: float = 0.3
+    dirichlet_fraction: float = 0.25
+    symmetry_augmentation: bool = True
     seed: int = 7
     @classmethod
     def profile(cls, name):

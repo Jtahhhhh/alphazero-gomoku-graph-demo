@@ -1,0 +1,5658 @@
+{
+  "artifact_type": "state_specific_decision_evidence",
+  "graph_evidence": {
+    "attention_available": true,
+    "attention_semantics": {
+      "directed_edges": true,
+      "direction": "source_to_destination",
+      "grouping": "incoming edges with the same destination, relation, and head",
+      "normalization": "softmax",
+      "self_loops": false,
+      "version": 1
+    },
+    "edges": [
+      {
+        "attention": 0.47867757827043533,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:0:1",
+        "head_attention": [
+          0.5042657852172852,
+          0.47595474123954773,
+          0.5146199464797974,
+          0.4198698401451111
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:1:0",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.4945138767361641,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:1:2",
+        "head_attention": [
+          0.5000247955322266,
+          0.4933133125305176,
+          0.5029110908508301,
+          0.48180630803108215
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5213224142789841,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:2:1",
+        "head_attention": [
+          0.49573418498039246,
+          0.5240452885627747,
+          0.48538002371788025,
+          0.5801301598548889
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5015880241990089,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:2:3",
+        "head_attention": [
+          0.5004087090492249,
+          0.5015861988067627,
+          0.49947389960289,
+          0.5048832893371582
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5054861158132553,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:3:2",
+        "head_attention": [
+          0.4999752342700958,
+          0.5066866278648376,
+          0.4970889389514923,
+          0.5181936621665955
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5016428455710411,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:3:4",
+        "head_attention": [
+          0.5004047751426697,
+          0.5014444589614868,
+          0.49997827410697937,
+          0.5047438740730286
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.49841196089982986,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:4:3",
+        "head_attention": [
+          0.49959129095077515,
+          0.4984138309955597,
+          0.5005260705947876,
+          0.495116651058197
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:4:5",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.4983571469783783,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:5:4",
+        "head_attention": [
+          0.49959516525268555,
+          0.49855557084083557,
+          0.500021755695343,
+          0.49525609612464905
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5179565399885178,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:6:7",
+        "head_attention": [
+          0.5403132438659668,
+          0.5146249532699585,
+          0.5280643701553345,
+          0.4888235926628113
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:7:6",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5028728172183037,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:7:8",
+        "head_attention": [
+          0.5001012682914734,
+          0.5028946995735168,
+          0.49853792786598206,
+          0.5099573731422424
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.48204343765974045,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:8:7",
+        "head_attention": [
+          0.4596867561340332,
+          0.4853750169277191,
+          0.47193557024002075,
+          0.5111764073371887
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5015669465065002,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:8:9",
+        "head_attention": [
+          0.5007209777832031,
+          0.501396656036377,
+          0.5000006556510925,
+          0.5041494965553284
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.4971271976828575,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:9:8",
+        "head_attention": [
+          0.4998987019062042,
+          0.49710533022880554,
+          0.5014621019363403,
+          0.49004265666007996
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5009299665689468,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:9:10",
+        "head_attention": [
+          0.5007078647613525,
+          0.5003958344459534,
+          0.5006065964698792,
+          0.5020095705986023
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.49843303859233856,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:10:9",
+        "head_attention": [
+          0.4992789626121521,
+          0.49860331416130066,
+          0.49999937415122986,
+          0.49585050344467163
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:10:11",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.49907001852989197,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:11:10",
+        "head_attention": [
+          0.49929216504096985,
+          0.49960416555404663,
+          0.4993933439254761,
+          0.4979903995990753
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.49772001057863235,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:12:13",
+        "head_attention": [
+          0.49960124492645264,
+          0.49784645438194275,
+          0.500066339969635,
+          0.493366003036499
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:13:12",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.49978507310152054,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:13:14",
+        "head_attention": [
+          0.4995051324367523,
+          0.49928098917007446,
+          0.5005035996437073,
+          0.4998505711555481
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5022799894213676,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:14:13",
+        "head_attention": [
+          0.5003986954689026,
+          0.5021535754203796,
+          0.4999336898326874,
+          0.506633996963501
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5016636252403259,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:14:15",
+        "head_attention": [
+          0.5007373690605164,
+          0.5015221834182739,
+          0.500017523765564,
+          0.5043774247169495
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5002149268984795,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:15:14",
+        "head_attention": [
+          0.5004948377609253,
+          0.5007190108299255,
+          0.4994964301586151,
+          0.5001494288444519
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5011965036392212,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:15:16",
+        "head_attention": [
+          0.5007451772689819,
+          0.5007489919662476,
+          0.500403106212616,
+          0.5028887391090393
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4983363747596741,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:16:15",
+        "head_attention": [
+          0.49926260113716125,
+          0.49847787618637085,
+          0.49998247623443604,
+          0.49562254548072815
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:16:17",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4988035038113594,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:17:16",
+        "head_attention": [
+          0.49925485253334045,
+          0.49925100803375244,
+          0.49959689378738403,
+          0.4971112608909607
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.487261101603508,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:18:19",
+        "head_attention": [
+          0.49280083179473877,
+          0.48753291368484497,
+          0.5018371939659119,
+          0.4668734669685364
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:19:18",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.49797408282756805,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:19:20",
+        "head_attention": [
+          0.49950265884399414,
+          0.49654537439346313,
+          0.5006312727928162,
+          0.4952170252799988
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5127388909459114,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:20:19",
+        "head_attention": [
+          0.5071991682052612,
+          0.5124670267105103,
+          0.49816277623176575,
+          0.5331265926361084
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5021276324987411,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:20:21",
+        "head_attention": [
+          0.5009698867797852,
+          0.5019967555999756,
+          0.4998537302017212,
+          0.5056901574134827
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5020259320735931,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:21:20",
+        "head_attention": [
+          0.5004973411560059,
+          0.5034546852111816,
+          0.49936872720718384,
+          0.5047829747200012
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5014696568250656,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:21:22",
+        "head_attention": [
+          0.5007606744766235,
+          0.501139760017395,
+          0.5002066493034363,
+          0.5037715435028076
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.49787236750125885,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:22:21",
+        "head_attention": [
+          0.49903011322021484,
+          0.498003214597702,
+          0.5001463294029236,
+          0.49430981278419495
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:22:23",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.4985303431749344,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:23:22",
+        "head_attention": [
+          0.49923932552337646,
+          0.4988602101802826,
+          0.4997933506965637,
+          0.49622848629951477
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.4928830415010452,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:24:25",
+        "head_attention": [
+          0.4981323182582855,
+          0.4927484393119812,
+          0.5010291337966919,
+          0.4796222746372223
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:25:24",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.4980689585208893,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:25:26",
+        "head_attention": [
+          0.49884119629859924,
+          0.4964284300804138,
+          0.500900149345398,
+          0.4961060583591461
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5071169584989548,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:26:25",
+        "head_attention": [
+          0.5018677115440369,
+          0.5072515606880188,
+          0.4989708662033081,
+          0.5203776955604553
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5020243227481842,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:26:27",
+        "head_attention": [
+          0.500950276851654,
+          0.5018181800842285,
+          0.4999074339866638,
+          0.5054214000701904
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5019310638308525,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:27:26",
+        "head_attention": [
+          0.5011588335037231,
+          0.5035715699195862,
+          0.49909988045692444,
+          0.5038939714431763
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5016717314720154,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:27:28",
+        "head_attention": [
+          0.5007893443107605,
+          0.5013779401779175,
+          0.500091552734375,
+          0.5044280886650085
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.4979756698012352,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:28:27",
+        "head_attention": [
+          0.49904972314834595,
+          0.49818184971809387,
+          0.5000925064086914,
+          0.49457859992980957
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:28:29",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.498328261077404,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:29:28",
+        "head_attention": [
+          0.4992106556892395,
+          0.4986220598220825,
+          0.4999083876609802,
+          0.49557194113731384
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.49723515659570694,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:30:31",
+        "head_attention": [
+          0.5029289126396179,
+          0.49692851305007935,
+          0.5033308863639832,
+          0.48575231432914734
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:31:30",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5036774426698685,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:31:32",
+        "head_attention": [
+          0.5004898309707642,
+          0.5031725764274597,
+          0.49904823303222656,
+          0.5119991302490234
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5027648508548737,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:32:31",
+        "head_attention": [
+          0.4970710575580597,
+          0.5030714869499207,
+          0.49666914343833923,
+          0.514247715473175
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5018019080162048,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:32:33",
+        "head_attention": [
+          0.5008423328399658,
+          0.501453161239624,
+          0.5000090003013611,
+          0.5049031376838684
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.49632253497838974,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:33:32",
+        "head_attention": [
+          0.49951016902923584,
+          0.4968274235725403,
+          0.5009517073631287,
+          0.4880008399486542
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5009981542825699,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:33:34",
+        "head_attention": [
+          0.5002886056900024,
+          0.5012993216514587,
+          0.499042272567749,
+          0.5033624172210693
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.49819809943437576,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:34:33",
+        "head_attention": [
+          0.4991576373577118,
+          0.49854686856269836,
+          0.4999909996986389,
+          0.495096892118454
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:34:35",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.4990018457174301,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "horizontal:35:34",
+        "head_attention": [
+          0.49971136450767517,
+          0.49870067834854126,
+          0.500957727432251,
+          0.49663761258125305
+        ],
+        "layer": "final",
+        "relation": "horizontal",
+        "source": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5613091439008713,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:0:6",
+        "head_attention": [
+          0.5178704857826233,
+          0.5444077253341675,
+          0.5766775608062744,
+          0.6062808036804199
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:6:0",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5532561093568802,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:1:7",
+        "head_attention": [
+          0.5587195754051208,
+          0.538249671459198,
+          0.5217964053153992,
+          0.5942587852478027
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:7:1",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.4912387579679489,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:2:8",
+        "head_attention": [
+          0.4928476810455322,
+          0.4883393943309784,
+          0.49485331773757935,
+          0.4889146387577057
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:8:2",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.4911412447690964,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:3:9",
+        "head_attention": [
+          0.49170583486557007,
+          0.48797616362571716,
+          0.4955607056617737,
+          0.4893222749233246
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:9:3",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.4889402985572815,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:4:10",
+        "head_attention": [
+          0.4889395833015442,
+          0.4854028522968292,
+          0.4946342408657074,
+          0.48678451776504517
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:10:4",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5091551691293716,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:5:11",
+        "head_attention": [
+          0.5031338334083557,
+          0.502511739730835,
+          0.5116785168647766,
+          0.5192965865135193
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:11:5",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5432444512844086,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:6:12",
+        "head_attention": [
+          0.5018886923789978,
+          0.5361735820770264,
+          0.5647667050361633,
+          0.5701488256454468
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4386908486485481,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:12:6",
+        "head_attention": [
+          0.4821294844150543,
+          0.45559224486351013,
+          0.423322468996048,
+          0.3937191963195801
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.4819762781262398,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:7:13",
+        "head_attention": [
+          0.48240089416503906,
+          0.48071593046188354,
+          0.49699994921684265,
+          0.46778833866119385
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4467438980937004,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:13:7",
+        "head_attention": [
+          0.44128039479255676,
+          0.461750328540802,
+          0.4782036244869232,
+          0.40574124455451965
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5028605312108994,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:8:14",
+        "head_attention": [
+          0.4991980791091919,
+          0.49844563007354736,
+          0.505684494972229,
+          0.5081139206886292
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5087612271308899,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:14:8",
+        "head_attention": [
+          0.5071523189544678,
+          0.5116605758666992,
+          0.5051466822624207,
+          0.5110853314399719
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5023642778396606,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:9:15",
+        "head_attention": [
+          0.4984205961227417,
+          0.49741947650909424,
+          0.5058056116104126,
+          0.507811427116394
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5088587701320648,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:15:9",
+        "head_attention": [
+          0.5082942247390747,
+          0.5120238065719604,
+          0.5044392943382263,
+          0.5106777548789978
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5005056262016296,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:10:16",
+        "head_attention": [
+          0.49717721343040466,
+          0.49521490931510925,
+          0.5041446089744568,
+          0.5054857730865479
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5110597163438797,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:16:10",
+        "head_attention": [
+          0.5110604166984558,
+          0.5145971775054932,
+          0.505365788936615,
+          0.5132154822349548
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.4986599460244179,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:11:17",
+        "head_attention": [
+          0.495841383934021,
+          0.49320629239082336,
+          0.5026189684867859,
+          0.5029731392860413
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.49084482342004776,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:17:11",
+        "head_attention": [
+          0.4968661665916443,
+          0.49748826026916504,
+          0.488321453332901,
+          0.4807034134864807
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.4798576161265373,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:12:18",
+        "head_attention": [
+          0.4843243956565857,
+          0.48778530955314636,
+          0.4866374731063843,
+          0.46068328619003296
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.45675554126501083,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:18:12",
+        "head_attention": [
+          0.4981112778186798,
+          0.46382641792297363,
+          0.43523329496383667,
+          0.4298511743545532
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4567498564720154,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:13:19",
+        "head_attention": [
+          0.4667639434337616,
+          0.4552325904369354,
+          0.46572425961494446,
+          0.43927863240242004
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.518023744225502,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:19:13",
+        "head_attention": [
+          0.5175991058349609,
+          0.5192841291427612,
+          0.503000020980835,
+          0.5322117209434509
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.49836184084415436,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:14:20",
+        "head_attention": [
+          0.49723687767982483,
+          0.494375616312027,
+          0.5016429424285889,
+          0.5001919269561768
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.49713948369026184,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:20:14",
+        "head_attention": [
+          0.5008019804954529,
+          0.5015543699264526,
+          0.4943155348300934,
+          0.49188604950904846
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.49902546405792236,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:15:21",
+        "head_attention": [
+          0.49707117676734924,
+          0.49420788884162903,
+          0.5026533603668213,
+          0.5021694302558899
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.49763572961091995,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:21:15",
+        "head_attention": [
+          0.5015794038772583,
+          0.5025805234909058,
+          0.4941943883895874,
+          0.49218860268592834
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4991586282849312,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:16:22",
+        "head_attention": [
+          0.49672678112983704,
+          0.49361687898635864,
+          0.5030683279037476,
+          0.5032225251197815
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.49949435889720917,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:22:16",
+        "head_attention": [
+          0.502822756767273,
+          0.5047850608825684,
+          0.4958554208278656,
+          0.49451419711112976
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4962116852402687,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:17:23",
+        "head_attention": [
+          0.494512677192688,
+          0.49059584736824036,
+          0.5007982850074768,
+          0.4989399313926697
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5013400390744209,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:23:17",
+        "head_attention": [
+          0.504158616065979,
+          0.5067936778068542,
+          0.4973810017108917,
+          0.49702686071395874
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.41948704421520233,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:18:24",
+        "head_attention": [
+          0.4430941045284271,
+          0.42730140686035156,
+          0.4192218482494354,
+          0.3883308172225952
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5201423764228821,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:24:18",
+        "head_attention": [
+          0.5156756043434143,
+          0.5122146606445312,
+          0.5133625268936157,
+          0.539316713809967
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5269711464643478,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:19:25",
+        "head_attention": [
+          0.5303102135658264,
+          0.5226637125015259,
+          0.5083024501800537,
+          0.5466082096099854
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5432501435279846,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:25:19",
+        "head_attention": [
+          0.5332360863685608,
+          0.5447673797607422,
+          0.5342757701873779,
+          0.5607213377952576
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.4876014068722725,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:20:26",
+        "head_attention": [
+          0.4921024441719055,
+          0.48523589968681335,
+          0.4923388957977295,
+          0.4807283878326416
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.501638151705265,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:26:20",
+        "head_attention": [
+          0.5027631521224976,
+          0.5056244134902954,
+          0.49835699796676636,
+          0.49980804324150085
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.4885813891887665,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:21:27",
+        "head_attention": [
+          0.49176087975502014,
+          0.4854849576950073,
+          0.4936058521270752,
+          0.48347386717796326
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5009745582938194,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:27:21",
+        "head_attention": [
+          0.5029288530349731,
+          0.5057921409606934,
+          0.4973466694355011,
+          0.4978305697441101
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.48925136774778366,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:22:28",
+        "head_attention": [
+          0.49096575379371643,
+          0.4852822721004486,
+          0.49492520093917847,
+          0.48583224415779114
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5008413791656494,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:28:22",
+        "head_attention": [
+          0.5032732486724854,
+          0.5063831210136414,
+          0.49693164229393005,
+          0.4967775046825409
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5035669207572937,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:23:29",
+        "head_attention": [
+          0.5025296807289124,
+          0.5003415942192078,
+          0.5023247003555298,
+          0.5090717077255249
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5037883073091507,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:29:23",
+        "head_attention": [
+          0.5054872632026672,
+          0.509404182434082,
+          0.4992017149925232,
+          0.5010600686073303
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:24:30",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5805129557847977,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:30:24",
+        "head_attention": [
+          0.5569059252738953,
+          0.5726985931396484,
+          0.5807781219482422,
+          0.6116691827774048
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:25:31",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.47302884608507156,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:31:25",
+        "head_attention": [
+          0.4696897566318512,
+          0.4773363173007965,
+          0.4916975498199463,
+          0.45339176058769226
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:26:32",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5123985856771469,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:32:26",
+        "head_attention": [
+          0.5078974962234497,
+          0.5147640705108643,
+          0.5076611638069153,
+          0.5192716121673584
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:27:33",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5114186257123947,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:33:27",
+        "head_attention": [
+          0.5082391500473022,
+          0.5145150423049927,
+          0.5063941478729248,
+          0.5165261626243591
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:28:34",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5107486248016357,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:34:28",
+        "head_attention": [
+          0.509034276008606,
+          0.514717698097229,
+          0.5050747394561768,
+          0.5141677856445312
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:29:35",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.4964330792427063,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "vertical:35:29",
+        "head_attention": [
+          0.49747031927108765,
+          0.49965837597846985,
+          0.4976752996444702,
+          0.4909283220767975
+        ],
+        "layer": "final",
+        "relation": "vertical",
+        "source": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.4856008514761925,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:0:7",
+        "head_attention": [
+          0.4868313670158386,
+          0.4401437044143677,
+          0.49858251214027405,
+          0.5168458223342896
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:7:0",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 0,
+          "col": 0,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5667165517807007,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:1:8",
+        "head_attention": [
+          0.5647642016410828,
+          0.5852640271186829,
+          0.523600161075592,
+          0.5932378172874451
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:8:1",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.47032734751701355,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:2:9",
+        "head_attention": [
+          0.47491246461868286,
+          0.4311356842517853,
+          0.5166618824005127,
+          0.45859935879707336
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:9:2",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.46344587206840515,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:3:10",
+        "head_attention": [
+          0.4682893455028534,
+          0.42152851819992065,
+          0.5122472047805786,
+          0.45171841979026794
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:10:3",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:4:11",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:11:4",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.46449099481105804,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:6:13",
+        "head_attention": [
+          0.4653773903846741,
+          0.42300957441329956,
+          0.4965873956680298,
+          0.47298961877822876
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:13:6",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.477954737842083,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:7:14",
+        "head_attention": [
+          0.48111793398857117,
+          0.44441258907318115,
+          0.502454400062561,
+          0.48383402824401855
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5143991708755493,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:14:7",
+        "head_attention": [
+          0.5131686329841614,
+          0.5598562955856323,
+          0.5014175176620483,
+          0.4831542372703552
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.47679058462381363,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:8:15",
+        "head_attention": [
+          0.48093146085739136,
+          0.4439105987548828,
+          0.5147313475608826,
+          0.4675889313220978
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.43328341096639633,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:15:8",
+        "head_attention": [
+          0.43523573875427246,
+          0.41473594307899475,
+          0.4763997793197632,
+          0.40676218271255493
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.47127164900302887,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:9:16",
+        "head_attention": [
+          0.4757137596607208,
+          0.4344509243965149,
+          0.5135728716850281,
+          0.4613490402698517
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5296726524829865,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:16:9",
+        "head_attention": [
+          0.5250875353813171,
+          0.5688642859458923,
+          0.4833381175994873,
+          0.541400671005249
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:10:17",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5365541279315948,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:17:10",
+        "head_attention": [
+          0.5317106246948242,
+          0.5784714818000793,
+          0.4877527952194214,
+          0.5482816100120544
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5113809257745743,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:12:19",
+        "head_attention": [
+          0.5179387331008911,
+          0.47031813859939575,
+          0.5279678702354431,
+          0.5292989611625671
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:19:12",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.44537127017974854,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:13:20",
+        "head_attention": [
+          0.4530663788318634,
+          0.3931303322315216,
+          0.4932132959365845,
+          0.44207507371902466
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5355089902877808,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:20:13",
+        "head_attention": [
+          0.5346226096153259,
+          0.5769904255867004,
+          0.5034126043319702,
+          0.5270103216171265
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.46853674203157425,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:14:21",
+        "head_attention": [
+          0.47385358810424805,
+          0.43160319328308105,
+          0.5113803744316101,
+          0.4573098123073578
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.522045262157917,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:21:14",
+        "head_attention": [
+          0.5188820958137512,
+          0.5555874109268188,
+          0.4975455701351166,
+          0.5161659717559814
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.46444157510995865,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:15:22",
+        "head_attention": [
+          0.4697251617908478,
+          0.4244368374347687,
+          0.5109007954597473,
+          0.4527035057544708
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5232094079256058,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:22:15",
+        "head_attention": [
+          0.5190684795379639,
+          0.556089460849762,
+          0.48526865243911743,
+          0.5324110388755798
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:16:23",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5287283509969711,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:23:16",
+        "head_attention": [
+          0.5242862105369568,
+          0.5655491352081299,
+          0.4864271283149719,
+          0.5386509299278259
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4249086081981659,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:18:25",
+        "head_attention": [
+          0.4218962490558624,
+          0.3798937201499939,
+          0.47115546464920044,
+          0.4266889989376068
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:25:18",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5280864238739014,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:19:26",
+        "head_attention": [
+          0.5301318168640137,
+          0.5232096314430237,
+          0.5193997621536255,
+          0.5396044850349426
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.4886190816760063,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:26:19",
+        "head_attention": [
+          0.48206132650375366,
+          0.5296818017959595,
+          0.4720320999622345,
+          0.47070109844207764
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.45120900869369507,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:20:27",
+        "head_attention": [
+          0.4584127962589264,
+          0.4045187532901764,
+          0.5067384243011475,
+          0.43516606092453003
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5546287298202515,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:27:20",
+        "head_attention": [
+          0.5469335913658142,
+          0.6068696975708008,
+          0.5067867040634155,
+          0.5579249262809753
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.4791899174451828,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:21:28",
+        "head_attention": [
+          0.4836827516555786,
+          0.451698899269104,
+          0.5107050538063049,
+          0.47067296504974365
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5314632579684258,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:28:21",
+        "head_attention": [
+          0.526146411895752,
+          0.568396806716919,
+          0.4886196553707123,
+          0.5426901578903198
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:22:29",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5355584025382996,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:29:22",
+        "head_attention": [
+          0.5302748084068298,
+          0.5755631327629089,
+          0.4890992045402527,
+          0.5472964644432068
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:24:31",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:31:24",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:25:32",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5750913918018341,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:32:25",
+        "head_attention": [
+          0.5781037211418152,
+          0.6201062798500061,
+          0.5288445353507996,
+          0.5733110308647156
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:26:33",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.47191356867551804,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:33:26",
+        "head_attention": [
+          0.46986812353134155,
+          0.4767903685569763,
+          0.4806002974510193,
+          0.460395485162735
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:27:34",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5487909838557243,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:34:27",
+        "head_attention": [
+          0.541587233543396,
+          0.595481276512146,
+          0.49326154589653015,
+          0.5648338794708252
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:28:35",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5208100900053978,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_down:35:28",
+        "head_attention": [
+          0.5163173079490662,
+          0.548301100730896,
+          0.48929497599601746,
+          0.5293269753456116
+        ],
+        "layer": "final",
+        "relation": "diagonal_down",
+        "source": {
+          "action": 35,
+          "col": 5,
+          "row": 5
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:1:6",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        },
+        "target": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:6:1",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 6,
+          "col": 0,
+          "row": 1
+        },
+        "target": {
+          "action": 1,
+          "col": 1,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.4708213061094284,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:2:7",
+        "head_attention": [
+          0.4062419831752777,
+          0.4867255985736847,
+          0.5036599636077881,
+          0.48665767908096313
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:7:2",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 2,
+          "col": 2,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.4841664060950279,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:3:8",
+        "head_attention": [
+          0.4650723338127136,
+          0.4846377968788147,
+          0.49535003304481506,
+          0.4916054606437683
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:8:3",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 3,
+          "col": 3,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5001981630921364,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:4:9",
+        "head_attention": [
+          0.4937134385108948,
+          0.5046290755271912,
+          0.502472460269928,
+          0.4999776780605316
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:9:4",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 4,
+          "col": 4,
+          "row": 0
+        }
+      },
+      {
+        "attention": 0.5081404596567154,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:5:10",
+        "head_attention": [
+          0.5197893381118774,
+          0.5085892677307129,
+          0.5011553168296814,
+          0.5030279159545898
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:10:5",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 5,
+          "col": 5,
+          "row": 0
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:7:12",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        },
+        "target": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5291787162423134,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:12:7",
+        "head_attention": [
+          0.5937580466270447,
+          0.5132744312286377,
+          0.4963400661945343,
+          0.5133423209190369
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 12,
+          "col": 0,
+          "row": 2
+        },
+        "target": {
+          "action": 7,
+          "col": 1,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5226698815822601,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:8:13",
+        "head_attention": [
+          0.5040215253829956,
+          0.5474698543548584,
+          0.5277283191680908,
+          0.5114598274230957
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5158335715532303,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:13:8",
+        "head_attention": [
+          0.5349276661872864,
+          0.5153622031211853,
+          0.5046499371528625,
+          0.5083944797515869
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 8,
+          "col": 2,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.4734813719987869,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:9:14",
+        "head_attention": [
+          0.4206528067588806,
+          0.48424285650253296,
+          0.500069797039032,
+          0.48896002769470215
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4998018369078636,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:14:9",
+        "head_attention": [
+          0.5062865614891052,
+          0.49537092447280884,
+          0.49752750992774963,
+          0.5000223517417908
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 9,
+          "col": 3,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5044081509113312,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:10:15",
+        "head_attention": [
+          0.5070719718933105,
+          0.5060267448425293,
+          0.5020652413368225,
+          0.5024686455726624
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4918595254421234,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:15:10",
+        "head_attention": [
+          0.4802106022834778,
+          0.4914107620716095,
+          0.4988446831703186,
+          0.49697205424308777
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 10,
+          "col": 4,
+          "row": 1
+        }
+      },
+      {
+        "attention": 0.5041709989309311,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:11:16",
+        "head_attention": [
+          0.5050270557403564,
+          0.5069125294685364,
+          0.5029189586639404,
+          0.5018254518508911
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:16:11",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 11,
+          "col": 5,
+          "row": 1
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:13:18",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        },
+        "target": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.47733011096715927,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:18:13",
+        "head_attention": [
+          0.495978444814682,
+          0.4525301456451416,
+          0.4722716510295868,
+          0.4885402023792267
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 18,
+          "col": 0,
+          "row": 3
+        },
+        "target": {
+          "action": 13,
+          "col": 1,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.49106720089912415,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:14:19",
+        "head_attention": [
+          0.39781203866004944,
+          0.5298600792884827,
+          0.5432623028755188,
+          0.4933343827724457
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.5265186354517937,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:19:14",
+        "head_attention": [
+          0.5793471932411194,
+          0.515757143497467,
+          0.4999302327632904,
+          0.5110399723052979
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 14,
+          "col": 2,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.4614174962043762,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:15:20",
+        "head_attention": [
+          0.4049415588378906,
+          0.4656101167201996,
+          0.49331745505332947,
+          0.4818008542060852
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.4955918714404106,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:20:15",
+        "head_attention": [
+          0.49292808771133423,
+          0.4939732849597931,
+          0.49793481826782227,
+          0.49753129482269287
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 15,
+          "col": 3,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5025621652603149,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:16:21",
+        "head_attention": [
+          0.4998265504837036,
+          0.5059488415718079,
+          0.5027068257331848,
+          0.5017664432525635
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.4958289936184883,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:21:16",
+        "head_attention": [
+          0.49497300386428833,
+          0.49308741092681885,
+          0.49708104133605957,
+          0.4981745183467865
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 16,
+          "col": 4,
+          "row": 2
+        }
+      },
+      {
+        "attention": 0.5033460110425949,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:17:22",
+        "head_attention": [
+          0.5004632472991943,
+          0.5077092051506042,
+          0.5036427974700928,
+          0.5015687942504883
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:22:17",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 17,
+          "col": 5,
+          "row": 2
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:19:24",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        },
+        "target": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.5089327991008759,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:24:19",
+        "head_attention": [
+          0.6021879315376282,
+          0.4701399505138397,
+          0.4567376673221588,
+          0.5066656470298767
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 24,
+          "col": 0,
+          "row": 4
+        },
+        "target": {
+          "action": 19,
+          "col": 1,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.46985406428575516,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:20:25",
+        "head_attention": [
+          0.352859228849411,
+          0.5096844434738159,
+          0.5340722799301147,
+          0.48280030488967896
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.538582518696785,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:25:20",
+        "head_attention": [
+          0.5950584411621094,
+          0.5343899130821228,
+          0.5066825747489929,
+          0.5181991457939148
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 20,
+          "col": 2,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.444728821516037,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:21:26",
+        "head_attention": [
+          0.3767315447330475,
+          0.44331246614456177,
+          0.48491576313972473,
+          0.47395551204681396
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.49743783473968506,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:26:21",
+        "head_attention": [
+          0.5001734495162964,
+          0.49405115842819214,
+          0.4972931742668152,
+          0.4982335567474365
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 21,
+          "col": 3,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.49525972455739975,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:22:27",
+        "head_attention": [
+          0.47668859362602234,
+          0.5025901198387146,
+          0.503349781036377,
+          0.4984104037284851
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": 0.4966539740562439,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:27:22",
+        "head_attention": [
+          0.49953678250312805,
+          0.49229076504707336,
+          0.49635717272758484,
+          0.49843117594718933
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 22,
+          "col": 4,
+          "row": 3
+        }
+      },
+      {
+        "attention": 0.496500588953495,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:23:28",
+        "head_attention": [
+          0.47893664240837097,
+          0.5046154856681824,
+          0.5039913058280945,
+          0.4984589219093323
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:28:23",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 23,
+          "col": 5,
+          "row": 3
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:25:30",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        },
+        "target": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.5301459357142448,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:30:25",
+        "head_attention": [
+          0.6471407413482666,
+          0.49031558632850647,
+          0.46592772006988525,
+          0.517199695110321
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 30,
+          "col": 0,
+          "row": 5
+        },
+        "target": {
+          "action": 25,
+          "col": 1,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:26:31",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        },
+        "target": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.555271178483963,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:31:26",
+        "head_attention": [
+          0.6232684850692749,
+          0.5566875338554382,
+          0.5150842070579529,
+          0.526044487953186
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 31,
+          "col": 1,
+          "row": 5
+        },
+        "target": {
+          "action": 26,
+          "col": 2,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:27:32",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        },
+        "target": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.504740297794342,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:32:27",
+        "head_attention": [
+          0.5233114361763,
+          0.497409850358963,
+          0.49665024876594543,
+          0.5015896558761597
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 32,
+          "col": 2,
+          "row": 5
+        },
+        "target": {
+          "action": 27,
+          "col": 3,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:28:33",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        },
+        "target": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        }
+      },
+      {
+        "attention": 0.503499373793602,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:33:28",
+        "head_attention": [
+          0.5210633277893066,
+          0.4953845143318176,
+          0.49600863456726074,
+          0.501541018486023
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 33,
+          "col": 3,
+          "row": 5
+        },
+        "target": {
+          "action": 28,
+          "col": 4,
+          "row": 4
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:29:34",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        },
+        "target": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        }
+      },
+      {
+        "attention": 1.0,
+        "attention_aggregation": "mean across attention heads",
+        "edge_id": "diagonal_up:34:29",
+        "head_attention": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "layer": "final",
+        "relation": "diagonal_up",
+        "source": {
+          "action": 34,
+          "col": 4,
+          "row": 5
+        },
+        "target": {
+          "action": 29,
+          "col": 5,
+          "row": 4
+        }
+      }
+    ],
+    "evidence_kind": "learned_attention"
+  },
+  "limitations": [
+    "Attention weights are state-specific model evidence, not causal explanations.",
+    "MCTS decision trace and neural-network evidence are reported separately."
+  ],
+  "mcts": {
+    "available": true,
+    "candidates": [
+      {
+        "action": 12,
+        "col": 0,
+        "pi": 0.2,
+        "q": -0.6564162254333497,
+        "raw_policy_prior": 0.16538682579994202,
+        "row": 2,
+        "search_prior": 0.16538682579994202,
+        "selected": true,
+        "visits": 10
+      },
+      {
+        "action": 1,
+        "col": 1,
+        "pi": 0.06,
+        "q": -0.6502342224121094,
+        "raw_policy_prior": 0.05788455158472061,
+        "row": 0,
+        "search_prior": 0.05788455158472061,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 7,
+        "col": 1,
+        "pi": 0.06,
+        "q": -0.6337125102678934,
+        "raw_policy_prior": 0.04819084331393242,
+        "row": 1,
+        "search_prior": 0.04819084331393242,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 19,
+        "col": 1,
+        "pi": 0.06,
+        "q": -0.6452030340830485,
+        "raw_policy_prior": 0.04543178901076317,
+        "row": 3,
+        "search_prior": 0.04543178901076317,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 8,
+        "col": 2,
+        "pi": 0.06,
+        "q": -0.6336055000623068,
+        "raw_policy_prior": 0.04318289831280708,
+        "row": 1,
+        "search_prior": 0.04318289831280708,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 13,
+        "col": 1,
+        "pi": 0.04,
+        "q": -0.6358690857887268,
+        "raw_policy_prior": 0.042492181062698364,
+        "row": 2,
+        "search_prior": 0.042492181062698364,
+        "selected": false,
+        "visits": 2
+      },
+      {
+        "action": 2,
+        "col": 2,
+        "pi": 0.04,
+        "q": -0.6447336673736572,
+        "raw_policy_prior": 0.040866464376449585,
+        "row": 0,
+        "search_prior": 0.040866464376449585,
+        "selected": false,
+        "visits": 2
+      },
+      {
+        "action": 25,
+        "col": 1,
+        "pi": 0.02,
+        "q": -0.7221400737762451,
+        "raw_policy_prior": 0.040775977075099945,
+        "row": 4,
+        "search_prior": 0.040775977075099945,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 26,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.7206965684890747,
+        "raw_policy_prior": 0.034038130193948746,
+        "row": 4,
+        "search_prior": 0.034038130193948746,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 3,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.7042136788368225,
+        "raw_policy_prior": 0.030016185715794563,
+        "row": 0,
+        "search_prior": 0.030016185715794563,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 9,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.6992449164390564,
+        "raw_policy_prior": 0.027717197313904762,
+        "row": 1,
+        "search_prior": 0.027717197313904762,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 31,
+        "col": 1,
+        "pi": 0.02,
+        "q": -0.7294995188713074,
+        "raw_policy_prior": 0.02734648808836937,
+        "row": 5,
+        "search_prior": 0.02734648808836937,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 15,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.7127293944358826,
+        "raw_policy_prior": 0.026320964097976685,
+        "row": 2,
+        "search_prior": 0.026320964097976685,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 21,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.717428982257843,
+        "raw_policy_prior": 0.02501928061246872,
+        "row": 3,
+        "search_prior": 0.02501928061246872,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 5,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.7291553616523743,
+        "raw_policy_prior": 0.024604853242635727,
+        "row": 0,
+        "search_prior": 0.024604853242635727,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 27,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.7216122150421143,
+        "raw_policy_prior": 0.023620419204235077,
+        "row": 4,
+        "search_prior": 0.023620419204235077,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 33,
+        "col": 3,
+        "pi": 0.02,
+        "q": -0.7294144034385681,
+        "raw_policy_prior": 0.022093387320637703,
+        "row": 5,
+        "search_prior": 0.022093387320637703,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 14,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.7101298570632935,
+        "raw_policy_prior": 0.022027036175131798,
+        "row": 2,
+        "search_prior": 0.022027036175131798,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 35,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.7286738753318787,
+        "raw_policy_prior": 0.02185216173529625,
+        "row": 5,
+        "search_prior": 0.02185216173529625,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 16,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.7151735424995422,
+        "raw_policy_prior": 0.02069082297384739,
+        "row": 2,
+        "search_prior": 0.02069082297384739,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 22,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.7196361422538757,
+        "raw_policy_prior": 0.02051648125052452,
+        "row": 3,
+        "search_prior": 0.02051648125052452,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 20,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.7168126106262207,
+        "raw_policy_prior": 0.020354604348540306,
+        "row": 3,
+        "search_prior": 0.020354604348540306,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 10,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.704733669757843,
+        "raw_policy_prior": 0.02023043856024742,
+        "row": 1,
+        "search_prior": 0.02023043856024742,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 4,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.7115399837493896,
+        "raw_policy_prior": 0.020065315067768097,
+        "row": 0,
+        "search_prior": 0.020065315067768097,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 34,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.7298390865325928,
+        "raw_policy_prior": 0.019350532442331314,
+        "row": 5,
+        "search_prior": 0.019350532442331314,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 17,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.7259119153022766,
+        "raw_policy_prior": 0.01927243545651436,
+        "row": 2,
+        "search_prior": 0.01927243545651436,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 23,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.728478193283081,
+        "raw_policy_prior": 0.018602319061756134,
+        "row": 3,
+        "search_prior": 0.018602319061756134,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 28,
+        "col": 4,
+        "pi": 0.02,
+        "q": -0.72348952293396,
+        "raw_policy_prior": 0.018346663564443588,
+        "row": 4,
+        "search_prior": 0.018346663564443588,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 32,
+        "col": 2,
+        "pi": 0.02,
+        "q": -0.7319033741950989,
+        "raw_policy_prior": 0.01823890395462513,
+        "row": 5,
+        "search_prior": 0.01823890395462513,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 29,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.7292886972427368,
+        "raw_policy_prior": 0.018100949004292488,
+        "row": 4,
+        "search_prior": 0.018100949004292488,
+        "selected": false,
+        "visits": 1
+      },
+      {
+        "action": 11,
+        "col": 5,
+        "pi": 0.02,
+        "q": -0.717200517654419,
+        "raw_policy_prior": 0.017362946644425392,
+        "row": 1,
+        "search_prior": 0.017362946644425392,
+        "selected": false,
+        "visits": 1
+      }
+    ],
+    "mcts_value_convention_version": 2,
+    "playouts": 50,
+    "q_perspective": "player_who_selects_action_at_parent",
+    "root_visits": 50,
+    "selected": {
+      "action": 12,
+      "col": 0,
+      "pi": 0.2,
+      "q": -0.6564162254333497,
+      "raw_policy_prior": 0.16538682579994202,
+      "row": 2,
+      "search_prior": 0.16538682579994202,
+      "selected": true,
+      "visits": 10
+    },
+    "top_candidates": [
+      {
+        "action": 12,
+        "col": 0,
+        "pi": 0.2,
+        "q": -0.6564162254333497,
+        "raw_policy_prior": 0.16538682579994202,
+        "row": 2,
+        "search_prior": 0.16538682579994202,
+        "selected": true,
+        "visits": 10
+      },
+      {
+        "action": 1,
+        "col": 1,
+        "pi": 0.06,
+        "q": -0.6502342224121094,
+        "raw_policy_prior": 0.05788455158472061,
+        "row": 0,
+        "search_prior": 0.05788455158472061,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 7,
+        "col": 1,
+        "pi": 0.06,
+        "q": -0.6337125102678934,
+        "raw_policy_prior": 0.04819084331393242,
+        "row": 1,
+        "search_prior": 0.04819084331393242,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 19,
+        "col": 1,
+        "pi": 0.06,
+        "q": -0.6452030340830485,
+        "raw_policy_prior": 0.04543178901076317,
+        "row": 3,
+        "search_prior": 0.04543178901076317,
+        "selected": false,
+        "visits": 3
+      },
+      {
+        "action": 8,
+        "col": 2,
+        "pi": 0.06,
+        "q": -0.6336055000623068,
+        "raw_policy_prior": 0.04318289831280708,
+        "row": 1,
+        "search_prior": 0.04318289831280708,
+        "selected": false,
+        "visits": 3
+      }
+    ]
+  },
+  "model": {
+    "checkpoint": "results/h3_pilot/rgat/seed_7/model.pt",
+    "type": "rgat"
+  },
+  "network": {
+    "raw_policy_prior": 0.16538682579994202,
+    "raw_policy_priors": [
+      0.0,
+      0.05788455158472061,
+      0.040866464376449585,
+      0.030016185715794563,
+      0.020065315067768097,
+      0.024604853242635727,
+      0.0,
+      0.04819084331393242,
+      0.04318289831280708,
+      0.027717197313904762,
+      0.02023043856024742,
+      0.017362946644425392,
+      0.16538682579994202,
+      0.042492181062698364,
+      0.022027036175131798,
+      0.026320964097976685,
+      0.02069082297384739,
+      0.01927243545651436,
+      0.0,
+      0.04543178901076317,
+      0.020354604348540306,
+      0.02501928061246872,
+      0.02051648125052452,
+      0.018602319061756134,
+      0.0,
+      0.040775977075099945,
+      0.034038130193948746,
+      0.023620419204235077,
+      0.018346663564443588,
+      0.018100949004292488,
+      0.0,
+      0.02734648808836937,
+      0.01823890395462513,
+      0.022093387320637703,
+      0.019350532442331314,
+      0.02185216173529625
+    ],
+    "value": -0.7011486887931824
+  },
+  "rendering": {
+    "edge_filter": "selected_related_then_candidate_then_global_top_k",
+    "head_aggregation": "mean across attention heads",
+    "top_k_edges": 12
+  },
+  "runtime_ms": {
+    "evidence_forward_ms": 43.54013499869325,
+    "json_export_ms": 8.847285000229022,
+    "mcts_search_ms": 758.1302409998898,
+    "svg_render_ms": 62.689829001101316,
+    "total_explanation_ms": 123.66506899888918
+  },
+  "schema_version": "1.0",
+  "selected_move": {
+    "action": 12,
+    "col": 0,
+    "row": 2
+  },
+  "semantic_attention": {},
+  "semantic_evidence": null,
+  "state": {
+    "board": [
+      [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "board_size": 6,
+    "current_player": -1,
+    "last_move": [
+      3,
+      0
+    ],
+    "legal_actions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      20,
+      21,
+      22,
+      23,
+      25,
+      26,
+      27,
+      28,
+      29,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "win_length": 4
+  },
+  "state_id": "6a81e1fbe5362429"
+}

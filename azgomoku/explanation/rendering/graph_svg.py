@@ -32,11 +32,4 @@ def render_graph_svg(document):
     px=right+28; parts.append(f'<text x="{px}" y="100" class="h">Relational evidence</text>')
     if document["model"]["type"]=="rgcn": parts.append(f'<text x="{px}" y="126" class="n">R-GCN exposes structural relations</text><text x="{px}" y="143" class="n">but no learned attention coefficients.</text>')
     else: parts.append(f'<text x="{px}" y="126" class="n">Larger attention = stronger rendered edge.</text>')
-    semantic=document.get("semantic_attention",{})
-    if semantic:
-        parts.append(f'<g data-role="semantic_attention"><text x="{px}" y="190" class="h">HAN semantic attention</text>')
-        for index,name in enumerate(("horizontal","vertical","diagonal_down","diagonal_up")):
-            value=semantic[name]
-            y=218+index*32; parts.append(f'<rect x="{px}" y="{y-11}" width="{value*150:.2f}" height="14" fill="{COLORS[name]}" opacity=".75"/><text x="{px+158}" y="{y}" class="n">{name}: {value:.6f}</text>')
-        parts.append('</g>')
     parts.append('</svg>'); return "".join(parts)

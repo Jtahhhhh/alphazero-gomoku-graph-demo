@@ -3,6 +3,7 @@ import numpy as np
 import torch
 
 class Node:
+    """An action edge whose Q is from the parent player's perspective."""
     def __init__(self,prior=1.0): self.prior=prior; self.n=0; self.w=0.; self.children={}
     @property
     def q(self): return self.w/self.n if self.n else 0.
@@ -15,8 +16,12 @@ def predict(model,state):
     probs=torch.softmax(masked,dim=-1)[0].cpu().numpy()
     return probs,float(value.item())
 
-def search(model,state,playouts=50,c_puct=1.5,temperature=1.0,return_root=False):
+def search(model,state,playouts=50,c_puct=1.5,temperature=1.0,return_root=False,dirichlet_alpha=None,dirichlet_fraction=0.0):
     root=Node(); priors,_=predict(model,state)
+    legal=state.legal_actions()
+    if dirichlet_alpha is not None and dirichlet_fraction>0 and len(legal):
+        noise=np.random.dirichlet([dirichlet_alpha]*len(legal))
+        priors=priors.copy(); priors[legal]=(1-dirichlet_fraction)*priors[legal]+dirichlet_fraction*noise
     root.children={int(a):Node(float(priors[a])) for a in state.legal_actions()}
     for _ in range(playouts):
         node=root; s=state; path=[]
@@ -27,7 +32,9 @@ def search(model,state,playouts=50,c_puct=1.5,temperature=1.0,return_root=False)
         if s.terminal(): value=s.outcome_for(s.to_play)
         else:
             priors,value=predict(model,s); node.children={int(a):Node(float(priors[a])) for a in s.legal_actions()}
-        for _,child in reversed(path): child.n+=1; child.w+=value; value=-value
+        # Leaf/terminal value is for s.to_play. Moving one edge toward the root
+        # changes player perspective before storing that edge's parent-facing Q.
+        for _,child in reversed(path): value=-value; child.n+=1; child.w+=value
         root.n+=1
     visits=np.zeros(state.size**2,np.float32)
     for a,c in root.children.items(): visits[a]=c.n

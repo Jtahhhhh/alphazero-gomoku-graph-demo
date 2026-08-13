@@ -13,15 +13,5 @@ def cell_graph(size):
                     a,b=r*size+c,nr*size+nc; pairs.extend(((a,b),(b,a)))
         edges.append(torch.tensor(pairs,dtype=torch.long).t().contiguous())
     return tuple(edges)
-@lru_cache(maxsize=None)
-def line_memberships(size):
-    fs=[[[r*size+c for c in range(size)] for r in range(size)],[[r*size+c for r in range(size)] for c in range(size)],[[r*size+c for r in range(size) for c in range(size) if r-c==d] for d in range(-(size-1),size)],[[r*size+c for r in range(size) for c in range(size) if r+c==s] for s in range(2*size-1)]]
-    return tuple(tuple(tuple(x) for x in f if len(x)>1) for f in fs)
-@lru_cache(maxsize=None)
-def metapath_edges(size):
-    out=[]
-    for family in line_memberships(size):
-        pairs=[]
-        for line in family: pairs.extend((a,b) for a in line for b in line)
-        out.append(torch.tensor(pairs,dtype=torch.long).t().contiguous())
-    return tuple(out)
+def cell_edge_records(size):
+    return tuple({"edge_id":f"{relation}:{int(source)}:{int(target)}","source":int(source),"target":int(target),"relation":relation} for relation,group in zip(RELATIONS,cell_graph(size)) for source,target in group.t().tolist())

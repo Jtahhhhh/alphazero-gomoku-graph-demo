@@ -34,7 +34,6 @@ def make_document(state, model_type, checkpoint, selected_move, top_k_edges):
         "selected_move": cell(selected_move, state.size),
         "network": {}, "mcts": {},
         "graph_evidence": {"attention_available": False, "edges": []},
-        "semantic_attention": {},
         "rendering": {"top_k_edges": int(top_k_edges), "edge_filter": EDGE_FILTER, "head_aggregation": "mean across attention heads"},
         "runtime_ms": {},
         "limitations": [

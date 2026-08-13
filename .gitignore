@@ -1,7 +1,11 @@
 __pycache__/
 .pytest_cache/
 .venv/
+.h3deps/
 *.pyc
 results/*/*.pt
 results/graphs/
 results/explanations/
+results/backups/
+logs/
+investigation/slide_build/

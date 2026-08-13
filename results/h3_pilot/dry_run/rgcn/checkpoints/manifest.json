@@ -1,0 +1,43 @@
+{
+  "format_version": 1,
+  "model_type": "rgcn",
+  "seed": 7,
+  "checkpoints": [
+    {
+      "iteration": 0,
+      "path": "iter_000.pt",
+      "training_state": {
+        "iteration": 0,
+        "selfplay_games_seen": 0,
+        "optimizer_updates": 0,
+        "replay_size": 0,
+        "positions_seen": 0
+      },
+      "bytes": 133179
+    },
+    {
+      "iteration": 2,
+      "path": "iter_002.pt",
+      "training_state": {
+        "iteration": 2,
+        "selfplay_games_seen": 40,
+        "optimizer_updates": 16,
+        "replay_size": 528,
+        "positions_seen": 528
+      },
+      "bytes": 1119247
+    },
+    {
+      "iteration": 3,
+      "path": "iter_003.pt",
+      "training_state": {
+        "iteration": 3,
+        "selfplay_games_seen": 60,
+        "optimizer_updates": 24,
+        "replay_size": 792,
+        "positions_seen": 792
+      },
+      "bytes": 1495567
+    }
+  ]
+}

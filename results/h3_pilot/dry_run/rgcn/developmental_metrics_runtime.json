@@ -1,0 +1,17 @@
+[
+  {
+    "iteration": 0,
+    "seconds": 2.670642899989616,
+    "mcts_enabled": true
+  },
+  {
+    "iteration": 2,
+    "seconds": 1.5244163000024855,
+    "mcts_enabled": false
+  },
+  {
+    "iteration": 3,
+    "seconds": 1.7542056999955093,
+    "mcts_enabled": false
+  }
+]

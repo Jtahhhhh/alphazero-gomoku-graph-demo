@@ -1,0 +1,163 @@
+{
+  "format_version": 1,
+  "model_type": "rgat",
+  "seed": 7,
+  "checkpoints": [
+    {
+      "iteration": 0,
+      "path": "iter_000.pt",
+      "training_state": {
+        "iteration": 0,
+        "selfplay_games_seen": 0,
+        "optimizer_updates": 0,
+        "replay_size": 0,
+        "positions_seen": 0
+      },
+      "bytes": 477653
+    },
+    {
+      "iteration": 5,
+      "path": "iter_005.pt",
+      "training_state": {
+        "iteration": 5,
+        "selfplay_games_seen": 100,
+        "optimizer_updates": 40,
+        "replay_size": 1109,
+        "positions_seen": 1109
+      },
+      "bytes": 2970991
+    },
+    {
+      "iteration": 10,
+      "path": "iter_010.pt",
+      "training_state": {
+        "iteration": 10,
+        "selfplay_games_seen": 200,
+        "optimizer_updates": 80,
+        "replay_size": 2149,
+        "positions_seen": 2149
+      },
+      "bytes": 4443119
+    },
+    {
+      "iteration": 15,
+      "path": "iter_015.pt",
+      "training_state": {
+        "iteration": 15,
+        "selfplay_games_seen": 300,
+        "optimizer_updates": 120,
+        "replay_size": 2966,
+        "positions_seen": 2966
+      },
+      "bytes": 5597743
+    },
+    {
+      "iteration": 20,
+      "path": "iter_020.pt",
+      "training_state": {
+        "iteration": 20,
+        "selfplay_games_seen": 400,
+        "optimizer_updates": 160,
+        "replay_size": 3825,
+        "positions_seen": 3825
+      },
+      "bytes": 6810863
+    },
+    {
+      "iteration": 25,
+      "path": "iter_025.pt",
+      "training_state": {
+        "iteration": 25,
+        "selfplay_games_seen": 500,
+        "optimizer_updates": 200,
+        "replay_size": 4649,
+        "positions_seen": 4649
+      },
+      "bytes": 7974319
+    },
+    {
+      "iteration": 30,
+      "path": "iter_030.pt",
+      "training_state": {
+        "iteration": 30,
+        "selfplay_games_seen": 600,
+        "optimizer_updates": 240,
+        "replay_size": 5491,
+        "positions_seen": 5491
+      },
+      "bytes": 9163183
+    },
+    {
+      "iteration": 35,
+      "path": "iter_035.pt",
+      "training_state": {
+        "iteration": 35,
+        "selfplay_games_seen": 700,
+        "optimizer_updates": 280,
+        "replay_size": 6293,
+        "positions_seen": 6293
+      },
+      "bytes": 10295087
+    },
+    {
+      "iteration": 40,
+      "path": "iter_040.pt",
+      "training_state": {
+        "iteration": 40,
+        "selfplay_games_seen": 800,
+        "optimizer_updates": 320,
+        "replay_size": 7136,
+        "positions_seen": 7136
+      },
+      "bytes": 11485807
+    },
+    {
+      "iteration": 45,
+      "path": "iter_045.pt",
+      "training_state": {
+        "iteration": 45,
+        "selfplay_games_seen": 900,
+        "optimizer_updates": 360,
+        "replay_size": 7972,
+        "positions_seen": 7972
+      },
+      "bytes": 12666159
+    },
+    {
+      "iteration": 50,
+      "path": "iter_050.pt",
+      "training_state": {
+        "iteration": 50,
+        "selfplay_games_seen": 1000,
+        "optimizer_updates": 400,
+        "replay_size": 8786,
+        "positions_seen": 8786
+      },
+      "bytes": 13815407
+    },
+    {
+      "iteration": 55,
+      "path": "iter_055.pt",
+      "training_state": {
+        "iteration": 55,
+        "selfplay_games_seen": 1100,
+        "optimizer_updates": 440,
+        "replay_size": 9588,
+        "positions_seen": 9588
+      },
+      "bytes": 14947119
+    },
+    {
+      "iteration": 60,
+      "path": "iter_060.pt",
+      "training_state": {
+        "iteration": 60,
+        "selfplay_games_seen": 1200,
+        "optimizer_updates": 480,
+        "replay_size": 10440,
+        "positions_seen": 10440
+      },
+      "bytes": 16150255
+    }
+  ]
+}

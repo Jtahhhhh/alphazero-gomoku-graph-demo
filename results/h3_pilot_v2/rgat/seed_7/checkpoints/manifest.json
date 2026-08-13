@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "model_type": "rgat",
+  "seed": 7,
+  "checkpoints": [
+    {
+      "iteration": 0,
+      "path": "iter_000.pt",
+      "training_state": {
+        "iteration": 0,
+        "selfplay_games_seen": 0,
+        "optimizer_updates": 0,
+        "replay_size": 0,
+        "positions_seen": 0
+      },
+      "bytes": 477845
+    },
+    {
+      "iteration": 5,
+      "path": "iter_005.pt",
+      "training_state": {
+        "iteration": 5,
+        "selfplay_games_seen": 100,
+        "optimizer_updates": 40,
+        "replay_size": 11432,
+        "positions_seen": 11432
+      },
+      "bytes": 17668399
+    }
+  ]
+}

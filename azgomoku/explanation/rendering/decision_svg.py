@@ -27,11 +27,4 @@ def render_decision_svg(document):
         parts.append(f'<path data-relation="{edge["relation"]}" data-attention="{"" if attention is None else f"{attention:.9f}"}" d="M {x1} {y1} L {x2} {y2}" stroke="{COLORS[edge["relation"]]}" stroke-width="{1+7*strength:.3f}" opacity="{.25+.7*strength:.3f}" fill="none"/>')
     parts.append(f'<circle cx="{gx0}" cy="{gy0}" r="18" fill="#fef3c7" stroke="#e11d48" stroke-width="4"/><text x="{gx0}" y="{gy0+4}" class="n" text-anchor="middle">SELECT</text>')
     if document["model"]["type"]=="rgcn": parts.append(f'<text x="{graph_x}" y="330" class="n">R-GCN exposes structural relations but no</text><text x="{graph_x}" y="347" class="n">learned attention coefficients.</text>')
-    semantic=document.get("semantic_attention",{})
-    if semantic:
-        parts.append(f'<g data-role="semantic_attention"><text x="{graph_x}" y="350" class="h">HAN semantic attention</text>')
-        for index,name in enumerate(("horizontal","vertical","diagonal_down","diagonal_up")):
-            value=semantic[name]
-            y=378+index*30; parts.append(f'<rect x="{graph_x}" y="{y-11}" width="{value*150:.2f}" height="13" fill="{COLORS[name]}" opacity=".75"/><text x="{graph_x+158}" y="{y}" class="n">{name}: {value:.6f}</text>')
-        parts.append('</g>')
     parts.append('</svg>'); return "".join(parts)

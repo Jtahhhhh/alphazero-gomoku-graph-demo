@@ -1,0 +1,21 @@
+{
+  "counts": {
+    "attempted": 152,
+    "rejected_terminal": 126,
+    "accepted": 24,
+    "rejected_no_proof": 2,
+    "multiple_optimal_states": 20,
+    "multiple_proof_states": 21
+  },
+  "concepts": {
+    "immediate_win": 21,
+    "mandatory_block": 7,
+    "simple_fork": 7
+  },
+  "relations": {
+    "diagonal_up": 11,
+    "vertical": 18,
+    "diagonal_down": 12,
+    "horizontal": 11
+  }
+}
