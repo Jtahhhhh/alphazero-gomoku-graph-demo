@@ -61,7 +61,7 @@ def test_optional_knowledge_svg_is_registered_beside_existing_three(tmp_path):
         "state_id":"knowledge-test",
         "state":{"board_size":3,"win_length":3,"current_player":1,"last_move":8,"board":state.board.tolist()},
         "solver":{"status":"exact_partial","optimal_actions_complete":False},
-        "valid_proofs":[{"action":5,"concepts":["mandatory_block"],"critical_cells":[3,4,5],"critical_relations":["horizontal"],"windows":[[3,4,5]]}],
+        "valid_proofs":[{"action":3,"concepts":["mandatory_block"],"critical_cells":[3,4,5],"critical_relations":["horizontal"],"windows":[[3,4,5]]}],
     }
     payload={
         "record":record,
@@ -69,10 +69,20 @@ def test_optional_knowledge_svg_is_registered_beside_existing_three(tmp_path):
         "structural_edges":structural_edges(3),
         "metrics":{"attention_collapse_flag":1,"attention_normalized_entropy":1,"attention_head_diversity":0,"attention_topology_correlation":1,"graph_critical_mass":0},
         "graph_gate":{"passed":True,"d4_proof_roundtrips":8},
+        "artifact_version":2,
+        "decision":{
+            "selected_move":document["selected_move"],
+            "actor":document["model"],
+            "attention_source":{"model":document["model"],"relationship_to_actor":"actor"},
+        },
     }
     outputs=write_svgs(document,tmp_path,knowledge=payload)
     assert set(outputs)=={"board.svg","graph.svg","decision.svg","knowledge.svg"}
-    assert "PARTIAL · PARTIAL KNOWLEDGE" in (tmp_path/"knowledge.svg").read_text(encoding="utf-8")
+    svg=(tmp_path/"knowledge.svg").read_text(encoding="utf-8")
+    assert "PARTIAL · PARTIAL KNOWLEDGE" in svg
+    assert 'data-role="proof-action-marker" data-action="3"' in svg
+    assert 'data-layer="mcts-selected" data-board="tactic" data-action="5"' in svg
+    assert "PROOF #1" in svg and "MCTS SELECTED action=5" in svg
 
 
 def test_normal_mcts_forces_evidence_off():

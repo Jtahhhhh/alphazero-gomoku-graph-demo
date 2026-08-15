@@ -269,6 +269,30 @@ move_XXX/explanation.json
 
 `game.json` lưu toàn bộ nước đi, model mỗi bên và winner.
 
+### Export arena knowledge v2 không ghi đè arena gốc
+
+Dùng `--output` để tạo sidecar tree version mới. Solver cache chỉ được reuse khi
+`node_cap` và `time_cap_ms` trùng budget yêu cầu; đổi budget sẽ buộc solve lại.
+
+```bash
+arena_dir=results/h3_pilot/arena/rgcn_vs_rgat_data_100p_5games
+knowledge_v2=${arena_dir}_knowledge_v2
+
+python -m investigation.arena_knowledge \
+  --arena "$arena_dir" \
+  --output "$knowledge_v2" \
+  --rgat-checkpoint results/h3_pilot_v2/rgat/seed_7/model.pt \
+  --node-cap 100000000 \
+  --time-cap-ms 600000
+```
+
+Mỗi move trong sidecar có `knowledge.json` và `knowledge.svg`; move có proof còn
+có `knowledge_evidence.json` chứa raw per-edge R-GAT evidence. Manifest v2 lưu
+selected action, actor/checkpoint, attention source/checkpoint, quan hệ
+`actor|counterfactual` và SHA-256 của evidence. Trong SVG, `PROOF #n` là action
+của certificate, còn viền đỏ `MCTS` là nước agent thực sự chọn. Lượt R-GCN dùng
+R-GAT đối chứng được ghi rõ là `COUNTERFACTUAL R-GAT ATTENTION`.
+
 ## Cấu trúc source giữ lại
 
 ```text

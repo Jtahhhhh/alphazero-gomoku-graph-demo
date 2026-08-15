@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from html import escape
+import json
 import math
 
 
@@ -35,6 +36,30 @@ def _metric(metrics, key, default=0.0):
     return default if value in (None, "") else float(value)
 
 
+def _decision_fields(payload, size):
+    decision = payload.get("decision") or {}
+    selected = decision.get("selected_move")
+    if selected is None:
+        return decision, None
+    action = int(selected["action"])
+    if action < 0 or action >= size * size:
+        raise ValueError("knowledge decision selected_move is outside the board")
+    row, col = divmod(action, size)
+    if int(selected.get("row", row)) != row or int(selected.get("col", col)) != col:
+        raise ValueError("knowledge decision selected_move action/row/col mismatch")
+    return decision, action
+
+
+def _selected_marker(action, size, board_x, board_y, step, board_name):
+    row, col = divmod(action, size)
+    x, y = board_x + col * step, board_y + row * step
+    return (
+        f'<g data-layer="mcts-selected" data-board="{board_name}" data-action="{action}" data-role="actual-selected-move">'
+        f'<rect x="{x+4}" y="{y+4}" width="{step-8}" height="{step-8}" rx="4" fill="none" stroke="#e11d48" stroke-width="4"/>'
+        f'<text x="{x+7}" y="{y+step-8}" class="tiny" fill="#be123c">MCTS</text></g>'
+    )
+
+
 def render_knowledge_svg(payload):
     """Render solver tactic and top-k R-GAT attention on separate boards."""
     record = payload["record"]
@@ -48,6 +73,10 @@ def render_knowledge_svg(payload):
     state = record["state"]
     size = int(state["board_size"])
     board = state["board"]
+    decision, selected_action = _decision_fields(payload, size)
+    actor = decision.get("actor") or {}
+    attention_source = decision.get("attention_source") or {}
+    attention_relationship = attention_source.get("relationship_to_actor")
     rgat_edges = list(payload["rgat_edges"])
     structural_edges = list(payload["structural_edges"])
     metrics = payload.get("metrics", {})
@@ -91,12 +120,43 @@ def render_knowledge_svg(payload):
     diversity = _metric(metrics, "attention_head_diversity")
     topology = _metric(metrics, "attention_topology_correlation")
     alignment = _metric(metrics, "graph_critical_mass")
+    artifact_version = int(payload.get("artifact_version", 1))
+    if attention_relationship == "counterfactual":
+        attention_panel_title = "COUNTERFACTUAL R-GAT ATTENTION"
+        evidence_note = "Right panel: separate R-GAT diagnostic; not actor attention."
+    elif attention_relationship == "actor":
+        attention_panel_title = "ACTOR R-GAT ATTENTION"
+        evidence_note = "Right panel is attention from the acting R-GAT checkpoint."
+    else:
+        attention_panel_title = "R-GAT ATTENTION"
+        evidence_note = "R-GCN is structural by design and has no learned attention coefficients."
+    metadata = {
+        "artifact_version": artifact_version,
+        "attention_top_k": top_k,
+        "attention_total_edges": len(rgat_edges),
+        "selection": "value_desc_then_edge_id",
+        "normalization": "per_state_min_max",
+        "selected_action": selected_action,
+        "actor_model": actor.get("type"),
+        "attention_relationship_to_actor": attention_relationship,
+    }
+    context_line = None
+    if selected_action is not None:
+        selected_row, selected_col = divmod(selected_action, size)
+        actor_label = str(actor.get("type", "unknown")).upper()
+        source_label = "same actor" if attention_relationship == "actor" else "separate diagnostic model"
+        context_line = (
+            f'Actual actor: {escape(actor_label)} | MCTS SELECTED action={selected_action} '
+            f'(row={selected_row}, col={selected_col}) | attention source: {source_label}'
+        )
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
-        f'data-attention-top-k="{top_k}" data-attention-total-edges="{len(rgat_edges)}" data-attention-selection="value-desc-edge-id">',
+        f'data-artifact-version="{artifact_version}" data-attention-top-k="{top_k}" data-attention-total-edges="{len(rgat_edges)}" '
+        f'data-attention-selection="value-desc-edge-id" data-selected-action="{selected_action if selected_action is not None else ""}" '
+        f'data-attention-relationship="{escape(str(attention_relationship or "unspecified"))}">',
         '<title>Tactic location versus attention location</title>',
-        f'<metadata>{{"attention_top_k":{top_k},"attention_total_edges":{len(rgat_edges)},"selection":"value_desc_then_edge_id","normalization":"per_state_min_max"}}</metadata>',
+        f'<metadata>{escape(json.dumps(metadata, sort_keys=True), quote=False)}</metadata>',
         '<defs><marker id="proof-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#b45309"/></marker></defs>',
         '<style>text{font-family:Arial,sans-serif;fill:#0f172a}.title{font-size:24px;font-weight:700}.panel{font-size:16px;font-weight:700}.label{font-size:12px;font-weight:700}.note{font-size:11px}.tiny{font-size:9px}.metric{font-size:14px;font-weight:700}.bigmetric{font-size:27px;font-weight:700;fill:#075985}</style>',
         f'<rect width="{width}" height="{height}" fill="#f8fafc"/>',
@@ -105,8 +165,11 @@ def render_knowledge_svg(payload):
         f'<rect x="{width-285}" y="20" width="250" height="32" rx="16" fill="{gold_fill}" stroke="{gold_stroke}" stroke-width="2"/>',
         f'<text x="{width-160}" y="41" text-anchor="middle" class="label">{gold_label}</text>',
         f'<text x="{left_x}" y="108" class="panel" fill="#b45309">SOLVER TACTIC · {len(critical_cells)} critical cells</text>',
-        f'<text x="{right_x}" y="108" class="panel" fill="{ATTENTION_COLOR}">R-GAT ATTENTION · top {top_k}/{len(rgat_edges)} edges</text>',
+        f'<text x="{right_x}" y="104" class="panel" fill="{ATTENTION_COLOR}">{attention_panel_title}</text>',
+        f'<text x="{right_x}" y="126" class="note" fill="{ATTENTION_COLOR}">top {top_k}/{len(rgat_edges)} edges</text>',
     ]
+    if context_line is not None:
+        parts.append(f'<text x="32" y="80" class="note" data-role="decision-lineage">{context_line}</text>')
 
     # Left board: solver tactic only.
     for row in range(size):
@@ -120,8 +183,13 @@ def render_knowledge_svg(payload):
                 stone_fill = "#0f172a" if stone == 1 else "#ffffff"
                 parts.append(f'<circle cx="{x+step/2}" cy="{y+step/2}" r="19" fill="{stone_fill}" stroke="#0f172a" stroke-width="2"/>')
             if action in proof_actions:
-                labels = ",".join(f"P{i}" for i in proof_actions[action])
-                parts.append(f'<circle cx="{x+step-12}" cy="{y+12}" r="10" fill="#b45309"/><text x="{x+step-12}" y="{y+16}" text-anchor="middle" class="tiny" fill="#ffffff">{labels}</text>')
+                labels = ",".join(str(i) for i in proof_actions[action])
+                badge_width = min(step - 6, 43 + 5 * max(0, len(labels) - 1))
+                parts.append(
+                    f'<g data-role="proof-action-marker" data-action="{action}" data-proof-indices="{labels}">'
+                    f'<rect x="{x+step-badge_width-3}" y="{y+3}" width="{badge_width}" height="17" rx="8" fill="#b45309"/>'
+                    f'<text x="{x+step-7}" y="{y+15}" text-anchor="end" class="tiny" fill="#ffffff">PROOF #{labels}</text></g>'
+                )
             parts.append("</g>")
 
     for proof_index, proof in enumerate(proofs):
@@ -140,7 +208,7 @@ def render_knowledge_svg(payload):
                 f'data-concept="{escape(concept_text)}" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" '
                 f'stroke="{PROOF_COLOR}" stroke-width="7" opacity="0.94" marker-end="url(#proof-arrow)"/>'
             )
-            parts.append(f'<text data-role="proof-concept" x="{label_x}" y="{label_y}" text-anchor="middle" class="tiny" fill="#92400e">P{proof_index+1} · {escape(concept_text)} · {escape(relation)}</text>')
+            parts.append(f'<text data-role="proof-concept" x="{label_x}" y="{label_y}" text-anchor="middle" class="tiny" fill="#92400e">PROOF #{proof_index+1} | {escape(concept_text)} | {escape(relation)}</text>')
 
     # Right board: top-k learned attention only. No structural/topology edges.
     for row in range(size):
@@ -173,6 +241,10 @@ def render_knowledge_svg(payload):
         x, y = right_x + col * step + 5, board_y + row * step + 5
         parts.append(f'<rect data-layer="critical-reference" data-action="{cell}" x="{x}" y="{y}" width="{step-10}" height="{step-10}" rx="4" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.62"/>')
 
+    if selected_action is not None:
+        parts.append(_selected_marker(selected_action, size, left_x, board_y, step, "tactic"))
+        parts.append(_selected_marker(selected_action, size, right_x, board_y, step, "attention"))
+
     board_bottom = board_y + board_width
     parts.extend([
         f'<text x="{left_x}" y="{board_bottom+25}" class="note">Cam = hợp critical cells của toàn bộ {len(proofs)} flat proofs.</text>',
@@ -183,7 +255,7 @@ def render_knowledge_svg(payload):
         f'<text x="{left_x+16}" y="{metrics_y+27}" class="metric">{"ATTENTION COLLAPSE" if collapse else "NO COLLAPSE — mismatch is not uniform attention"}</text>',
         f'<text x="{left_x+16}" y="{metrics_y+52}" class="note">collapse_flag={collapse} · entropy={entropy:.3f} · head diversity={diversity:.3f}</text>',
         f'<text x="{left_x+16}" y="{metrics_y+75}" class="note">topology_corr={topology:.3f} · proof critical mass={alignment:.3f} · attention cutoff={cutoff:.6f}</text>',
-        f'<text x="{right_x}" y="{metrics_y+27}" class="note">R-GCN omitted from both boards: structural by design, not learned evidence.</text>',
+        f'<text x="{right_x}" y="{metrics_y+27}" class="note">{escape(evidence_note)}</text>',
         f'<text x="{left_x}" y="{proof_y-18}" class="panel">All flat proofs (none hidden)</text>',
     ])
 
@@ -196,7 +268,7 @@ def render_knowledge_svg(payload):
         parts.append(
             f'<g data-role="proof-legend" data-proof-index="{proof_index+1}">'
             f'<circle cx="{legend_x+7}" cy="{item_y-4}" r="6" fill="{PROOF_COLOR}"/>'
-            f'<text x="{legend_x+21}" y="{item_y}" class="note">P{proof_index+1} action={int(proof["action"])} · {escape(concept_text)}</text>'
+            f'<text x="{legend_x+21}" y="{item_y}" class="note">PROOF #{proof_index+1} action={int(proof["action"])} | {escape(concept_text)}</text>'
             f'<text x="{legend_x+21}" y="{item_y+15}" class="tiny">relations: {escape(relations)} · windows: {len(proof.get("windows", []))}</text></g>'
         )
 
@@ -205,11 +277,12 @@ def render_knowledge_svg(payload):
     return "".join(parts)
 
 
-def render_knowledge_notice_svg(record, reason):
+def render_knowledge_notice_svg(record, reason, decision=None, artifact_version=1):
     """Render an honest fourth artifact when no replayed proof exists."""
     state = record["state"]
     size = int(state["board_size"])
     board = state["board"]
+    decision, selected_action = _decision_fields({"decision": decision or {}}, size)
     step, ox, oy = 64, 42, 112
     board_width = size * step
     width, height = board_width + 500, max(oy + board_width + 70, 600)
@@ -226,9 +299,10 @@ def render_knowledge_notice_svg(record, reason):
         badge = "UNKNOWN · NO GROUND-TRUTH PROOF"
         fill, stroke = "#f1f5f9", "#475569"
     parts = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" '
+        f'data-artifact-version="{int(artifact_version)}" data-selected-action="{selected_action if selected_action is not None else ""}">',
         '<title>Knowledge contrast unavailable</title>',
-        '<style>text{font-family:Arial,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.panel{font-size:15px;font-weight:700}.note{font-size:12px}.badge{font-size:12px;font-weight:700}</style>',
+        '<style>text{font-family:Arial,sans-serif;fill:#0f172a}.title{font-size:22px;font-weight:700}.panel{font-size:15px;font-weight:700}.note{font-size:12px}.tiny{font-size:9px;font-weight:700}.badge{font-size:12px;font-weight:700}</style>',
         f'<rect width="{width}" height="{height}" fill="#f8fafc"/>',
         f'<text x="28" y="34" class="title">Knowledge diagram — {escape(str(record.get("state_id", "unknown")))}</text>',
         '<text x="28" y="58" class="note">Arena ground-truth routing result; no solver layer is invented.</text>',
@@ -245,6 +319,15 @@ def render_knowledge_notice_svg(record, reason):
                 stone_fill = "#0f172a" if stone == 1 else "#ffffff"
                 parts.append(f'<circle cx="{x+step/2}" cy="{y+step/2}" r="18" fill="{stone_fill}" stroke="#0f172a" stroke-width="2"/>')
             parts.append("</g>")
+    if selected_action is not None:
+        parts.append(_selected_marker(selected_action, size, ox, oy, step, "notice"))
+        actor = decision.get("actor") or {}
+        row, col = divmod(selected_action, size)
+        parts.append(
+            f'<text x="28" y="82" class="note" data-role="decision-lineage">Actual actor: '
+            f'{escape(str(actor.get("type", "unknown")).upper())} | MCTS SELECTED action={selected_action} '
+            f'(row={row}, col={col})</text>'
+        )
     side_x = ox + board_width + 38
     parts.extend([
         f'<text x="{side_x}" y="145" class="panel">Contrast intentionally omitted</text>',
