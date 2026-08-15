@@ -26,6 +26,24 @@ def game_seed(base_seed, game_index):
     return int(np.random.SeedSequence([int(base_seed),int(game_index)]).generate_state(1,dtype=np.uint64)[0])
 
 
+def _resolve_initial_state(state_path=None, board_size=None, win_length=None):
+    """Build the CLI root state without silently changing board rules."""
+    if state_path is not None:
+        state = load_state(state_path)
+        if board_size is not None and int(board_size) != state.size:
+            raise ValueError("--board-size does not match --state")
+        if win_length is not None and int(win_length) != state.win_length:
+            raise ValueError("--win-length does not match --state")
+        return state
+    size = 6 if board_size is None else int(board_size)
+    target = 4 if win_length is None else int(win_length)
+    if size < 2:
+        raise ValueError("--board-size must be at least 2")
+    if target < 2 or target > size:
+        raise ValueError("--win-length must be between 2 and --board-size")
+    return GomokuState.initial(size, target)
+
+
 def _visit_counts(root, action_count):
     visits=np.zeros(action_count,dtype=np.float64)
     for action,child in root.children.items(): visits[int(action)]=int(child.n)
@@ -119,8 +137,12 @@ def main():
     parser.add_argument("--model",choices=tuple(MODEL_CLASSES),required=True); parser.add_argument("--checkpoint",type=Path,required=True)
     parser.add_argument("--opponent",choices=("self","random","model"),default="self"); parser.add_argument("--opponent-model",choices=tuple(MODEL_CLASSES)); parser.add_argument("--opponent-checkpoint",type=Path)
     parser.add_argument("--model-player",type=int,choices=(-1,1),default=1); parser.add_argument("--state",type=Path); parser.add_argument("--output",type=Path,required=True)
+    parser.add_argument("--board-size",type=int); parser.add_argument("--win-length",type=int)
     parser.add_argument("--mode",choices=("eval","data"),required=True); parser.add_argument("--mcts-playouts",type=int,default=50); parser.add_argument("--temperature",type=float,default=1.0); parser.add_argument("--opening-temperature-moves",type=int,default=10); parser.add_argument("--late-temperature",type=float,default=0.0); parser.add_argument("--top-k-candidates",type=int,default=5); parser.add_argument("--top-k-edges",type=int,default=12); parser.add_argument("--base-seed",type=int,default=7); parser.add_argument("--game-index",type=int,default=0); parser.add_argument("--max-moves",type=int)
-    args=parser.parse_args(); state=load_state(args.state) if args.state else GomokuState.initial(); model=load_model(args.model,args.checkpoint,state.size)
+    args=parser.parse_args()
+    try: state=_resolve_initial_state(args.state,args.board_size,args.win_length)
+    except ValueError as error: parser.error(str(error))
+    model=load_model(args.model,args.checkpoint,state.size)
     opponent_model=None
     if args.opponent=="model":
         if not args.opponent_model or not args.opponent_checkpoint: parser.error("--opponent model requires --opponent-model and --opponent-checkpoint")

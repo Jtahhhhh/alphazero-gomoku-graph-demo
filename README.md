@@ -540,6 +540,8 @@ python -m azgomoku.explanation.game_export \
   --opponent-model rgcn \
   --opponent-checkpoint results/h3_pilot_v2/rgcn/seed_7/model.pt \
   --model-player 1 \
+  --board-size 6 \
+  --win-length 4 \
   --mode eval \
   --mcts-playouts 50 \
   --base-seed 7 \
@@ -559,6 +561,270 @@ move_XXX/explanation.json
 ```
 
 `game.json` lưu toàn bộ nước đi, model mỗi bên và winner.
+
+### Arena cùng seed và cùng loại bàn cờ
+
+Ma trận arena chỉ ghép R-GCN và R-GAT khi cả hai checkpoint có cùng training
+seed, cùng `board_size` và cùng `win_length`. Mỗi cặp dùng năm arena game seed;
+mỗi game seed được chạy hai lần để đổi bên đi trước, tổng cộng 10 ván:
+
+- nhánh `rgcn_first`: R-GCN là player `1`, được đi trước;
+- nhánh `rgat_first`: R-GCN là player `-1`, R-GAT được đi trước;
+- mỗi ván dùng 100 MCTS playout;
+- `mode=data`, temperature `0.5` trong 10 ply đầu và `0` sau đó để tạo nhiều
+  trajectory; đây là arena stochastic phục vụ so sánh/giải thích, không phải
+  strict deterministic strength evaluation;
+- `base_seed` bằng training seed và `game_index` khác nhau cho từng ván.
+
+CLI `game_export` nhận `--board-size` và `--win-length`. Nếu dùng `--state`, hai
+tham số này phải khớp state; lệnh sẽ fail thay vì âm thầm đổi luật bàn cờ.
+
+#### 1. Khai báo helper arena
+
+Chạy trong WSL sau khi activate `.venv`:
+
+```bash
+set -euo pipefail
+
+run_seed_matched_arena() {
+  local board_size="$1"
+  local win_length="$2"
+  local seed="$3"
+  local board_tag="${board_size}x${board_size}_k${win_length}"
+  local rgcn_checkpoint="results/h3_multiboard/${board_tag}/rgcn/seed_${seed}/model.pt"
+  local rgat_checkpoint="results/h3_multiboard/${board_tag}/rgat/seed_${seed}/model.pt"
+  local arena_root="results/h3_multiboard/arena/${board_tag}/seed_${seed}/rgcn_vs_rgat_data_100p_10games"
+
+  if [[ ! -f "$rgcn_checkpoint" ]]; then
+    echo "Không tìm thấy R-GCN checkpoint: $rgcn_checkpoint" >&2
+    return 1
+  fi
+  if [[ ! -f "$rgat_checkpoint" ]]; then
+    echo "Không tìm thấy R-GAT checkpoint: $rgat_checkpoint" >&2
+    return 1
+  fi
+
+  mkdir -p "$arena_root"
+
+  for game_index in $(seq 1 5); do
+    for model_player in 1 -1; do
+      local side_tag
+      local game_name
+      local game_output
+
+      if (( model_player == 1 )); then
+        side_tag="rgcn_first"
+      else
+        side_tag="rgat_first"
+      fi
+
+      game_name=$(printf "game_%02d_%s" "$game_index" "$side_tag")
+      game_output="$arena_root/$game_name"
+
+      if [[ -e "$game_output" ]]; then
+        echo "Từ chối ghi đè game đã tồn tại: $game_output" >&2
+        return 1
+      fi
+
+      python -m azgomoku.explanation.game_export \
+        --model rgcn \
+        --checkpoint "$rgcn_checkpoint" \
+        --opponent model \
+        --opponent-model rgat \
+        --opponent-checkpoint "$rgat_checkpoint" \
+        --model-player "$model_player" \
+        --board-size "$board_size" \
+        --win-length "$win_length" \
+        --mode data \
+        --mcts-playouts 100 \
+        --temperature 0.5 \
+        --opening-temperature-moves 10 \
+        --late-temperature 0 \
+        --base-seed "$seed" \
+        --game-index "$game_index" \
+        --output "$game_output" \
+        2>&1 | tee "$arena_root/${game_name}.log"
+    done
+  done
+}
+```
+
+Helper kiểm tra đủ hai checkpoint và từ chối ghi đè từng game. Nếu một pairing
+đã chạy dở, hãy kiểm tra game/output hiện có trước khi quyết định tiếp tục; không
+xóa hoặc ghi đè tự động.
+
+Mỗi move do `game_export` sinh tự động ba SVG cùng structured evidence, không cần
+thêm flag export:
+
+```text
+game_XX_<side>/move_XXX/board.svg
+game_XX_<side>/move_XXX/graph.svg
+game_XX_<side>/move_XXX/decision.svg
+game_XX_<side>/move_XXX/explanation.json
+```
+
+- `board.svg`: pre-move board và nước MCTS thực sự chọn;
+- `graph.svg`: relational evidence tại đúng pre-move state;
+- `decision.svg`: policy/value, prior, MCTS visits/Q và selected action.
+
+#### 2. Arena 6×6/k=4
+
+R-GCN seed 17 đấu R-GAT seed 17:
+
+```bash
+run_seed_matched_arena 6 4 17
+```
+
+R-GCN seed 29 đấu R-GAT seed 29:
+
+```bash
+run_seed_matched_arena 6 4 29
+```
+
+#### 3. Arena 10×10/k=5
+
+R-GCN seed 7 đấu R-GAT seed 7:
+
+```bash
+run_seed_matched_arena 10 5 7
+```
+
+R-GCN seed 17 đấu R-GAT seed 17:
+
+```bash
+run_seed_matched_arena 10 5 17
+```
+
+R-GCN seed 29 đấu R-GAT seed 29:
+
+```bash
+run_seed_matched_arena 10 5 29
+```
+
+#### 4. Arena 15×15/k=5
+
+R-GCN seed 7 đấu R-GAT seed 7:
+
+```bash
+run_seed_matched_arena 15 5 7
+```
+
+R-GCN seed 17 đấu R-GAT seed 17:
+
+```bash
+run_seed_matched_arena 15 5 17
+```
+
+R-GCN seed 29 đấu R-GAT seed 29:
+
+```bash
+run_seed_matched_arena 15 5 29
+```
+
+#### 5. Chạy toàn bộ tám pairing tuần tự
+
+Tám pairing tạo tổng cộng 80 ván và export evidence cho mọi move, nên có thể cần
+nhiều thời gian và dung lượng, đặc biệt trên 15×15.
+
+```bash
+run_seed_matched_arena 6 4 17
+run_seed_matched_arena 6 4 29
+
+for seed in 7 17 29; do
+  run_seed_matched_arena 10 5 "$seed"
+done
+
+for seed in 7 17 29; do
+  run_seed_matched_arena 15 5 "$seed"
+done
+```
+
+#### 6. Export `knowledge.svg` v2 cho từng pairing
+
+`knowledge.svg` không được tạo trong cùng model forward với ba SVG trên vì nó
+cần solver/VCF hậu xử lý. Helper sau đọc arena đã hoàn tất và ghi một sidecar v2,
+không sửa arena gốc. Mọi move đều có `knowledge.svg`: vị trí có replayed proof
+nhận biểu đồ tactic-vs-attention, còn vị trí chưa có proof nhận notice SVG trung
+thực thay vì overlay được suy đoán.
+
+```bash
+export_seed_matched_knowledge() {
+  local board_size="$1"
+  local win_length="$2"
+  local seed="$3"
+  local node_cap="${4:-1000000}"
+  local time_cap_ms="${5:-2000}"
+  local board_tag="${board_size}x${board_size}_k${win_length}"
+  local arena_root="results/h3_multiboard/arena/${board_tag}/seed_${seed}/rgcn_vs_rgat_data_100p_10games"
+  local knowledge_root="${arena_root}_knowledge_v2"
+  local rgat_checkpoint="results/h3_multiboard/${board_tag}/rgat/seed_${seed}/model.pt"
+
+  if [[ ! -f "$rgat_checkpoint" ]]; then
+    echo "Không tìm thấy R-GAT checkpoint: $rgat_checkpoint" >&2
+    return 1
+  fi
+  if [[ -e "$knowledge_root" ]]; then
+    echo "Từ chối ghi đè knowledge sidecar: $knowledge_root" >&2
+    return 1
+  fi
+
+  for game_index in $(seq 1 5); do
+    for side_tag in rgcn_first rgat_first; do
+      local game_name
+      game_name=$(printf "game_%02d_%s" "$game_index" "$side_tag")
+      if [[ ! -f "$arena_root/$game_name/game.json" ]]; then
+        echo "Arena thiếu game hoàn tất: $arena_root/$game_name/game.json" >&2
+        return 1
+      fi
+    done
+  done
+
+  python -m investigation.arena_knowledge \
+    --arena "$arena_root" \
+    --output "$knowledge_root" \
+    --rgat-checkpoint "$rgat_checkpoint" \
+    --node-cap "$node_cap" \
+    --time-cap-ms "$time_cap_ms"
+}
+```
+
+Export từng pairing:
+
+```bash
+export_seed_matched_knowledge 6 4 17
+export_seed_matched_knowledge 6 4 29
+
+export_seed_matched_knowledge 10 5 7
+export_seed_matched_knowledge 10 5 17
+export_seed_matched_knowledge 10 5 29
+
+export_seed_matched_knowledge 15 5 7
+export_seed_matched_knowledge 15 5 17
+export_seed_matched_knowledge 15 5 29
+```
+
+Sau bước này, bộ bốn SVG cho một move được nối bằng cùng relative path:
+
+```text
+# Arena gốc
+results/h3_multiboard/arena/<board_tag>/seed_<seed>/rgcn_vs_rgat_data_100p_10games/
+  game_XX_<side>/move_XXX/{board.svg,graph.svg,decision.svg}
+
+# Knowledge sidecar v2
+results/h3_multiboard/arena/<board_tag>/seed_<seed>/rgcn_vs_rgat_data_100p_10games_knowledge_v2/
+  game_XX_<side>/move_XXX/{knowledge.json,knowledge.svg,knowledge_evidence.json?}
+```
+
+`knowledge_evidence.json` chỉ có ở move có proof/rendered contrast; dấu `?` biểu
+thị file tùy chọn. Budget mặc định của helper là 1.000.000 node và 2.000 ms mỗi
+state. Có thể truyền budget khác ở đối số 4–5, ví dụ:
+
+```bash
+export_seed_matched_knowledge 6 4 17 100000000 600000
+```
+
+Không nên dùng budget rất lớn cho toàn bộ arena 10×10/15×15 trước khi đo thử một
+pairing: time cap áp dụng cho từng state, không phải cho toàn câu lệnh.
 
 ### Export arena knowledge v2 không ghi đè arena gốc
 

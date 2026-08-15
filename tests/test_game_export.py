@@ -1,7 +1,10 @@
+import json
+
 import numpy as np
+import pytest
 import torch
 
-from azgomoku.explanation.game_export import export_game, game_seed, select_action
+from azgomoku.explanation.game_export import _resolve_initial_state, export_game, game_seed, select_action
 from azgomoku.mcts import Node
 from azgomoku.explanation.explanation_schema import state_identifier
 from azgomoku.game import GomokuState
@@ -11,11 +14,36 @@ from models.rgcn import RGCN
 def near_terminal(): return GomokuState(np.asarray([[1,-1,1],[-1,1,-1],[0,0,0]],dtype=np.int8),to_play=1,last_move=5,win_length=3)
 
 
+def test_cli_board_and_win_length_create_the_requested_rules(tmp_path):
+    default = _resolve_initial_state()
+    assert default.size == 6 and default.win_length == 4
+    state = _resolve_initial_state(board_size=10, win_length=5)
+    assert state.size == 10 and state.win_length == 5
+    with pytest.raises(ValueError, match="between 2"):
+        _resolve_initial_state(board_size=10, win_length=11)
+
+    state_path = tmp_path / "state.json"
+    state_path.write_text(json.dumps({
+        "board": np.zeros((10, 10), dtype=int).tolist(),
+        "to_play": 1,
+        "last_move": -1,
+        "win_length": 5,
+    }), encoding="utf-8")
+    loaded = _resolve_initial_state(state_path, board_size=10, win_length=5)
+    assert loaded.size == 10 and loaded.win_length == 5
+    with pytest.raises(ValueError, match="board-size"):
+        _resolve_initial_state(state_path, board_size=15, win_length=5)
+
+
 def test_self_game_exports_every_model_move_and_continuous_state_ids(tmp_path):
     torch.manual_seed(4); initial=near_terminal(); manifest=export_game(RGCN(board_size=3,hidden_dim=8),tmp_path,initial_state=initial,opponent="self",mcts_playouts=2,mode="eval",base_seed=4)
     assert manifest["terminal"] and manifest["moves"]
     assert all(move["evidence_available"] for move in manifest["moves"])
-    assert all((tmp_path/move["artifact_dir"]/"decision.svg").is_file() for move in manifest["moves"])
+    assert all(
+        (tmp_path / move["artifact_dir"] / name).is_file()
+        for move in manifest["moves"]
+        for name in ("board.svg", "graph.svg", "decision.svg")
+    )
     assert all(manifest["moves"][i]["next_state_id"]==manifest["moves"][i+1]["state_id"] for i in range(len(manifest["moves"])-1))
     assert manifest["moves"][0]["state_id"]==state_identifier(initial)
     assert (tmp_path/"game.json").is_file()
