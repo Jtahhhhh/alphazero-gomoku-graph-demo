@@ -77,6 +77,297 @@ python -m experiments.run_h3_pilot \
   --resume results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_020.pt
 ```
 
+### Train ma trận 6×6, 10×10 và 15×15 trong WSL
+
+Ma trận mở rộng train cả R-GCN và R-GAT với cùng hyperparameter H3 pilot hiện
+tại, chỉ thay `board_size`, `win_length`, `seed` và `run_id`:
+
+| Bàn cờ | `win_length` (`k`) | Seed | Số run |
+|---|---:|---|---:|
+| 6×6 | 4 | 17, 29 | 4 |
+| 10×10 | 5 | 7, 17, 29 | 6 |
+| 15×15 | 5 | 7, 17, 29 | 6 |
+
+Tổng cộng có 16 run. Runner hiện không có CLI override cho board/seed và chưa có
+tham số `--device`; model cùng tensor train vẫn ở CPU. Vì vậy nên chạy tuần tự,
+đặc biệt với 15×15.
+
+#### 1. Vào môi trường WSL
+
+```bash
+cd /mnt/d/ThucNghiem/alphazero-gomoku-graph-demo
+source .venv/bin/activate
+
+export PYTHONPATH="$PWD/.h3deps${PYTHONPATH:+:$PYTHONPATH}"
+```
+
+#### 2. Sinh config 10×10/k=5 và 15×15/k=5
+
+Các file config có đuôi `.yaml` hiện tại thực chất chứa JSON và được
+`run_h3_pilot` đọc bằng `json.loads`. Đoạn dưới tạo 12 config mới trong
+`configs/multiboard/`. Lệnh có thể chạy lại: config trùng nội dung sẽ được giữ,
+còn file cùng tên nhưng khác nội dung sẽ làm lệnh dừng.
+
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+
+config_dir = Path("configs/multiboard")
+config_dir.mkdir(parents=True, exist_ok=True)
+
+for model in ("rgcn", "rgat"):
+    base_path = Path(f"configs/h3_pilot_{model}.yaml")
+    base = json.loads(base_path.read_text(encoding="utf-8"))
+
+    for board_size in (10, 15):
+        win_length = 5
+        for seed in (7, 17, 29):
+            config = dict(base)
+            config.update({
+                "run_id": (
+                    f"h3_{model}_{board_size}x{board_size}_"
+                    f"k{win_length}_seed{seed}"
+                ),
+                "model_type": model,
+                "board_size": board_size,
+                "win_length": win_length,
+                "seed": seed,
+            })
+            destination = config_dir / (
+                f"h3_{model}_{board_size}x{board_size}_"
+                f"k{win_length}_seed{seed}.json"
+            )
+
+            if destination.exists():
+                existing = json.loads(destination.read_text(encoding="utf-8"))
+                if existing != config:
+                    raise RuntimeError(
+                        f"Config đã tồn tại nhưng khác nội dung: {destination}"
+                    )
+                print(f"Giữ config có sẵn: {destination}")
+                continue
+
+            destination.write_text(
+                json.dumps(config, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            print(f"Đã tạo: {destination}")
+PY
+```
+
+#### 3. Khai báo helper train an toàn
+
+Helper từ chối chạy nếu output đã tồn tại, tránh việc vô tình append log hoặc
+trộn checkpoint của hai lần train. Mỗi run ghi thêm console vào `console.log`.
+
+```bash
+set -euo pipefail
+
+run_h3_config() {
+  local config="$1"
+  local output="$2"
+
+  if [[ ! -f "$config" ]]; then
+    echo "Không tìm thấy config: $config" >&2
+    return 1
+  fi
+
+  if [[ -e "$output" ]]; then
+    echo "Từ chối ghi đè output đã tồn tại: $output" >&2
+    return 1
+  fi
+
+  mkdir -p "$output"
+  python -m experiments.run_h3_pilot \
+    --config "$config" \
+    --output "$output" \
+    2>&1 | tee "$output/console.log"
+}
+```
+
+Helper chỉ tồn tại trong terminal hiện tại. Nếu mở terminal WSL mới, chạy lại
+block trên trước khi gọi các lệnh bên dưới.
+
+#### 4. CLI riêng cho 6×6/k=4
+
+Seed 7 đã có trong H3 pilot v2, nên ma trận bổ sung chỉ chạy seed 17 và 29.
+
+R-GCN seed 17:
+
+```bash
+run_h3_config \
+  configs/phase6_rgcn_seed17.yaml \
+  results/h3_multiboard/6x6_k4/rgcn/seed_17
+```
+
+R-GCN seed 29:
+
+```bash
+run_h3_config \
+  configs/phase6_rgcn_seed29.yaml \
+  results/h3_multiboard/6x6_k4/rgcn/seed_29
+```
+
+R-GAT seed 17:
+
+```bash
+run_h3_config \
+  configs/phase6_rgat_seed17.yaml \
+  results/h3_multiboard/6x6_k4/rgat/seed_17
+```
+
+R-GAT seed 29:
+
+```bash
+run_h3_config \
+  configs/phase6_rgat_seed29.yaml \
+  results/h3_multiboard/6x6_k4/rgat/seed_29
+```
+
+#### 5. CLI riêng cho 10×10/k=5
+
+R-GCN seed 7:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgcn_10x10_k5_seed7.json \
+  results/h3_multiboard/10x10_k5/rgcn/seed_7
+```
+
+R-GCN seed 17:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgcn_10x10_k5_seed17.json \
+  results/h3_multiboard/10x10_k5/rgcn/seed_17
+```
+
+R-GCN seed 29:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgcn_10x10_k5_seed29.json \
+  results/h3_multiboard/10x10_k5/rgcn/seed_29
+```
+
+R-GAT seed 7:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgat_10x10_k5_seed7.json \
+  results/h3_multiboard/10x10_k5/rgat/seed_7
+```
+
+R-GAT seed 17:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgat_10x10_k5_seed17.json \
+  results/h3_multiboard/10x10_k5/rgat/seed_17
+```
+
+R-GAT seed 29:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgat_10x10_k5_seed29.json \
+  results/h3_multiboard/10x10_k5/rgat/seed_29
+```
+
+#### 6. CLI riêng cho 15×15/k=5
+
+R-GCN seed 7:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgcn_15x15_k5_seed7.json \
+  results/h3_multiboard/15x15_k5/rgcn/seed_7
+```
+
+R-GCN seed 17:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgcn_15x15_k5_seed17.json \
+  results/h3_multiboard/15x15_k5/rgcn/seed_17
+```
+
+R-GCN seed 29:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgcn_15x15_k5_seed29.json \
+  results/h3_multiboard/15x15_k5/rgcn/seed_29
+```
+
+R-GAT seed 7:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgat_15x15_k5_seed7.json \
+  results/h3_multiboard/15x15_k5/rgat/seed_7
+```
+
+R-GAT seed 17:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgat_15x15_k5_seed17.json \
+  results/h3_multiboard/15x15_k5/rgat/seed_17
+```
+
+R-GAT seed 29:
+
+```bash
+run_h3_config \
+  configs/multiboard/h3_rgat_15x15_k5_seed29.json \
+  results/h3_multiboard/15x15_k5/rgat/seed_29
+```
+
+#### 7. Chạy toàn bộ ma trận tuần tự
+
+Sau khi đã sinh config và khai báo `run_h3_config`, có thể thay các lệnh riêng
+bằng hai vòng lặp dưới đây. Lệnh sẽ chạy hết bốn run 6×6 trước, rồi đến 12 run
+10×10/15×15.
+
+```bash
+for model in rgcn rgat; do
+  for seed in 17 29; do
+    run_h3_config \
+      "configs/phase6_${model}_seed${seed}.yaml" \
+      "results/h3_multiboard/6x6_k4/${model}/seed_${seed}"
+  done
+done
+
+for board_size in 10 15; do
+  for model in rgcn rgat; do
+    for seed in 7 17 29; do
+      run_h3_config \
+        "configs/multiboard/h3_${model}_${board_size}x${board_size}_k5_seed${seed}.json" \
+        "results/h3_multiboard/${board_size}x${board_size}_k5/${model}/seed_${seed}"
+    done
+  done
+done
+```
+
+#### 8. Resume một run
+
+Phải dùng đúng config, đúng output và checkpoint mới nhất của chính run đó. Ví
+dụ resume R-GAT 10×10/k=5 seed 17 từ iteration 20:
+
+```bash
+python -m experiments.run_h3_pilot \
+  --config configs/multiboard/h3_rgat_10x10_k5_seed17.json \
+  --output results/h3_multiboard/10x10_k5/rgat/seed_17 \
+  --resume results/h3_multiboard/10x10_k5/rgat/seed_17/checkpoints/iter_020.pt \
+  2>&1 | tee -a results/h3_multiboard/10x10_k5/rgat/seed_17/console.log
+```
+
+Không dùng checkpoint của seed, model hoặc kích thước bàn khác. Checkpoint là
+immutable; resume từ checkpoint cũ hơn checkpoint mới nhất trong cùng output có
+thể đụng tên file đã tồn tại.
+
 Artifact mỗi run:
 
 ```text
