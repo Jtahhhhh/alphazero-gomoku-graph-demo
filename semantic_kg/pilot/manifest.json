@@ -1,0 +1,63 @@
+{
+  "benchmark_sha256": "9abd52ef4991489586682e881e495fcb4c2ffe00fb55dc9dee1d9008aca4ff02",
+  "d4_validation": {
+    "entity_canonical_checks": 8280,
+    "fact_transform_checks": 19296,
+    "passed": true,
+    "record_transform_checks": 24,
+    "records": 3,
+    "symmetries_per_record": 8
+  },
+  "entity_count": 1035,
+  "entity_type_counts": {
+    "BoardState": 3,
+    "Cell": 108,
+    "DefenseSet": 3,
+    "ForcedResponse": 3,
+    "LineWindow": 162,
+    "Move": 69,
+    "Proof": 3,
+    "ProofNode": 6,
+    "StructuralEdge": 660,
+    "WinningThreat": 18
+  },
+  "epistemic_counts": {
+    "CERTIFIED": 3,
+    "DERIVED": 2318,
+    "EXACT": 97,
+    "HEURISTIC": 0,
+    "LEARNED": 0
+  },
+  "fact_count": 2418,
+  "no_proof_state_count": 1,
+  "predicate_counts": {
+    "BLOCKS": 1,
+    "CONNECTS": 1320,
+    "CONTAINS": 114,
+    "CREATES": 34,
+    "FORCES": 1,
+    "HAS_ACTION_VALUE": 69,
+    "HAS_COMPLETION": 19,
+    "HAS_DIRECTION": 19,
+    "HAS_WINDOW": 4,
+    "OPTIMAL_IN": 28,
+    "PLAYED_AT": 69,
+    "REQUIRES": 2,
+    "SUPPORTS": 3,
+    "USES_CELL": 735
+  },
+  "proof_bearing_state_count": 2,
+  "provenance_count": 27,
+  "replay_backed_proof_count": 3,
+  "schema_version": 1,
+  "semantic_kg_version": "semantic_kg_v1",
+  "source_benchmark": "diagnostic/h1_benchmark_v1/h1_benchmark_v1.jsonl",
+  "state_count": 3,
+  "validation_status": {
+    "epistemic_integrity": true,
+    "errors": [],
+    "heuristic_fact_count": 0,
+    "referential_integrity": true,
+    "valid": true
+  }
+}

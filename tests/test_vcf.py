@@ -53,8 +53,14 @@ def test_no_obligation_and_tiny_budget_abstain():
     assert solve_vcf(empty).status == "unknown"
     limited = solve_vcf(empty, node_cap=0, time_cap_ms=10_000)
     assert limited.status == "unknown"
-    assert limited.unknown_reason == "node_cap"
+    assert limited.unknown_reason == "budget"
     assert limited.value is None and limited.proof is None
+
+
+def test_unknown_reason_distinguishes_exhaustion_from_budget():
+    empty = make_state(6, [], 4)
+    assert solve_vcf(empty, node_cap=100_000, time_cap_ms=10_000).unknown_reason == "exhausted"
+    assert solve_vcf(empty, node_cap=0, time_cap_ms=10_000).unknown_reason == "budget"
 
 
 def test_counter_four_breaks_the_attacker_tempo():

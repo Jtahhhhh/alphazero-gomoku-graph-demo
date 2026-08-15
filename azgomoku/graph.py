@@ -15,3 +15,22 @@ def cell_graph(size):
     return tuple(edges)
 def cell_edge_records(size):
     return tuple({"edge_id":f"{relation}:{int(source)}:{int(target)}","source":int(source),"target":int(target),"relation":relation} for relation,group in zip(RELATIONS,cell_graph(size)) for source,target in group.t().tolist())
+
+
+def structural_edges(size: int) -> list[dict]:
+    """Return deterministic cell-graph edges with the structural attention baseline."""
+    records = cell_edge_records(size)
+    indegree = {}
+    for item in records:
+        key = (item["relation"], item["target"])
+        indegree[key] = indegree.get(key, 0) + 1
+    return [
+        {
+            "edge_id": item["edge_id"],
+            "relation": item["relation"],
+            "source": {"action": item["source"]},
+            "target": {"action": item["target"]},
+            "attention": 1.0 / indegree[(item["relation"], item["target"])],
+        }
+        for item in records
+    ]

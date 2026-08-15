@@ -1,0 +1,57 @@
+{
+  "all_external_ids_resolved": true,
+  "all_observations_have_checkpoint_provenance": true,
+  "base_kg_unchanged": true,
+  "checks": {
+    "artifact_hashes": true,
+    "base_kg_unchanged": true,
+    "checkpoint_count": true,
+    "endpoint_artifact_hashes": true,
+    "endpoint_checkpoint_count": true,
+    "endpoint_entity_count": true,
+    "endpoint_predicate_counts": true,
+    "endpoint_provenance_count": true,
+    "entity_count": true,
+    "exact_certified_zero": true,
+    "heuristic_zero": true,
+    "predicate_counts": true,
+    "provenance_count": true
+  },
+  "expected_entity_count": 286488,
+  "expected_predicate_counts": {
+    "HAS_ATTENTION_WEIGHT": 268840,
+    "HAS_MCTS_PRIOR": 17648,
+    "HAS_POLICY_PROB": 57356,
+    "HAS_Q": 17648,
+    "HAS_SEARCH_PROB": 17648,
+    "HAS_STATE_VALUE": 2444,
+    "HAS_VISITS": 17648,
+    "IS_SELECTED": 17648,
+    "OBSERVES": 268840,
+    "REFERS_TO_MOVE": 17648
+  },
+  "expected_provenance_count": 272036,
+  "mcts_schedule": [
+    0,
+    20,
+    40,
+    60
+  ],
+  "network_checkpoint_schedule": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60
+  ],
+  "no_learned_tactical_truth": true,
+  "passed": true
+}

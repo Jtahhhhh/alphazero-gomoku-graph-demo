@@ -9,6 +9,7 @@ from azgomoku.game import GomokuState
 from azgomoku.mcts import Node, search
 from models.rgat import RGAT
 from models.rgcn import RGCN
+from investigation.e3b_graph import structural_edges
 
 
 def state3(): return GomokuState(np.array([[1,-1,0],[0,1,0],[0,0,-1]],dtype=np.int8),1,8,3)
@@ -51,6 +52,27 @@ def test_deterministic_filter_and_trace_only_render(tmp_path):
     assert render_graph_svg(document)==render_graph_svg(document)
     saved=tmp_path/"saved.json"; saved.write_text(json.dumps(document)); out=tmp_path/"rendered"; write_svgs(json.loads(saved.read_text()),out)
     assert (out/"decision.svg").read_text()==render_decision_svg(document)
+
+
+def test_optional_knowledge_svg_is_registered_beside_existing_three(tmp_path):
+    state=state3(); model=RGAT(board_size=3,hidden_dim=8,attention_heads=2)
+    document=explain_decision(state,model,5)
+    record={
+        "state_id":"knowledge-test",
+        "state":{"board_size":3,"win_length":3,"current_player":1,"last_move":8,"board":state.board.tolist()},
+        "solver":{"status":"exact_partial","optimal_actions_complete":False},
+        "valid_proofs":[{"action":5,"concepts":["mandatory_block"],"critical_cells":[3,4,5],"critical_relations":["horizontal"],"windows":[[3,4,5]]}],
+    }
+    payload={
+        "record":record,
+        "rgat_edges":document["graph_evidence"]["edges"],
+        "structural_edges":structural_edges(3),
+        "metrics":{"attention_collapse_flag":1,"attention_normalized_entropy":1,"attention_head_diversity":0,"attention_topology_correlation":1,"graph_critical_mass":0},
+        "graph_gate":{"passed":True,"d4_proof_roundtrips":8},
+    }
+    outputs=write_svgs(document,tmp_path,knowledge=payload)
+    assert set(outputs)=={"board.svg","graph.svg","decision.svg","knowledge.svg"}
+    assert "PARTIAL · PARTIAL KNOWLEDGE" in (tmp_path/"knowledge.svg").read_text(encoding="utf-8")
 
 
 def test_normal_mcts_forces_evidence_off():

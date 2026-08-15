@@ -1,0 +1,95 @@
+{
+  "artifact_files": {
+    "entities.jsonl": {
+      "bytes": 16379586,
+      "sha256": "df5d0f3dab975798e42cc2b051faf3795a2bdcf11ea4b61f9b7e0d5d3a410bce"
+    },
+    "facts.jsonl": {
+      "bytes": 21596078,
+      "sha256": "f296f1344fac8c3143a59b5aa0f98f7f3ffab39817251518051e3cf69b3b2bfc"
+    },
+    "provenance.jsonl": {
+      "bytes": 19404984,
+      "sha256": "8b8704046aa3ca9723788da833b81ca9326ed87d0afc2acd4feb1fddcdbd84d1"
+    }
+  },
+  "base_semantic_kg": {
+    "files": {
+      "entities.jsonl": {
+        "bytes": 9268886,
+        "sha256": "784f1cb9c883f38e8d19bb779ef1a6be1b9175743fc9bd79c7e9f9c6f4b3d1d7"
+      },
+      "facts.jsonl": {
+        "bytes": 19881567,
+        "sha256": "da793f2e66c5a953686175a22549618974cccd38712ee59e7e93e83c1284355e"
+      },
+      "manifest.json": {
+        "bytes": 2100,
+        "sha256": "28c2715fbc9b16a75dc7e849a907a807c5097918ff49a92fd0b76583533998a8"
+      },
+      "provenance.jsonl": {
+        "bytes": 505731,
+        "sha256": "00c5f2fa2aa4ead063efdbe82db43133bd1d33776a45b0f8334a406031481594"
+      }
+    },
+    "semantic_kg_version": "semantic_kg_v1"
+  },
+  "checkpoint_count": 2,
+  "checkpoints": [
+    {
+      "iteration": 60,
+      "mcts_evaluated": true,
+      "mcts_playouts": 50,
+      "model_type": "rgat",
+      "network_mode": "eval",
+      "path": "results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_060.pt",
+      "sha256": "897e41795fa2ff26e0355378cf8a5167b375d14ef03f185ae2be39fb7c1c6286",
+      "training_seed": 7
+    },
+    {
+      "iteration": 60,
+      "mcts_evaluated": true,
+      "mcts_playouts": 50,
+      "model_type": "rgcn",
+      "network_mode": "eval",
+      "path": "results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_060.pt",
+      "sha256": "a9583a8bad6eb80f99398bc359428cd145849254dbfb7ea1a8e04e413e9407cc",
+      "training_seed": 7
+    }
+  ],
+  "entity_count": 25092,
+  "entity_type_counts": {
+    "AttentionObservation": 20680,
+    "MCTSCandidate": 4412
+  },
+  "epistemic_counts": {
+    "CERTIFIED": 0,
+    "DERIVED": 25092,
+    "EXACT": 0,
+    "HEURISTIC": 0,
+    "LEARNED": 47340
+  },
+  "external_reference_count": 29692,
+  "fact_count": 72432,
+  "model_iteration_provenance_counts": {
+    "rgat:60": 20868,
+    "rgcn:60": 188
+  },
+  "predicate_counts": {
+    "HAS_ATTENTION_WEIGHT": 20680,
+    "HAS_MCTS_PRIOR": 4412,
+    "HAS_POLICY_PROB": 4412,
+    "HAS_Q": 4412,
+    "HAS_SEARCH_PROB": 4412,
+    "HAS_STATE_VALUE": 188,
+    "HAS_VISITS": 4412,
+    "IS_SELECTED": 4412,
+    "OBSERVES": 20680,
+    "REFERS_TO_MOVE": 4412
+  },
+  "provenance_count": 21056,
+  "schema_version": "1.1",
+  "scope": "endpoint_iter60",
+  "semantic_evidence_version": "semantic_evidence_v1",
+  "state_count": 94
+}

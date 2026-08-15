@@ -1,0 +1,95 @@
+{
+  "benchmark_file": "h1_benchmark_v1.jsonl",
+  "benchmark_sha256": "9abd52ef4991489586682e881e495fcb4c2ffe00fb55dc9dee1d9008aca4ff02",
+  "benchmark_version": "h1_benchmark_v1",
+  "budget_star_ms": {
+    "6x6": 2000
+  },
+  "content": "94 exact_complete 6x6/k=4 gold states; partial and large-board states excluded",
+  "dedup_mode": "d4",
+  "exact_agreement": {
+    "budget_ms": 30000,
+    "checks": 94,
+    "mismatches": 0,
+    "node_cap": 5000000,
+    "passed": true
+  },
+  "frozen_date": "2026-08-14",
+  "generator_versions": [
+    "h1_mid_gold_multiseed_v1",
+    "h1_selfplay_data_v2_budget_calibration"
+  ],
+  "immutable_rule": "never overwrite; changes require h1_benchmark_v2",
+  "n": 94,
+  "phase_counts": {
+    "late": 71,
+    "mid": 23
+  },
+  "proof_annotation_version": "e3b_replay_proofs_v1",
+  "proof_bearing_phase_counts": {
+    "late": 63,
+    "mid": 20
+  },
+  "proof_replay": {
+    "proof_records": 83,
+    "proof_records_by_phase": {
+      "late": 63,
+      "mid": 20
+    },
+    "proof_replay_passed": 243,
+    "proofs_total": 243,
+    "records": 94,
+    "tactical_proofs": 242,
+    "vcf_attempts": 1,
+    "vcf_proofs": 1
+  },
+  "schema_versions": [
+    2
+  ],
+  "seeds": [
+    41574823,
+    202257928,
+    282483852,
+    301121805,
+    316824786,
+    375971057,
+    482850259,
+    582447313,
+    623908770,
+    924414274,
+    1028438624,
+    1046602598,
+    1154830658,
+    1224284060,
+    1269245189,
+    1278379889,
+    1537845251,
+    1555553300,
+    1660026974,
+    1798277935,
+    1852816320,
+    1864018502,
+    1918712386,
+    2056993838,
+    2108735581,
+    2162157448,
+    2179138869,
+    2343653014,
+    2393092372,
+    2414960795,
+    2595551721,
+    2753395147,
+    3125631230,
+    3423529469,
+    3434892207,
+    3614094942,
+    3764708091,
+    3797310106,
+    3909013073,
+    3936560165,
+    4011989796,
+    4070322698,
+    4178234391
+  ],
+  "source_artifact": "results/h1_integration/e3a2/expanded_gold.jsonl"
+}

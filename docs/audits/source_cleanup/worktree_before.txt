@@ -1,0 +1,143 @@
+SOURCE CLEANUP AUDIT - WORKTREE BASELINE
+Captured: 2026-08-15 (Asia/Saigon)
+Repository: D:/ThucNghiem/alphazero-gomoku-graph-demo
+Branch: master
+HEAD: cc7d334 docs: audit arena knowledge coordinates and unknowns
+
+Scope rule
+----------
+This baseline was captured before any audit artifact was added. Every item below
+is treated as pre-existing user work. The audit did not edit, stage, revert, or
+delete any of it.
+
+git log -5 --oneline
+--------------------
+cc7d334 docs: audit arena knowledge coordinates and unknowns
+8e5676e docs: audit paper readiness
+40368a8 docs: audit contrast knowledge diagram readiness
+89e5926 feat: clean source and update
+2d84e9c feat: add replay-verified VCF solver
+
+git diff --stat
+---------------
+ .gitignore                                         |   5 +-
+ README.md                                          |  79 +++-
+ azgomoku/explanation/explanation_export.py         |   5 +-
+ azgomoku/explanation/game_export.py                |  52 ++-
+ azgomoku/explanation/rendering/__init__.py         |   3 +-
+ azgomoku/vcf.py                                    |   4 +-
+ investigation/generate_h1_benchmark.py             | 200 ++++++----
+ .../rgat/seed_7/checkpoints/manifest.json          | 132 +++++++
+ results/h3_pilot_v2/rgat/seed_7/training_log.csv   | 424 +++++++++++++++++++++
+ tests/test_explanation.py                          |  22 ++
+ tests/test_game_export.py                          |  39 +-
+ tests/test_oracle_agreement.py                     |   4 +-
+ tests/test_vcf.py                                  |   8 +-
+ 13 files changed, 881 insertions(+), 96 deletions(-)
+
+TRACKED_MODIFIED (13)
+---------------------
+ M .gitignore
+ M README.md
+ M azgomoku/explanation/explanation_export.py
+ M azgomoku/explanation/game_export.py
+ M azgomoku/explanation/rendering/__init__.py
+ M azgomoku/vcf.py
+ M investigation/generate_h1_benchmark.py
+ M results/h3_pilot_v2/rgat/seed_7/checkpoints/manifest.json
+ M results/h3_pilot_v2/rgat/seed_7/training_log.csv
+ M tests/test_explanation.py
+ M tests/test_game_export.py
+ M tests/test_oracle_agreement.py
+ M tests/test_vcf.py
+
+UNTRACKED_RELEVANT (92 files after expanding directory entries)
+--------------------------------------------------------------
+Top-level reports:
+ D2c_REPORT.md
+ D2c_v2_REPORT.md
+ E3a1_REPORT.md
+ E3a2_REPORT.md
+ E3a_REPORT.md
+ E3b_REPORT.md
+ H1_ARENA_EVALUATION_REPORT.md
+ SEMANTIC_KG_PHASE1_3_REPORT.md
+ SEMANTIC_KG_PHASE4_REPORT.md
+ SEMANTIC_KG_PHASE5_EXPERIMENT_REPORT.md
+ SEMANTIC_KG_READINESS_AUDIT.md
+ developmental_REPORT.md
+
+Source/config/docs:
+ azgomoku/explanation/rendering/knowledge_svg.py
+ azgomoku/ground_truth.py
+ azgomoku/h1_schema.py
+ azgomoku/offline_solver.py
+ azgomoku/semantic/ (12 files)
+ azgomoku/symmetry.py
+ configs/phase6_rgat_seed17.yaml
+ configs/phase6_rgat_seed29.yaml
+ configs/phase6_rgcn_seed17.yaml
+ configs/phase6_rgcn_seed29.yaml
+ docs/ (3 contracts)
+ investigation/arena_knowledge.py
+ investigation/d2c_measure.py
+ investigation/d2c_v2_gates.py
+ investigation/d2c_v2_measure.py
+ investigation/developmental_evaluate.py
+ investigation/e3a1_measure.py
+ investigation/e3a2_expand_gold.py
+ investigation/e3a_gate.py
+ investigation/e3b5_knowledge.py
+ investigation/e3b_common.py
+ investigation/e3b_graph.py
+ investigation/e3b_pipeline.py
+ investigation/semantic_evidence_export.py
+ investigation/semantic_xai.py
+ investigation/vcf_offline_crosscheck.py
+ tests/ (20 new test files)
+
+Critical untracked release/frozen artifacts:
+ diagnostic/h1_benchmark_v1/ (2 files)
+ semantic_kg/ (10 files, including pilot)
+ semantic_evidence_v1/ (9 files, including endpoint)
+
+UNTRACKED_GENERATED / IGNORED (1,293 inventoried files)
+------------------------------------------------------
+The modified .gitignore currently ignores all of results/. This hides 1,293
+inventoried files, including scientific outputs and gates as well as ordinary
+generated data. Major trees:
+ results/h1_integration/                 123 files
+ results/h3_pilot/                     1,221 files total in tree
+ results/h3_pilot_phase6/                 18 files
+ results/h3_pilot_v2/                     52 files
+ results/semantic_xai/                    13 files
+ results/semantic_xai_phase6/               8 files
+
+The ignored set includes 34 untracked checkpoints and 6 gate/manifest files.
+These are not all safe to delete. Artifact policy review is mandatory before
+any cleanup.
+
+UNRELATED_USER_CHANGE / OWNERSHIP TAG
+-------------------------------------
+All entries in TRACKED_MODIFIED, UNTRACKED_RELEVANT, and UNTRACKED_GENERATED
+predate this audit. They are user-owned and must remain unstaged by a cleanup
+commit unless individually approved as part of that cleanup.
+
+IGNORABLE_CACHE
+---------------
+ .h3deps/
+ .venv/
+ .pytest_cache/
+ **/__pycache__/
+ *.pyc
+
+Notes from full diff inspection
+-------------------------------
+- The source diff belongs to ongoing arena/H1/VCF/Phase 6 work.
+- The results diff includes checkpoint manifest and training-log growth.
+- .gitignore changed from selective result rules to `results/`, which makes
+  release artifacts and active Phase 6 output invisible to ordinary status.
+- No staged changes were present at capture time.
+- The full patch was inspected but is not duplicated here; it was about 34k
+  tokens and remains available through `git diff` without copying user code
+  into the audit artifact.

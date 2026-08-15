@@ -1,0 +1,798 @@
+{
+  "node_attention_convention": "incoming_final_layer_mean_head_attention_mass",
+  "scope": "R-GAT late-phase main denominator; mid phase retained in CSV as suggestive",
+  "trajectories": {
+    "BlockingMove": [
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999863122488107,
+        "coverage_alignment": 0.028174603218371112,
+        "excess_structural": 4.376793825129467e-11,
+        "existential_alignment": 0.028174603218371112,
+        "iteration": 0,
+        "n_states": 36,
+        "policy_optimal_mass": 0.4971280279503742
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999964617071986,
+        "coverage_alignment": 0.028174603138986946,
+        "excess_structural": -3.561622428310201e-11,
+        "existential_alignment": 0.028174603138986946,
+        "iteration": 5,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5001090557222635
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999991120587428,
+        "coverage_alignment": 0.028174603149229385,
+        "excess_structural": -2.5373787561807266e-11,
+        "existential_alignment": 0.028174603149229385,
+        "iteration": 10,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5035675117142604
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999956668675904,
+        "coverage_alignment": 0.02817460313464711,
+        "excess_structural": -3.995606054737724e-11,
+        "existential_alignment": 0.02817460313464711,
+        "iteration": 15,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5066720458980597
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.998890464005915,
+        "coverage_alignment": 0.028174603209216276,
+        "excess_structural": 3.461310038742492e-11,
+        "existential_alignment": 0.028174603209216276,
+        "iteration": 20,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5099552009831851
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9920973884729039,
+        "coverage_alignment": 0.028174603156024238,
+        "excess_structural": -1.8578934205136663e-11,
+        "existential_alignment": 0.028174603156024238,
+        "iteration": 25,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5064760336888509
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9947859793657984,
+        "coverage_alignment": 0.028174603174381432,
+        "excess_structural": -2.2174257029315846e-13,
+        "existential_alignment": 0.028174603174381432,
+        "iteration": 30,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5120336437519167
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9977345684377557,
+        "coverage_alignment": 0.0281746031527456,
+        "excess_structural": -2.1857569862856103e-11,
+        "existential_alignment": 0.0281746031527456,
+        "iteration": 35,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5152775798989854
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9949312249304982,
+        "coverage_alignment": 0.028174603168552748,
+        "excess_structural": -6.05042809835125e-12,
+        "existential_alignment": 0.028174603168552748,
+        "iteration": 40,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5113819724237415
+      },
+      {
+        "attention_collapse_flag": 0.5211267605633803,
+        "attention_topology_correlation": 0.9872921802518676,
+        "coverage_alignment": 0.028174603164735593,
+        "excess_structural": -9.867583409323762e-12,
+        "existential_alignment": 0.028174603164735593,
+        "iteration": 45,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5131268244184238
+      },
+      {
+        "attention_collapse_flag": 0.08450704225352113,
+        "attention_topology_correlation": 0.9721682225429727,
+        "coverage_alignment": 0.02817460318350459,
+        "excess_structural": 8.901417122687673e-12,
+        "existential_alignment": 0.02817460318350459,
+        "iteration": 50,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5090507730631761
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9617451923007903,
+        "coverage_alignment": 0.02817460314636256,
+        "excess_structural": -2.8240613647744092e-11,
+        "existential_alignment": 0.02817460314636256,
+        "iteration": 55,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5216433075059888
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9687206584416063,
+        "coverage_alignment": 0.02817460316446699,
+        "excess_structural": -1.0136183462788266e-11,
+        "existential_alignment": 0.02817460316446699,
+        "iteration": 60,
+        "n_states": 36,
+        "policy_optimal_mass": 0.5148241115917622
+      }
+    ],
+    "CompletionCell": [
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999863122488107,
+        "coverage_alignment": 0.04670771027250411,
+        "excess_structural": -6.634743454480169e-12,
+        "existential_alignment": 0.05555555558256904,
+        "iteration": 0,
+        "n_states": 63,
+        "policy_optimal_mass": 0.4971280279503742
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999964617071986,
+        "coverage_alignment": 0.046707710243561795,
+        "excess_structural": -3.5577048598023876e-11,
+        "existential_alignment": 0.05555555554254057,
+        "iteration": 5,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5001090557222635
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999991120587428,
+        "coverage_alignment": 0.0467077102483624,
+        "excess_structural": -3.0776448672450916e-11,
+        "existential_alignment": 0.05555555552522346,
+        "iteration": 10,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5035675117142604
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999956668675904,
+        "coverage_alignment": 0.04670771025512712,
+        "excess_structural": -2.4011736556310072e-11,
+        "existential_alignment": 0.0555555555767464,
+        "iteration": 15,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5066720458980597
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.998890464005915,
+        "coverage_alignment": 0.04670771027481087,
+        "excess_structural": -4.327991193132337e-12,
+        "existential_alignment": 0.055555555565873424,
+        "iteration": 20,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5099552009831851
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9920973884729039,
+        "coverage_alignment": 0.046707710248903946,
+        "excess_structural": -3.023489901841159e-11,
+        "existential_alignment": 0.055555555541584214,
+        "iteration": 25,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5064760336888509
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9947859793657984,
+        "coverage_alignment": 0.04670771026975402,
+        "excess_structural": -9.384833746074077e-12,
+        "existential_alignment": 0.05555555557566634,
+        "iteration": 30,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5120336437519167
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9977345684377557,
+        "coverage_alignment": 0.046707710315146894,
+        "excess_structural": 3.600804157257483e-11,
+        "existential_alignment": 0.05555555561125993,
+        "iteration": 35,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5152775798989854
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9949312249304982,
+        "coverage_alignment": 0.046707710302972084,
+        "excess_structural": 2.383323312706029e-11,
+        "existential_alignment": 0.05555555559375579,
+        "iteration": 40,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5113819724237415
+      },
+      {
+        "attention_collapse_flag": 0.5211267605633803,
+        "attention_topology_correlation": 0.9872921802518676,
+        "coverage_alignment": 0.04670771032575748,
+        "excess_structural": 4.661863148151401e-11,
+        "existential_alignment": 0.05555555565496602,
+        "iteration": 45,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5131268244184238
+      },
+      {
+        "attention_collapse_flag": 0.08450704225352113,
+        "attention_topology_correlation": 0.9721682225429727,
+        "coverage_alignment": 0.046707710344534734,
+        "excess_structural": 6.539588534089232e-11,
+        "existential_alignment": 0.055555555657572635,
+        "iteration": 50,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5090507730631761
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9617451923007903,
+        "coverage_alignment": 0.04670771028179749,
+        "excess_structural": 2.6586386766885354e-12,
+        "existential_alignment": 0.055555555587254314,
+        "iteration": 55,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5216433075059888
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9687206584416063,
+        "coverage_alignment": 0.046707710303375546,
+        "excess_structural": 2.4236692630866883e-11,
+        "existential_alignment": 0.0555555556091379,
+        "iteration": 60,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5148241115917622
+      }
+    ],
+    "ForcedResponse": [
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999863122488107,
+        "coverage_alignment": 0.028957529001059162,
+        "excess_structural": 4.353021331156544e-11,
+        "existential_alignment": 0.028957529001059162,
+        "iteration": 0,
+        "n_states": 37,
+        "policy_optimal_mass": 0.4971280279503742
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999964617071986,
+        "coverage_alignment": 0.02895752892131371,
+        "excess_structural": -3.621524551716076e-11,
+        "existential_alignment": 0.02895752892131371,
+        "iteration": 5,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5001090557222635
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999991120587428,
+        "coverage_alignment": 0.028957528937032666,
+        "excess_structural": -2.0496287287517078e-11,
+        "existential_alignment": 0.028957528937032666,
+        "iteration": 10,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5035675117142604
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999956668675904,
+        "coverage_alignment": 0.02895752892161165,
+        "excess_structural": -3.591730432217199e-11,
+        "existential_alignment": 0.02895752892161165,
+        "iteration": 15,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5066720458980597
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.998890464005915,
+        "coverage_alignment": 0.02895752899005589,
+        "excess_structural": 3.2526942475799796e-11,
+        "existential_alignment": 0.02895752899005589,
+        "iteration": 20,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5099552009831851
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9920973884729039,
+        "coverage_alignment": 0.02895752894356168,
+        "excess_structural": -1.3967269251840658e-11,
+        "existential_alignment": 0.02895752894356168,
+        "iteration": 25,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5064760336888509
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9947859793657984,
+        "coverage_alignment": 0.028957528961299453,
+        "excess_structural": 3.770496115029476e-12,
+        "existential_alignment": 0.028957528961299453,
+        "iteration": 30,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5120336437519167
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9977345684377557,
+        "coverage_alignment": 0.028957528930467692,
+        "excess_structural": -2.7061264171704928e-11,
+        "existential_alignment": 0.028957528930467692,
+        "iteration": 35,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5152775798989854
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9949312249304982,
+        "coverage_alignment": 0.028957528957354303,
+        "excess_structural": -1.7465421001342187e-13,
+        "existential_alignment": 0.028957528957354303,
+        "iteration": 40,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5113819724237415
+      },
+      {
+        "attention_collapse_flag": 0.5211267605633803,
+        "attention_topology_correlation": 0.9872921802518676,
+        "coverage_alignment": 0.0289575289616128,
+        "excess_structural": 4.083847936996964e-12,
+        "existential_alignment": 0.0289575289616128,
+        "iteration": 45,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5131268244184238
+      },
+      {
+        "attention_collapse_flag": 0.08450704225352113,
+        "attention_topology_correlation": 0.9721682225429727,
+        "coverage_alignment": 0.028957528962902167,
+        "excess_structural": 5.37321304192115e-12,
+        "existential_alignment": 0.028957528962902167,
+        "iteration": 50,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5090507730631761
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9617451923007903,
+        "coverage_alignment": 0.028957528933215942,
+        "excess_structural": -2.4313014533332028e-11,
+        "existential_alignment": 0.028957528933215942,
+        "iteration": 55,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5216433075059888
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9687206584416063,
+        "coverage_alignment": 0.02895752894581743,
+        "excess_structural": -1.1711521673623054e-11,
+        "existential_alignment": 0.02895752894581743,
+        "iteration": 60,
+        "n_states": 37,
+        "policy_optimal_mass": 0.5148241115917622
+      }
+    ],
+    "ProofSupportedGeometry": [
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999863122488107,
+        "coverage_alignment": 0.033084067824483344,
+        "excess_structural": -2.336511920991244e-06,
+        "existential_alignment": 0.03877544105016304,
+        "iteration": 0,
+        "n_states": 63,
+        "policy_optimal_mass": 0.4971280279503742
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999964617071986,
+        "coverage_alignment": 0.033085730434877496,
+        "excess_structural": -6.739015268396407e-07,
+        "existential_alignment": 0.03877606738397614,
+        "iteration": 5,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5001090557222635
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999991120587428,
+        "coverage_alignment": 0.03308675932201724,
+        "excess_structural": 3.549856128970172e-07,
+        "existential_alignment": 0.03877642564866455,
+        "iteration": 10,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5035675117142604
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999956668675904,
+        "coverage_alignment": 0.03308034959546634,
+        "excess_structural": -6.05474093800268e-06,
+        "existential_alignment": 0.03877227016757702,
+        "iteration": 15,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5066720458980597
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.998890464005915,
+        "coverage_alignment": 0.03302961552023188,
+        "excess_structural": -5.678881617245998e-05,
+        "existential_alignment": 0.03875029204435632,
+        "iteration": 20,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5099552009831851
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9920973884729039,
+        "coverage_alignment": 0.032872631352004314,
+        "excess_structural": -0.00021377298440001795,
+        "existential_alignment": 0.03866046498928298,
+        "iteration": 25,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5064760336888509
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9947859793657984,
+        "coverage_alignment": 0.032911788900412894,
+        "excess_structural": -0.0001746154359914432,
+        "existential_alignment": 0.038698591437995734,
+        "iteration": 30,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5120336437519167
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9977345684377557,
+        "coverage_alignment": 0.03302785684963458,
+        "excess_structural": -5.854748676976111e-05,
+        "existential_alignment": 0.038768082177105735,
+        "iteration": 35,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5152775798989854
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9949312249304982,
+        "coverage_alignment": 0.033024594979640706,
+        "excess_structural": -6.18093567636344e-05,
+        "existential_alignment": 0.038773723770350696,
+        "iteration": 40,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5113819724237415
+      },
+      {
+        "attention_collapse_flag": 0.5211267605633803,
+        "attention_topology_correlation": 0.9872921802518676,
+        "coverage_alignment": 0.032987470454374,
+        "excess_structural": -9.893388203033422e-05,
+        "existential_alignment": 0.038760088389582587,
+        "iteration": 45,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5131268244184238
+      },
+      {
+        "attention_collapse_flag": 0.08450704225352113,
+        "attention_topology_correlation": 0.9721682225429727,
+        "coverage_alignment": 0.033037536103336144,
+        "excess_structural": -4.886823306819281e-05,
+        "existential_alignment": 0.038791474763363726,
+        "iteration": 50,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5090507730631761
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9617451923007903,
+        "coverage_alignment": 0.03296513918991139,
+        "excess_structural": -0.00012126514649295676,
+        "existential_alignment": 0.038724803495370864,
+        "iteration": 55,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5216433075059888
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9687206584416063,
+        "coverage_alignment": 0.03293886277115474,
+        "excess_structural": -0.0001475415652496003,
+        "existential_alignment": 0.03870581244484368,
+        "iteration": 60,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5148241115917622
+      }
+    ],
+    "TacticalLineWindow": [
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999863122488107,
+        "coverage_alignment": 0.033084067824483344,
+        "excess_structural": -2.336511920991244e-06,
+        "existential_alignment": 0.03877544105016304,
+        "iteration": 0,
+        "n_states": 63,
+        "policy_optimal_mass": 0.4971280279503742
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999964617071986,
+        "coverage_alignment": 0.033085730434877496,
+        "excess_structural": -6.739015268396407e-07,
+        "existential_alignment": 0.03877606738397614,
+        "iteration": 5,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5001090557222635
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999991120587428,
+        "coverage_alignment": 0.03308675932201724,
+        "excess_structural": 3.549856128970172e-07,
+        "existential_alignment": 0.03877642564866455,
+        "iteration": 10,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5035675117142604
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999956668675904,
+        "coverage_alignment": 0.03308034959546634,
+        "excess_structural": -6.05474093800268e-06,
+        "existential_alignment": 0.03877227016757702,
+        "iteration": 15,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5066720458980597
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.998890464005915,
+        "coverage_alignment": 0.03302961552023188,
+        "excess_structural": -5.678881617245998e-05,
+        "existential_alignment": 0.03875029204435632,
+        "iteration": 20,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5099552009831851
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9920973884729039,
+        "coverage_alignment": 0.032872631352004314,
+        "excess_structural": -0.00021377298440001795,
+        "existential_alignment": 0.03866046498928298,
+        "iteration": 25,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5064760336888509
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9947859793657984,
+        "coverage_alignment": 0.032911788900412894,
+        "excess_structural": -0.0001746154359914432,
+        "existential_alignment": 0.038698591437995734,
+        "iteration": 30,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5120336437519167
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9977345684377557,
+        "coverage_alignment": 0.03302785684963458,
+        "excess_structural": -5.854748676976111e-05,
+        "existential_alignment": 0.038768082177105735,
+        "iteration": 35,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5152775798989854
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9949312249304982,
+        "coverage_alignment": 0.033024594979640706,
+        "excess_structural": -6.18093567636344e-05,
+        "existential_alignment": 0.038773723770350696,
+        "iteration": 40,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5113819724237415
+      },
+      {
+        "attention_collapse_flag": 0.5211267605633803,
+        "attention_topology_correlation": 0.9872921802518676,
+        "coverage_alignment": 0.032987470454374,
+        "excess_structural": -9.893388203033422e-05,
+        "existential_alignment": 0.038760088389582587,
+        "iteration": 45,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5131268244184238
+      },
+      {
+        "attention_collapse_flag": 0.08450704225352113,
+        "attention_topology_correlation": 0.9721682225429727,
+        "coverage_alignment": 0.033037536103336144,
+        "excess_structural": -4.886823306819281e-05,
+        "existential_alignment": 0.038791474763363726,
+        "iteration": 50,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5090507730631761
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9617451923007903,
+        "coverage_alignment": 0.03296513918991139,
+        "excess_structural": -0.00012126514649295676,
+        "existential_alignment": 0.038724803495370864,
+        "iteration": 55,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5216433075059888
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9687206584416063,
+        "coverage_alignment": 0.03293886277115474,
+        "excess_structural": -0.0001475415652496003,
+        "existential_alignment": 0.03870581244484368,
+        "iteration": 60,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5148241115917622
+      }
+    ],
+    "WinningThreat": [
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999863122488107,
+        "coverage_alignment": 0.04012872800683364,
+        "excess_structural": -2.2719455948903293e-06,
+        "existential_alignment": 0.04914888966434252,
+        "iteration": 0,
+        "n_states": 63,
+        "policy_optimal_mass": 0.4971280279503742
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999964617071986,
+        "coverage_alignment": 0.0401304405641267,
+        "excess_structural": -5.593883018302395e-07,
+        "existential_alignment": 0.049149939576963085,
+        "iteration": 5,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5001090557222635
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999991120587428,
+        "coverage_alignment": 0.04013137210417832,
+        "excess_structural": 3.721517497862195e-07,
+        "existential_alignment": 0.0491504577223078,
+        "iteration": 10,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5035675117142604
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9999956668675904,
+        "coverage_alignment": 0.04012348782751472,
+        "excess_structural": -7.512124913799952e-06,
+        "existential_alignment": 0.049143055130919114,
+        "iteration": 15,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5066720458980597
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.998890464005915,
+        "coverage_alignment": 0.04006256843062003,
+        "excess_structural": -6.843152180850692e-05,
+        "existential_alignment": 0.04909790015747748,
+        "iteration": 20,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5099552009831851
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9920973884729039,
+        "coverage_alignment": 0.03987065067302358,
+        "excess_structural": -0.00026034927940493853,
+        "existential_alignment": 0.048928608975253855,
+        "iteration": 25,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5064760336888509
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9947859793657984,
+        "coverage_alignment": 0.03991395715336707,
+        "excess_structural": -0.00021704279906146218,
+        "existential_alignment": 0.04896563090346951,
+        "iteration": 30,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5120336437519167
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9977345684377557,
+        "coverage_alignment": 0.04005872992923651,
+        "excess_structural": -7.22700231920087e-05,
+        "existential_alignment": 0.049094794593503945,
+        "iteration": 35,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5152775798989854
+      },
+      {
+        "attention_collapse_flag": 1.0,
+        "attention_topology_correlation": 0.9949312249304982,
+        "coverage_alignment": 0.04005769479743819,
+        "excess_structural": -7.330515499033669e-05,
+        "existential_alignment": 0.049095813147994945,
+        "iteration": 40,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5113819724237415
+      },
+      {
+        "attention_collapse_flag": 0.5211267605633803,
+        "attention_topology_correlation": 0.9872921802518676,
+        "coverage_alignment": 0.04000462465924635,
+        "excess_structural": -0.00012637529318216154,
+        "existential_alignment": 0.049049367302201705,
+        "iteration": 45,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5131268244184238
+      },
+      {
+        "attention_collapse_flag": 0.08450704225352113,
+        "attention_topology_correlation": 0.9721682225429727,
+        "coverage_alignment": 0.040071295379873674,
+        "excess_structural": -5.9704572554853704e-05,
+        "existential_alignment": 0.04912372205436649,
+        "iteration": 50,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5090507730631761
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9617451923007903,
+        "coverage_alignment": 0.039975563243425195,
+        "excess_structural": -0.0001554367090033324,
+        "existential_alignment": 0.04903181929922438,
+        "iteration": 55,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5216433075059888
+      },
+      {
+        "attention_collapse_flag": 0.0,
+        "attention_topology_correlation": 0.9687206584416063,
+        "coverage_alignment": 0.039943639714210694,
+        "excess_structural": -0.0001873602382178287,
+        "existential_alignment": 0.04899029650975895,
+        "iteration": 60,
+        "n_states": 63,
+        "policy_optimal_mass": 0.5148241115917622
+      }
+    ]
+  }
+}

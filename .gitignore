@@ -3,9 +3,63 @@ __pycache__/
 .venv/
 .h3deps/
 *.pyc
-results/*/*.pt
-results/graphs/
-results/explanations/
-results/backups/
+# Results are ignored by default. Only manifest-owned release artifacts and the
+# 26 frozen seed-7 lineage checkpoints are explicitly admitted below.
+results/**
+
+# Phase 5 compact release (docs/audits/source_cleanup/phase0_allowlist_hashes.csv).
+!results/semantic_xai/
+!results/semantic_xai/figures/
+!results/semantic_xai/bootstrap_ci.json
+!results/semantic_xai/certified_vs_structural.csv
+!results/semantic_xai/developmental_semantic_analysis.json
+!results/semantic_xai/developmental_semantic_metrics.csv
+!results/semantic_xai/endpoint_semantic_metrics.csv
+!results/semantic_xai/endpoint_semantic_summary.json
+!results/semantic_xai/figures/certified_vs_structural.svg
+!results/semantic_xai/figures/semantic_alignment_by_type.svg
+!results/semantic_xai/figures/semantic_developmental.svg
+!results/semantic_xai/figures/semantic_search_lift.svg
+!results/semantic_xai/phase5_release_gate.json
+!results/semantic_xai/semantic_by_type.csv
+!results/semantic_xai/semantic_search_lift.csv
+
+# Required Phase 4 evidence lineage: seed 7, iterations 0..60 step 5 only.
+!results/h3_pilot_v2/
+!results/h3_pilot_v2/rgat/
+!results/h3_pilot_v2/rgat/seed_7/
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_000.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_005.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_010.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_015.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_020.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_025.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_030.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_035.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_040.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_045.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_050.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_055.pt
+!results/h3_pilot_v2/rgat/seed_7/checkpoints/iter_060.pt
+!results/h3_pilot_v2/rgcn/
+!results/h3_pilot_v2/rgcn/seed_7/
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_000.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_005.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_010.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_015.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_020.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_025.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_030.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_035.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_040.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_045.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_050.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_055.pt
+!results/h3_pilot_v2/rgcn/seed_7/checkpoints/iter_060.pt
+
+# Regeneration outputs are gate evidence, not release inputs.
+.reproductions/
 logs/
 investigation/slide_build/

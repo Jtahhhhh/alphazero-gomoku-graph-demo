@@ -21,6 +21,30 @@ def _model_spec(model, checkpoint):
     return {"type":model.__class__.__name__.lower(),"checkpoint":str(checkpoint) if checkpoint else None}
 
 
+def game_seed(base_seed, game_index):
+    """Derive a stable, independent NumPy seed for one game."""
+    return int(np.random.SeedSequence([int(base_seed),int(game_index)]).generate_state(1,dtype=np.uint64)[0])
+
+
+def _visit_counts(root, action_count):
+    visits=np.zeros(action_count,dtype=np.float64)
+    for action,child in root.children.items(): visits[int(action)]=int(child.n)
+    return visits
+
+
+def select_action(root, action_count, *, mode, temperature, rng):
+    """Choose the played move from root visits without changing recorded search evidence."""
+    if mode not in {"eval","data"}: raise ValueError("mode must be 'eval' or 'data'")
+    visits=_visit_counts(root,action_count)
+    if visits.sum()<=0: raise ValueError("MCTS root has no visits")
+    if temperature<0: raise ValueError("temperature must be non-negative")
+    if mode=="eval" or temperature<=1e-6: return int(visits.argmax())
+    positive=visits>0; scaled=np.full(action_count,-np.inf,dtype=np.float64)
+    scaled[positive]=np.log(visits[positive])/float(temperature); scaled-=np.max(scaled)
+    weights=np.exp(scaled); probabilities=weights/weights.sum()
+    return int(rng.choice(action_count,p=probabilities))
+
+
 def export_game(
     model,
     output_dir,
@@ -32,20 +56,28 @@ def export_game(
     opponent_checkpoint=None,
     model_player=1,
     mcts_playouts=50,
-    temperature=0.0,
+    mode,
+    temperature=1.0,
+    opening_temperature_moves=10,
+    late_temperature=0.0,
     top_k_candidates=5,
     top_k_edges=12,
-    seed=7,
+    base_seed=7,
+    game_index=0,
     max_moves=None,
 ):
     """Play and export one game; evidence is collected once after each model search."""
+    if mode not in {"eval","data"}: raise ValueError("mode must be 'eval' or 'data'")
+    if temperature<0 or late_temperature<0: raise ValueError("temperatures must be non-negative")
+    if opening_temperature_moves<0: raise ValueError("opening_temperature_moves must be non-negative")
+    if base_seed<0 or game_index<0: raise ValueError("base_seed and game_index must be non-negative")
     output_dir=Path(output_dir); output_dir.mkdir(parents=True,exist_ok=True)
     state=initial_state or GomokuState.initial(model.board_size,4)
-    rng=np.random.default_rng(seed); torch.manual_seed(seed)
+    seed=game_seed(base_seed,game_index); rng=np.random.default_rng(seed); torch.manual_seed(seed)
     manifest={
-        "schema_version":1,"artifact_type":"full_game_decision_evidence","seed":seed,
+        "schema_version":1,"artifact_type":"full_game_decision_evidence","mode":mode,"base_seed":int(base_seed),"game_index":int(game_index),"seed":seed,
         "board_size":state.size,"win_length":state.win_length,"initial_state_id":state_identifier(state),
-        "settings":{"opponent":opponent,"model_player":model_player,"mcts_playouts":mcts_playouts,"temperature":temperature,"top_k_candidates":top_k_candidates,"top_k_edges":top_k_edges,"max_moves":max_moves},
+        "settings":{"mode":mode,"opponent":opponent,"model_player":model_player,"mcts_playouts":mcts_playouts,"temperature":temperature,"opening_temperature_moves":opening_temperature_moves,"late_temperature":late_temperature,"top_k_candidates":top_k_candidates,"top_k_edges":top_k_edges,"max_moves":max_moves},
         "players":{"1":None,"-1":None},"moves":[],"terminal":False,"winner":None,"truncated":False,
     }
     primary=_model_spec(model,checkpoint)
@@ -67,8 +99,10 @@ def export_game(
         if active_model is None:
             legal=list(map(int,state.legal_actions())); action=int(rng.choice(legal)); search_ms=None; document=None
         else:
-            start=time.perf_counter(); pi,root=search(active_model,state,playouts=mcts_playouts,temperature=temperature,return_root=True); search_ms=(time.perf_counter()-start)*1000
-            action=int(pi.argmax()); document=explain_decision(state,active_model,action,root,move_dir,top_k_candidates,top_k_edges,actor.get("checkpoint"),mcts_playouts,search_ms,"svg")
+            start=time.perf_counter(); _,root=search(active_model,state,playouts=mcts_playouts,temperature=1.0,return_root=True); search_ms=(time.perf_counter()-start)*1000
+            selection_temperature=temperature if ply<=opening_temperature_moves else late_temperature
+            action=select_action(root,state.size**2,mode=mode,temperature=selection_temperature,rng=rng)
+            document=explain_decision(state,active_model,action,root,move_dir,top_k_candidates,top_k_edges,actor.get("checkpoint"),mcts_playouts,search_ms,"svg")
         next_state=state.play(action)
         item={"ply":ply,"player":player,"actor":actor,"state_id":before_id,"action":action,"row":action//state.size,"col":action%state.size,"next_state_id":state_identifier(next_state),"search_ms":search_ms,"evidence_available":document is not None,"artifact_dir":move_dir.name if document is not None else None}
         manifest["moves"].append(item); state=next_state; ply+=1
@@ -85,13 +119,13 @@ def main():
     parser.add_argument("--model",choices=tuple(MODEL_CLASSES),required=True); parser.add_argument("--checkpoint",type=Path,required=True)
     parser.add_argument("--opponent",choices=("self","random","model"),default="self"); parser.add_argument("--opponent-model",choices=tuple(MODEL_CLASSES)); parser.add_argument("--opponent-checkpoint",type=Path)
     parser.add_argument("--model-player",type=int,choices=(-1,1),default=1); parser.add_argument("--state",type=Path); parser.add_argument("--output",type=Path,required=True)
-    parser.add_argument("--mcts-playouts",type=int,default=50); parser.add_argument("--temperature",type=float,default=0.0); parser.add_argument("--top-k-candidates",type=int,default=5); parser.add_argument("--top-k-edges",type=int,default=12); parser.add_argument("--seed",type=int,default=7); parser.add_argument("--max-moves",type=int)
+    parser.add_argument("--mode",choices=("eval","data"),required=True); parser.add_argument("--mcts-playouts",type=int,default=50); parser.add_argument("--temperature",type=float,default=1.0); parser.add_argument("--opening-temperature-moves",type=int,default=10); parser.add_argument("--late-temperature",type=float,default=0.0); parser.add_argument("--top-k-candidates",type=int,default=5); parser.add_argument("--top-k-edges",type=int,default=12); parser.add_argument("--base-seed",type=int,default=7); parser.add_argument("--game-index",type=int,default=0); parser.add_argument("--max-moves",type=int)
     args=parser.parse_args(); state=load_state(args.state) if args.state else GomokuState.initial(); model=load_model(args.model,args.checkpoint,state.size)
     opponent_model=None
     if args.opponent=="model":
         if not args.opponent_model or not args.opponent_checkpoint: parser.error("--opponent model requires --opponent-model and --opponent-checkpoint")
         opponent_model=load_model(args.opponent_model,args.opponent_checkpoint,state.size)
-    export_game(model,args.output,checkpoint=args.checkpoint,initial_state=state,opponent=args.opponent,opponent_model=opponent_model,opponent_checkpoint=args.opponent_checkpoint,model_player=args.model_player,mcts_playouts=args.mcts_playouts,temperature=args.temperature,top_k_candidates=args.top_k_candidates,top_k_edges=args.top_k_edges,seed=args.seed,max_moves=args.max_moves)
+    export_game(model,args.output,checkpoint=args.checkpoint,initial_state=state,opponent=args.opponent,opponent_model=opponent_model,opponent_checkpoint=args.opponent_checkpoint,model_player=args.model_player,mcts_playouts=args.mcts_playouts,mode=args.mode,temperature=args.temperature,opening_temperature_moves=args.opening_temperature_moves,late_temperature=args.late_temperature,top_k_candidates=args.top_k_candidates,top_k_edges=args.top_k_edges,base_seed=args.base_seed,game_index=args.game_index,max_moves=args.max_moves)
 
 
 if __name__=="__main__": main()

@@ -1,0 +1,71 @@
+{
+  "benchmark_sha256": "9abd52ef4991489586682e881e495fcb4c2ffe00fb55dc9dee1d9008aca4ff02",
+  "d4_validation": {
+    "entity_canonical_checks": 8280,
+    "fact_transform_checks": 19296,
+    "passed": true,
+    "record_transform_checks": 24,
+    "records": 3,
+    "symmetries_per_record": 8
+  },
+  "entity_count": 32495,
+  "entity_type_counts": {
+    "BoardState": 94,
+    "Cell": 3384,
+    "DefenseSet": 94,
+    "ForcedResponse": 58,
+    "LineWindow": 5076,
+    "Move": 2206,
+    "Proof": 243,
+    "ProofNode": 6,
+    "StructuralEdge": 20680,
+    "WinningThreat": 654
+  },
+  "epistemic_counts": {
+    "CERTIFIED": 243,
+    "DERIVED": 75273,
+    "EXACT": 3324,
+    "HEURISTIC": 0,
+    "LEARNED": 0
+  },
+  "fact_count": 78840,
+  "freeze_integrity": {
+    "passed": true,
+    "sha256_after": "9abd52ef4991489586682e881e495fcb4c2ffe00fb55dc9dee1d9008aca4ff02",
+    "sha256_before": "9abd52ef4991489586682e881e495fcb4c2ffe00fb55dc9dee1d9008aca4ff02",
+    "source_manifest": "diagnostic/h1_benchmark_v1/manifest.json",
+    "source_manifest_sha256_after": "7498c6379f139b470cf8fd3b273e5085c28d4ab5427c134f59aa0df8fca2f8b1",
+    "source_manifest_sha256_before": "7498c6379f139b470cf8fd3b273e5085c28d4ab5427c134f59aa0df8fca2f8b1"
+  },
+  "no_proof_state_count": 11,
+  "predicate_counts": {
+    "BLOCKS": 56,
+    "CONNECTS": 41360,
+    "CONTAINS": 3390,
+    "CREATES": 1754,
+    "FORCES": 56,
+    "HAS_ACTION_VALUE": 2206,
+    "HAS_COMPLETION": 716,
+    "HAS_DIRECTION": 716,
+    "HAS_WINDOW": 386,
+    "OPTIMAL_IN": 1118,
+    "PLAYED_AT": 2206,
+    "REQUIRES": 2,
+    "SUPPORTS": 243,
+    "USES_CELL": 24631
+  },
+  "proof_bearing_state_count": 83,
+  "provenance_count": 1144,
+  "replay_backed_proof_count": 243,
+  "schema_version": 1,
+  "semantic_kg_version": "semantic_kg_v1",
+  "source_benchmark": "diagnostic/h1_benchmark_v1/h1_benchmark_v1.jsonl",
+  "state_count": 94,
+  "validation_status": {
+    "epistemic_integrity": true,
+    "errors": [],
+    "heuristic_fact_count": 0,
+    "referential_integrity": true,
+    "valid": true
+  }
+}

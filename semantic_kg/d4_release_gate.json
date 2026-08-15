@@ -1,0 +1,23 @@
+{
+  "base_file_sha256": {
+    "entities.jsonl": "784f1cb9c883f38e8d19bb779ef1a6be1b9175743fc9bd79c7e9f9c6f4b3d1d7",
+    "facts.jsonl": "da793f2e66c5a953686175a22549618974cccd38712ee59e7e93e83c1284355e",
+    "manifest.json": "28c2715fbc9b16a75dc7e849a907a807c5097918ff49a92fd0b76583533998a8",
+    "provenance.jsonl": "00c5f2fa2aa4ead063efdbe82db43133bd1d33776a45b0f8334a406031481594"
+  },
+  "base_kg_unchanged": true,
+  "entity_canonical_checks": 259960,
+  "epistemic_invariance_checks": 630720,
+  "expected_record_transform_checks": 752,
+  "fact_count_invariance_checks": 752,
+  "fact_transform_checks": 627744,
+  "passed": true,
+  "proof_lineage_checks": 1944,
+  "raw_id_checks": 259960,
+  "record_transform_checks": 752,
+  "records": 94,
+  "referential_integrity_checks": 630720,
+  "release_gate": true,
+  "roundtrip_checks": 752,
+  "symmetries_per_record": 8
+}

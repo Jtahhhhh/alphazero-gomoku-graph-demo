@@ -23,7 +23,9 @@ def tactical_case():
         dtype=np.int8,
     )
     state = GomokuState(board, to_play=1, win_length=4)
-    oracle = solve_actions(state, deadline_ms=2_000, node_budget=1_000_000)
+    # Keep this correctness fixture insensitive to transient full-suite CPU load;
+    # the test is about harness semantics, not a 2-second performance boundary.
+    oracle = solve_actions(state, deadline_ms=10_000, node_budget=1_000_000)
     assert oracle.status == "exact"
     return OracleCase(state=state, history=(), seed=7, oracle=oracle)
 

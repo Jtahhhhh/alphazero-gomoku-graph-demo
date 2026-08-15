@@ -16,16 +16,17 @@ from models.rgcn import RGCN
 from .explanation_schema import make_document
 from .mcts_trace import extract_mcts_trace
 from .model_evidence import collect_model_evidence
-from .rendering import render_board_svg, render_decision_svg, render_graph_svg
+from .rendering import render_board_svg, render_decision_svg, render_graph_svg, render_knowledge_svg
 
 
 MODEL_CLASSES={"rgcn":RGCN,"rgat":RGAT}
 
 
-def write_svgs(document,output_dir):
+def write_svgs(document,output_dir,knowledge=None):
     """Render only from structured evidence; no model or MCTS is required."""
     output_dir=Path(output_dir); output_dir.mkdir(parents=True,exist_ok=True)
     outputs={"board.svg":render_board_svg(document),"graph.svg":render_graph_svg(document),"decision.svg":render_decision_svg(document)}
+    if knowledge is not None: outputs["knowledge.svg"]=render_knowledge_svg(knowledge)
     for name,content in outputs.items(): (output_dir/name).write_text(content,encoding="utf-8")
     return outputs
 

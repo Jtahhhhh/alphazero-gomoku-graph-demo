@@ -1,0 +1,109 @@
+{
+  "base_kg_manifest_sha256": "28c2715fbc9b16a75dc7e849a907a807c5097918ff49a92fd0b76583533998a8",
+  "causal_claims": false,
+  "denominators": {
+    "exact_policy_value_states": 94,
+    "no_proof_states_excluded_not_zero": 11,
+    "proof_alignment_states": 83,
+    "proofs": 243
+  },
+  "evidence_manifest_sha256": "87c0cf2e0f6e4cf5cf1ed4a0f6eb27af0115a73f61e811e17185afa0d20e738e",
+  "legacy_reproduction_gate": {
+    "alignment_tolerance": 1e-12,
+    "comparisons": 614,
+    "maximum_absolute_delta": 4.209578037261963e-07,
+    "maximum_absolute_delta_by_field": {
+      "graph_auprc": 0.0,
+      "graph_critical_mass": 0.0,
+      "graph_precision_at_k": 0.0,
+      "graph_recall_at_k": 0.0,
+      "mcts_optimal_mass": 4.209578037261963e-07,
+      "policy_optimal_mass": 3.141831257380545e-07,
+      "value_prediction": 1.1920928955078125e-07
+    },
+    "network_search_tolerance": 1e-06,
+    "no_proof_states_excluded_from_alignment": 11,
+    "passed": true,
+    "proof_bearing_states": 83,
+    "states": 94
+  },
+  "multi_proof": {
+    "coverage": "mean alignment across applicable valid proofs",
+    "existential": "maximum alignment across applicable valid proofs"
+  },
+  "node_attention_convention": "incoming_final_layer_mean_head_attention_mass",
+  "semantic_by_type": [
+    {
+      "mean_auprc": 0.04969107127727472,
+      "mean_coverage_alignment": 0.0390396598269571,
+      "mean_excess_random": -0.002559628352678604,
+      "mean_excess_structural": -0.0001991886739395978,
+      "mean_existential_alignment": 0.046380167376619846,
+      "mean_rank_percentile": 0.44508616278022667,
+      "mean_top_k_recall": 0.03762829094154395,
+      "n_applicable_proofs": 243,
+      "n_states": 83,
+      "semantic_type": "WinningThreat"
+    },
+    {
+      "mean_auprc": 0.04035721226852075,
+      "mean_coverage_alignment": 0.03086410518180802,
+      "mean_excess_random": -0.0024758398101466374,
+      "mean_excess_structural": -0.00016619483945586324,
+      "mean_existential_alignment": 0.035266483537694106,
+      "mean_rank_percentile": 0.43611224070939647,
+      "mean_top_k_recall": 0.028112449799196783,
+      "n_applicable_proofs": 243,
+      "n_states": 83,
+      "semantic_type": "TacticalLineWindow"
+    },
+    {
+      "mean_auprc": 0.14325147714049163,
+      "mean_coverage_alignment": 0.0450053360422323,
+      "mean_excess_random": 0.0011042267951273108,
+      "mean_excess_structural": 1.2799888873092334e-11,
+      "mean_existential_alignment": 0.05206540450798768,
+      "mean_rank_percentile": 0.5567548766494549,
+      "mean_top_k_recall": 0.04965696117804552,
+      "n_applicable_proofs": 243,
+      "n_states": 83,
+      "semantic_type": "CompletionCell"
+    },
+    {
+      "mean_auprc": 0.10151644608040247,
+      "mean_coverage_alignment": 0.028831168816323388,
+      "mean_excess_random": 0.0005093344046040775,
+      "mean_excess_structural": -1.4845436433183227e-11,
+      "mean_existential_alignment": 0.028831168816323388,
+      "mean_rank_percentile": 0.521038961038961,
+      "mean_top_k_recall": 0.01818181818181818,
+      "n_applicable_proofs": 72,
+      "n_states": 55,
+      "semantic_type": "ForcedResponse"
+    },
+    {
+      "mean_auprc": 0.10094715685011124,
+      "mean_coverage_alignment": 0.028306878293025056,
+      "mean_excess_random": 0.0005373677215825307,
+      "mean_excess_structural": -1.3853246417803742e-11,
+      "mean_existential_alignment": 0.028306878293025056,
+      "mean_rank_percentile": 0.5211640211640212,
+      "mean_top_k_recall": 0.018518518518518517,
+      "n_applicable_proofs": 71,
+      "n_states": 54,
+      "semantic_type": "BlockingMove"
+    },
+    {
+      "mean_auprc": 0.04035721226852075,
+      "mean_coverage_alignment": 0.03086410518180802,
+      "mean_excess_random": -0.0024388773262403376,
+      "mean_excess_structural": -0.00016619483945586324,
+      "mean_existential_alignment": 0.035266483537694106,
+      "mean_rank_percentile": 0.43611224070939647,
+      "mean_top_k_recall": 0.028112449799196783,
+      "n_applicable_proofs": 243,
+      "n_states": 83,
+      "semantic_type": "ProofSupportedGeometry"
+    }
+  ]
+}

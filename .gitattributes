@@ -1,0 +1,8 @@
+# Frozen learned-evidence JSONL is too large for normal GitHub blobs.
+semantic_evidence_v1/*.jsonl filter=lfs diff=lfs merge=lfs -text
+semantic_evidence_v1/endpoint/*.jsonl filter=lfs diff=lfs merge=lfs -text
+
+# LFS applies only in the two lineage directories; .gitignore admits exactly
+# the 26 checkpoint paths listed in configs/release_artifacts.json.
+results/h3_pilot_v2/rgat/seed_7/checkpoints/*.pt filter=lfs diff=lfs merge=lfs -text
+results/h3_pilot_v2/rgcn/seed_7/checkpoints/*.pt filter=lfs diff=lfs merge=lfs -text

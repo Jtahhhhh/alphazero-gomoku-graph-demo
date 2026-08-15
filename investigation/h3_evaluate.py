@@ -1,6 +1,6 @@
 """Evaluate immutable H3 checkpoints on the frozen H1 benchmark."""
 
-import argparse,csv,json,math,time
+import argparse,csv,json,time
 from pathlib import Path
 import numpy as np
 import torch
@@ -10,7 +10,7 @@ from azgomoku.game import GomokuState
 from azgomoku.graph import cell_edge_records
 from azgomoku.h3_checkpoint import model_from_bundle
 from azgomoku.mcts import search
-from investigation.evaluate_h1 import aggregate_proofs,baselines,entropy
+from azgomoku.metrics.semantic_alignment import aggregate_proofs, baselines, entropy
 from models.rgcn import RGCN
 from models.rgat import RGAT
 

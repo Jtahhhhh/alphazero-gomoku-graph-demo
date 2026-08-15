@@ -1,0 +1,33 @@
+{
+  "contrast_rows": 1079,
+  "denominators": {
+    "exact_policy_value_states": 94,
+    "no_proof_states_excluded_not_zero": 11,
+    "proof_alignment_states": 83,
+    "proofs": 243
+  },
+  "developmental_state_semantic_rows": 5733,
+  "endpoint_proof_metric_rows": 1115,
+  "endpoint_state_semantic_rows": 441,
+  "legacy_reproduction_gate": {
+    "alignment_tolerance": 1e-12,
+    "comparisons": 614,
+    "maximum_absolute_delta": 4.209578037261963e-07,
+    "maximum_absolute_delta_by_field": {
+      "graph_auprc": 0.0,
+      "graph_critical_mass": 0.0,
+      "graph_precision_at_k": 0.0,
+      "graph_recall_at_k": 0.0,
+      "mcts_optimal_mass": 4.209578037261963e-07,
+      "policy_optimal_mass": 3.141831257380545e-07,
+      "value_prediction": 1.1920928955078125e-07
+    },
+    "network_search_tolerance": 1e-06,
+    "no_proof_states_excluded_from_alignment": 11,
+    "passed": true,
+    "proof_bearing_states": 83,
+    "states": 94
+  },
+  "passed": true,
+  "search_lift_rows": 3048
+}

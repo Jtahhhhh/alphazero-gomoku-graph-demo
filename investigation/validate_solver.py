@@ -3,8 +3,6 @@
 import json
 import time
 
-import numpy as np
-
 from azgomoku.game import GomokuState
 from azgomoku.solver import solve_state
 from azgomoku.tactics import extract_tactical_proofs

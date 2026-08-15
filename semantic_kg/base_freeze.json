@@ -1,0 +1,27 @@
+{
+  "entity_count": 32495,
+  "fact_count": 78840,
+  "files": {
+    "entities.jsonl": {
+      "bytes": 9268886,
+      "sha256": "784f1cb9c883f38e8d19bb779ef1a6be1b9175743fc9bd79c7e9f9c6f4b3d1d7"
+    },
+    "facts.jsonl": {
+      "bytes": 19881567,
+      "sha256": "da793f2e66c5a953686175a22549618974cccd38712ee59e7e93e83c1284355e"
+    },
+    "manifest.json": {
+      "bytes": 2100,
+      "sha256": "28c2715fbc9b16a75dc7e849a907a807c5097918ff49a92fd0b76583533998a8"
+    },
+    "provenance.jsonl": {
+      "bytes": 505731,
+      "sha256": "00c5f2fa2aa4ead063efdbe82db43133bd1d33776a45b0f8334a406031481594"
+    }
+  },
+  "immutable": true,
+  "provenance_count": 1144,
+  "schema_version": 1,
+  "semantic_kg_version": "semantic_kg_v1",
+  "state_count": 94
+}

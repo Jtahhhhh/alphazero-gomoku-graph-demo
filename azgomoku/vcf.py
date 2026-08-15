@@ -9,7 +9,6 @@ from typing import Literal
 
 from .game import GomokuState
 from .tactics import (
-    creates_five,
     mandatory_defenses,
     threat_moves,
     windows,
@@ -332,9 +331,7 @@ def solve_vcf(
             None,
             "sound VCF existential win; optimal action set is incomplete",
         )
-    reason = ctx.limit_reason or (
-        "not_proven" if result is ProofState.DISPROVEN else "search_unknown"
-    )
+    reason = "budget" if ctx.limit_reason in ("time_cap", "node_cap") else "exhausted"
     return VCFResult(
         "unknown",
         None,

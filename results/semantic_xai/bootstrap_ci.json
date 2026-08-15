@@ -1,0 +1,421 @@
+{
+  "certified_vs_structural": {
+    "A_minus_B": {
+      "ci95": [
+        -0.03841248399374544,
+        -0.03033111830700975
+      ],
+      "mean": -0.03435282963983815,
+      "n_states": 83,
+      "replicates": 1000,
+      "seed": 20260914,
+      "unit": "state"
+    },
+    "A_minus_C": {
+      "ci95": [
+        -0.005874323810959325,
+        -0.0028980090363059834
+      ],
+      "mean": -0.0043195343072799305,
+      "n_states": 83,
+      "replicates": 1000,
+      "seed": 20260915,
+      "unit": "state"
+    }
+  },
+  "endpoint_semantic": {
+    "BlockingMove": {
+      "coverage_mean_alignment": {
+        "ci95": [
+          0.027910052887876503,
+          0.02857142857448757
+        ],
+        "mean": 0.028306878293025056,
+        "n_states": 54,
+        "replicates": 1000,
+        "seed": 20260855,
+        "unit": "state"
+      },
+      "coverage_mean_excess_random": {
+        "ci95": [
+          0.00014043894756221944,
+          0.0008474908811649596
+        ],
+        "mean": 0.0005373677215825307,
+        "n_states": 54,
+        "replicates": 1000,
+        "seed": 20260857,
+        "unit": "state"
+      },
+      "coverage_mean_excess_structural": {
+        "ci95": [
+          -5.664386261511591e-11,
+          2.7393503071614245e-11
+        ],
+        "mean": -1.3853246417803742e-11,
+        "n_states": 54,
+        "replicates": 1000,
+        "seed": 20260856,
+        "unit": "state"
+      },
+      "existential_max_alignment": {
+        "ci95": [
+          0.027910052911448546,
+          0.028571428573006027
+        ],
+        "mean": 0.028306878293025056,
+        "n_states": 54,
+        "replicates": 1000,
+        "seed": 20260854,
+        "unit": "state"
+      }
+    },
+    "CompletionCell": {
+      "coverage_mean_alignment": {
+        "ci95": [
+          0.04106146614646542,
+          0.04890888880124177
+        ],
+        "mean": 0.0450053360422323,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260835,
+        "unit": "state"
+      },
+      "coverage_mean_excess_random": {
+        "ci95": [
+          0.0008615499218711844,
+          0.0013131461634985446
+        ],
+        "mean": 0.0011042267951273108,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260837,
+        "unit": "state"
+      },
+      "coverage_mean_excess_structural": {
+        "ci95": [
+          -2.3678638780063637e-11,
+          4.8277980394747724e-11
+        ],
+        "mean": 1.2799888873092334e-11,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260836,
+        "unit": "state"
+      },
+      "existential_max_alignment": {
+        "ci95": [
+          0.04638339072548283,
+          0.05791738386950958
+        ],
+        "mean": 0.05206540450798768,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260834,
+        "unit": "state"
+      }
+    },
+    "ForcedResponse": {
+      "coverage_mean_alignment": {
+        "ci95": [
+          0.028051948017695158,
+          0.030003246785979855
+        ],
+        "mean": 0.028831168816323388,
+        "n_states": 55,
+        "replicates": 1000,
+        "seed": 20260845,
+        "unit": "state"
+      },
+      "coverage_mean_excess_random": {
+        "ci95": [
+          9.32427130308674e-05,
+          0.0008299512625716557
+        ],
+        "mean": 0.0005093344046040775,
+        "n_states": 55,
+        "replicates": 1000,
+        "seed": 20260847,
+        "unit": "state"
+      },
+      "coverage_mean_excess_structural": {
+        "ci95": [
+          -5.365195479651005e-11,
+          2.8265943383247315e-11
+        ],
+        "mean": -1.4845436433183227e-11,
+        "n_states": 55,
+        "replicates": 1000,
+        "seed": 20260846,
+        "unit": "state"
+      },
+      "existential_max_alignment": {
+        "ci95": [
+          0.028051948024064008,
+          0.029999999997395138
+        ],
+        "mean": 0.028831168816323388,
+        "n_states": 55,
+        "replicates": 1000,
+        "seed": 20260844,
+        "unit": "state"
+      }
+    },
+    "ProofSupportedGeometry": {
+      "coverage_mean_alignment": {
+        "ci95": [
+          0.02909111881241239,
+          0.03283288617759033
+        ],
+        "mean": 0.03086410518180802,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260865,
+        "unit": "state"
+      },
+      "coverage_mean_excess_random": {
+        "ci95": [
+          -0.002880673846028574,
+          -0.002035999170564261
+        ],
+        "mean": -0.0024388773262403376,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260867,
+        "unit": "state"
+      },
+      "coverage_mean_excess_structural": {
+        "ci95": [
+          -0.00024047488446821228,
+          -9.627490544775857e-05
+        ],
+        "mean": -0.00016619483945586324,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260866,
+        "unit": "state"
+      },
+      "existential_max_alignment": {
+        "ci95": [
+          0.03217098990084845,
+          0.038921788301203984
+        ],
+        "mean": 0.035266483537694106,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260864,
+        "unit": "state"
+      }
+    },
+    "TacticalLineWindow": {
+      "coverage_mean_alignment": {
+        "ci95": [
+          0.02897473194860401,
+          0.0329357806500331
+        ],
+        "mean": 0.03086410518180802,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260825,
+        "unit": "state"
+      },
+      "coverage_mean_excess_random": {
+        "ci95": [
+          -0.002884613550163181,
+          -0.0020715782755467405
+        ],
+        "mean": -0.0024758398101466374,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260827,
+        "unit": "state"
+      },
+      "coverage_mean_excess_structural": {
+        "ci95": [
+          -0.0002339833864472809,
+          -9.961239948262342e-05
+        ],
+        "mean": -0.00016619483945586324,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260826,
+        "unit": "state"
+      },
+      "existential_max_alignment": {
+        "ci95": [
+          0.032023890845396474,
+          0.0388393301120573
+        ],
+        "mean": 0.035266483537694106,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260824,
+        "unit": "state"
+      }
+    },
+    "WinningThreat": {
+      "coverage_mean_alignment": {
+        "ci95": [
+          0.036288348220972176,
+          0.0418328989487118
+        ],
+        "mean": 0.0390396598269571,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260815,
+        "unit": "state"
+      },
+      "coverage_mean_excess_random": {
+        "ci95": [
+          -0.003000954522103032,
+          -0.002136990457560389
+        ],
+        "mean": -0.002559628352678604,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260817,
+        "unit": "state"
+      },
+      "coverage_mean_excess_structural": {
+        "ci95": [
+          -0.00027199867392963553,
+          -0.00012706387411877464
+        ],
+        "mean": -0.0001991886739395978,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260816,
+        "unit": "state"
+      },
+      "existential_max_alignment": {
+        "ci95": [
+          0.04247587970347856,
+          0.05032706181724538
+        ],
+        "mean": 0.046380167376619846,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20260814,
+        "unit": "state"
+      }
+    }
+  },
+  "method": "state-level nonparametric bootstrap; no game-level independence assumed",
+  "semantic_search_lift": {
+    "rgat": {
+      "blocking": {
+        "ci95": [
+          0.09496378068071366,
+          0.2547104731454535
+        ],
+        "mean": 0.1727461933602833,
+        "n_states": 55,
+        "replicates": 1000,
+        "seed": 20261014,
+        "unit": "state"
+      },
+      "exact_optimal": {
+        "ci95": [
+          0.2403574356922713,
+          0.39075678320478274
+        ],
+        "mean": 0.31406075810678263,
+        "n_states": 94,
+        "replicates": 1000,
+        "seed": 20261015,
+        "unit": "state"
+      },
+      "forced_response": {
+        "ci95": [
+          0.09330300000131372,
+          0.25833323170793715
+        ],
+        "mean": 0.1694623697736201,
+        "n_states": 56,
+        "replicates": 1000,
+        "seed": 20261016,
+        "unit": "state"
+      },
+      "proof_supported": {
+        "ci95": [
+          0.3301229972936615,
+          0.4878217369096398
+        ],
+        "mean": 0.40700452298827816,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20261017,
+        "unit": "state"
+      },
+      "threat_creating": {
+        "ci95": [
+          -0.431326180665725,
+          -0.27878869004567625
+        ],
+        "mean": -0.35370707369527793,
+        "n_states": 93,
+        "replicates": 1000,
+        "seed": 20261018,
+        "unit": "state"
+      }
+    },
+    "rgcn": {
+      "blocking": {
+        "ci95": [
+          0.05303950333480977,
+          0.1894430390042675
+        ],
+        "mean": 0.12130916094915434,
+        "n_states": 55,
+        "replicates": 1000,
+        "seed": 20261034,
+        "unit": "state"
+      },
+      "exact_optimal": {
+        "ci95": [
+          0.20223927758822954,
+          0.3547103461120407
+        ],
+        "mean": 0.27641145966667185,
+        "n_states": 94,
+        "replicates": 1000,
+        "seed": 20261035,
+        "unit": "state"
+      },
+      "forced_response": {
+        "ci95": [
+          0.05215534378408588,
+          0.19282229031897646
+        ],
+        "mean": 0.11893397702702455,
+        "n_states": 56,
+        "replicates": 1000,
+        "seed": 20261036,
+        "unit": "state"
+      },
+      "proof_supported": {
+        "ci95": [
+          0.27831040033348275,
+          0.4343443797019041
+        ],
+        "mean": 0.35462936009518825,
+        "n_states": 83,
+        "replicates": 1000,
+        "seed": 20261037,
+        "unit": "state"
+      },
+      "threat_creating": {
+        "ci95": [
+          -0.38364390484961775,
+          -0.22362128057562802
+        ],
+        "mean": -0.3011818947414467,
+        "n_states": 93,
+        "replicates": 1000,
+        "seed": 20261038,
+        "unit": "state"
+      }
+    }
+  }
+}
