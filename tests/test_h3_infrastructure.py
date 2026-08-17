@@ -7,6 +7,7 @@ from azgomoku.replay import ReplayBuffer
 from azgomoku.reproducibility import rng_state,seed_everything
 from models.rgcn import RGCN
 from models.rgat import RGAT
+from experiments.run_h3_pilot import append_rows
 
 
 def flattened(model): return torch.cat([parameter.detach().flatten() for parameter in model.parameters()])
@@ -41,3 +42,10 @@ def test_checkpoint_names_are_immutable(tmp_path):
     try: save_bundle(tmp_path,bundle)
     except FileExistsError: pass
     else: raise AssertionError("immutable checkpoint was overwritten")
+
+
+def test_training_log_append_reads_existing_header_and_ignores_new_fields(tmp_path):
+    path=tmp_path/"training_log.csv"
+    append_rows(path,[{"iteration":1,"loss":0.5}])
+    append_rows(path,[{"iteration":2,"loss":0.4,"new_metric":1.0}])
+    assert path.read_text(encoding="utf-8").splitlines()==["iteration,loss","1,0.5","2,0.4"]

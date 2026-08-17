@@ -27,11 +27,12 @@ def as_training_config(data):
 
 def append_rows(path,rows):
     exists=path.exists()
-    with path.open("a",newline="",encoding="utf-8") as handle:
-        if exists:
+    if exists:
+        with path.open("r",newline="",encoding="utf-8") as handle:
             fieldnames=next(csv.reader(handle))
-        else:
-            fieldnames=list(rows[0])
+    else:
+        fieldnames=list(rows[0])
+    with path.open("a",newline="",encoding="utf-8") as handle:
         writer=csv.DictWriter(handle,fieldnames=fieldnames,extrasaction="ignore");
         if not exists: writer.writeheader()
         writer.writerows(rows)
