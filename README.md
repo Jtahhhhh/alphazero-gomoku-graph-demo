@@ -40,6 +40,196 @@ export PYTHONPATH="$PWD/.h3deps${PYTHONPATH:+:$PYTHONPATH}"
 python -m pytest -q -p no:cacheprovider
 ```
 
+## Quy trình chạy khuyến nghị
+
+Phần này là thứ tự thực thi chuẩn cho một thí nghiệm Arena 15×15. Các lệnh
+được chạy trong WSL sau khi đã activate `.venv`.
+
+### 1. Kiểm tra code trước khi train
+
+Chạy sau mỗi lần sửa code, trước khi bắt đầu một run mới:
+
+```bash
+python -m pytest -q -p no:cacheprovider
+```
+
+Nếu chỉ sửa agent/Arena và muốn phản hồi nhanh:
+
+```bash
+python -m pytest tests/test_arena_agents.py tests/test_arena_metrics.py -q
+```
+
+### 2. Chạy smoke test trước run dài
+
+Dùng một config nhỏ hoặc thêm `--max-iterations 1` để kiểm tra model, device,
+progress log, checkpoint và CSV. Không dùng output của smoke test cho kết quả
+paper:
+
+```bash
+python -m experiments.run_h3_pilot \
+  --config configs/h3_pilot_rgat.yaml \
+  --output results/_smoke/rgat \
+  --max-iterations 1 \
+  --device cpu
+```
+
+Kiểm tra các file sau trước khi chạy full:
+
+```text
+results/_smoke/rgat/checkpoints/iter_000.pt
+results/_smoke/rgat/checkpoints/iter_001.pt
+results/_smoke/rgat/training_log.csv
+results/_smoke/rgat/tensorboard/
+```
+
+### 3. Mở TensorBoard trong terminal riêng
+
+Chạy sau khi có run đầu tiên, không cần đợi train hoàn tất:
+
+```bash
+tensorboard --logdir results --port 6006
+```
+
+Mở `http://localhost:6006`. H3 mặc định ghi vào
+`results/<run>/tensorboard`; có thể gom nhiều seed vào một thư mục chung:
+
+```bash
+python -m experiments.run_h3_pilot \
+  --config configs/arena15_rgat.json \
+  --output results/arena15_rgat/run1 \
+  --device auto \
+  --tensorboard-logdir results/tensorboard/arena15
+```
+
+Nếu `auto` chọn CUDA, terminal sẽ in tên GPU. Dùng `--device cpu` để kiểm tra
+reproducibility hoặc khi không có CUDA; dùng `--device cuda` khi muốn fail ngay
+nếu GPU không khả dụng.
+
+### 4. Train ba model chính
+
+Chạy ba lệnh tuần tự để tránh tranh chấp GPU/RAM. Chỉ chạy bước này sau khi
+smoke test đã tạo đúng checkpoint:
+
+```bash
+python -m experiments.run_h3_pilot \
+  --config configs/arena15_baseline.json \
+  --output results/arena15_baseline/run1 \
+  --device auto \
+  --tensorboard-logdir results/tensorboard/arena15
+
+python -m experiments.run_h3_pilot \
+  --config configs/arena15_rgcn.json \
+  --output results/arena15_rgcn/run1 \
+  --device auto \
+  --tensorboard-logdir results/tensorboard/arena15
+
+python -m experiments.run_h3_pilot \
+  --config configs/arena15_rgat.json \
+  --output results/arena15_rgat/run1 \
+  --device auto \
+  --tensorboard-logdir results/tensorboard/arena15
+```
+
+Mỗi run Arena 15×15 hiện có 100 iteration, 80 self-play game/iteration và
+checkpoint mỗi 5 iteration. Tổng ngân sách self-play là 8.000 game/model.
+
+### 5. Resume khi train bị dừng
+
+Chỉ resume bằng checkpoint thuộc đúng model, seed, board size và thư mục output
+của run đó. Dùng checkpoint mới nhất chưa hoàn tất:
+
+```bash
+python -m experiments.run_h3_pilot \
+  --config configs/arena15_rgat.json \
+  --output results/arena15_rgat/run1 \
+  --resume results/arena15_rgat/run1/checkpoints/iter_050.pt \
+  --device auto \
+  --tensorboard-logdir results/tensorboard/arena15
+```
+
+Không tạo run mới hoặc đổi seed khi muốn tiếp tục cùng một trajectory. Resume
+CPU từ checkpoint GPU và ngược lại được hỗ trợ bằng `map_location`.
+
+### 6. Quick evaluation sau một checkpoint
+
+Dùng block `eval_harness` bên dưới khi chỉ muốn kiểm tra nhanh 20–40 game/model.
+Chạy sau khi có checkpoint, trước Arena 1.000 game. Kết quả quick eval dùng để
+phát hiện lỗi, không thay thế Arena thống kê chính thức.
+
+Trong repo hiện tại, quick eval được gọi bằng block Python ở mục “Arena +
+dashboard chung cho 3 model”; sửa `checkpoint`, `iteration` và
+`n_games_per_opponent` trước khi chạy.
+
+### 7. Arena milestone theo training budget
+
+Chạy sau khi cả ba model đã có cùng checkpoint iteration. Dùng 100 hoặc 200
+game/matchup để theo dõi nhanh; giữ cùng `--tensorboard-logdir` để overlay Elo
+theo self-play budget:
+
+```bash
+for iter in 25 50 75 100; do
+  python -m experiments.run_arena \
+    --cnn-checkpoint results/arena15_baseline/run1/checkpoints/iter_$(printf "%03d" "$iter").pt \
+    --rgcn-checkpoint results/arena15_rgcn/run1/checkpoints/iter_$(printf "%03d" "$iter").pt \
+    --rgat-checkpoint results/arena15_rgat/run1/checkpoints/iter_$(printf "%03d" "$iter").pt \
+    --output results/arena/milestone_${iter} \
+    --games 200 \
+    --mcts-playouts 400 \
+    --checkpoint-iteration "$iter" \
+    --tensorboard-logdir results/tensorboard/arena15
+done
+```
+
+Milestone Arena dùng để xem xu hướng `evaluation/elo` và
+`evaluation/arena_score`; không dùng 200 game để làm con số kết luận cuối.
+
+### 8. Final Arena cho kết quả chính thức
+
+Chỉ chạy sau khi train đủ 100 iteration và quick/milestone eval không có lỗi.
+Lệnh này chạy 6 matchup × 1.000 game = 6.000 game, nên có thể mất nhiều giờ:
+
+```bash
+python -m experiments.run_arena \
+  --cnn-checkpoint results/arena15_baseline/run1/checkpoints/iter_100.pt \
+  --rgcn-checkpoint results/arena15_rgcn/run1/checkpoints/iter_100.pt \
+  --rgat-checkpoint results/arena15_rgat/run1/checkpoints/iter_100.pt \
+  --output results/arena/final_iter100 \
+  --games 1000 \
+  --mcts-playouts 400 \
+  --checkpoint-iteration 100 \
+  --device cpu \
+  --tensorboard-logdir results/tensorboard/arena15
+```
+
+`--games 1000` tự chia 500 game model đi trước và 500 game model đi sau.
+Không xóa hoặc ghi đè `arena_games.csv`; đây là raw data để có thể tính lại
+W/D/L, Arena Score và Elo mà không phải chạy lại game.
+
+### 9. Kiểm tra artifact và tạo dashboard
+
+Sau final Arena, kiểm tra đủ các file rồi mới đưa số liệu vào report:
+
+```bash
+test -f results/arena/final_iter100/arena_games.csv
+test -f results/arena/final_iter100/arena_summary.csv
+test -f results/arena/final_iter100/arena_elo.json
+python investigation/plot_dashboard.py \
+  --results-dir results \
+  --eval-dir results/eval_logs \
+  --output-dir results/figures
+```
+
+Vai trò của từng output:
+
+```text
+TensorBoard       theo dõi realtime và overlay nhiều run/checkpoint
+training_log.csv  audit từng iteration/update của H3
+arena_games.csv   raw từng game, dùng để tính lại metric
+arena_summary.csv bảng W/D/L, Win Rate, Arena Score, ΔElo
+arena_elo.json    global Elo và ΔElo so với CNN
+Matplotlib        figure cố định cho báo cáo/paper
+```
+
 ## Arena + dashboard chung cho 3 model
 
 Chạy trong WSL sau khi đã activate `.venv`; block dưới sẽ đánh giá đồng thời CNN baseline, R-GCN và R-GAT với cùng bộ agent heuristic, rồi sinh dashboard chung cho cả 3 model.
