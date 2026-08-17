@@ -108,6 +108,34 @@ python investigation/plot_dashboard.py \
 
 Block trên là cách chạy chung cho cả 3 model trong một lần. Nếu checkpoint khác tên hoặc ở iteration khác, chỉ cần sửa `checkpoint` bên trong `MODEL_SPECS` cho phù hợp.
 
+### Arena strength và Elo (1.000 game/matchup)
+
+Pipeline Arena mới cân bằng 500 game model đi trước và 500 game model đi sau,
+sau đó xuất raw W/D/L, Win Rate, Arena Score, ΔElo từng matchup và global Elo:
+
+```bash
+python -m experiments.run_arena \
+  --cnn-checkpoint results/arena15_baseline/run1/checkpoints/iter_100.pt \
+  --rgcn-checkpoint results/arena15_rgcn/run1/checkpoints/iter_100.pt \
+  --rgat-checkpoint results/arena15_rgat/run1/checkpoints/iter_100.pt \
+  --output results/arena \
+  --games 1000 \
+  --mcts-playouts 400 \
+  --checkpoint-iteration 100 \
+  --device cpu
+```
+
+Artifacts:
+
+```text
+results/arena/arena_games.csv    # raw từng game
+results/arena/arena_summary.csv  # W/D/L, Win Rate, Arena Score, ΔElo
+results/arena/arena_elo.json     # global Elo, anchor e_greedy = 0
+```
+
+`--games` phải là số chẵn để giữ cân bằng lượt đi. Draw được tính `0.5` trong
+Arena Score, còn Win Rate chỉ tính số trận thắng.
+
 ## Train H3
 
 Config chính:

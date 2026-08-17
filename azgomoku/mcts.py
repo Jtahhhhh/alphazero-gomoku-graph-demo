@@ -13,7 +13,7 @@ def predict(model,state):
     x=torch.from_numpy(state.features()).unsqueeze(0).to(device)
     with torch.no_grad(): logits,value=model(x,return_evidence=False)
     legal=state.legal_actions(); masked=torch.full_like(logits,-torch.inf); masked[0,legal]=logits[0,legal]
-    probs=torch.softmax(masked,dim=-1)[0].cpu().numpy()
+    probs=torch.softmax(masked,dim=-1)[0].detach().cpu().numpy()
     return probs,float(value.item())
 
 def search(model,state,playouts=50,c_puct=1.5,temperature=1.0,return_root=False,dirichlet_alpha=None,dirichlet_fraction=0.0):
