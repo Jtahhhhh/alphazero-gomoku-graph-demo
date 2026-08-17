@@ -40,6 +40,74 @@ export PYTHONPATH="$PWD/.h3deps${PYTHONPATH:+:$PYTHONPATH}"
 python -m pytest -q -p no:cacheprovider
 ```
 
+## Arena + dashboard chung cho 3 model
+
+Chạy trong WSL sau khi đã activate `.venv`; block dưới sẽ đánh giá đồng thời CNN baseline, R-GCN và R-GAT với cùng bộ agent heuristic, rồi sinh dashboard chung cho cả 3 model.
+
+```bash
+cd /mnt/d/ThucNghiem/alphazero-gomoku-graph-demo
+source .venv/bin/activate
+
+python - <<'PY'
+import json
+from pathlib import Path
+
+import torch
+
+from models.cnn_baseline import CNNBaseline
+from models.rgcn import RGCN
+from models.rgat import RGAT
+from investigation.eval_harness import run_evaluation
+
+MODEL_SPECS = {
+    "cnn_baseline": {
+        "checkpoint": "results/arena15_baseline/run1/checkpoints/iter_020.pt",
+        "model_cls": CNNBaseline,
+        "model_kwargs": {"board_size": 15, "hidden_dim": 64},
+    },
+    "rgcn": {
+        "checkpoint": "results/arena15_rgcn/run1/checkpoints/iter_020.pt",
+        "model_cls": RGCN,
+        "model_kwargs": {"board_size": 15, "hidden_dim": 128, "attention_heads": 4},
+    },
+    "rgat": {
+        "checkpoint": "results/arena15_rgat/run1/checkpoints/iter_020.pt",
+        "model_cls": RGAT,
+        "model_kwargs": {"board_size": 15, "hidden_dim": 128, "attention_heads": 4},
+    },
+}
+
+for model_name, spec in MODEL_SPECS.items():
+    checkpoint = spec["checkpoint"]
+    model = spec["model_cls"](**spec["model_kwargs"])
+    model.load_state_dict(torch.load(checkpoint, map_location="cpu", weights_only=True))
+    model.eval()
+
+    results = run_evaluation(
+        model=model,
+        model_name=model_name,
+        iteration=20,
+        opponents=[("egreedy", 0.10), ("alphabeta", 2)],
+        n_games_per_opponent=20,
+        mcts_playouts_eval=100,
+        board_size=15,
+        win_length=5,
+        log_dir=Path(f"results/eval_logs/{model_name}"),
+    )
+
+    print(f"\n=== {model_name.upper()} ===")
+    for item in results:
+        print(json.dumps(item.to_dict(), ensure_ascii=False))
+PY
+
+python investigation/plot_dashboard.py \
+  --results-dir results \
+  --eval-dir results/eval_logs \
+  --output-dir results/figures
+```
+
+Block trên là cách chạy chung cho cả 3 model trong một lần. Nếu checkpoint khác tên hoặc ở iteration khác, chỉ cần sửa `checkpoint` bên trong `MODEL_SPECS` cho phù hợp.
+
 ## Train H3
 
 Config chính:
@@ -323,6 +391,25 @@ R-GAT seed 29:
 run_h3_config \
   configs/multiboard/h3_rgat_15x15_k5_seed29.json \
   results/h3_multiboard/15x15_k5/rgat/seed_29
+```
+CNN baseline:
+
+```bash
+python -m experiments.run_h3_pilot \
+  --config configs/arena15_baseline.json \
+  --output results/arena15_baseline/run1
+```
+Rgcn baseline
+``` bash
+python -m experiments.run_h3_pilot \
+  --config configs/arena15_rgcn.json \
+  --output results/arena15_rgcn/run1
+```
+Rgat baseline:
+```bash
+python -m experiments.run_h3_pilot \
+  --config configs/arena15_rgat.json \
+  --output results/arena15_rgat/run1
 ```
 
 #### 7. Chạy toàn bộ ma trận tuần tự

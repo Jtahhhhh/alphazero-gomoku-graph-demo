@@ -11,9 +11,10 @@ from azgomoku.reproducibility import seed_everything
 from azgomoku.training import self_play,train
 from models.rgcn import RGCN
 from models.rgat import RGAT
+from models.cnn_baseline import CNNBaseline
 
 
-MODELS={"rgcn":RGCN,"rgat":RGAT}
+MODELS={"rgcn":RGCN,"rgat":RGAT,"cnn_baseline":CNNBaseline}
 
 
 def load_config(path): return json.loads(Path(path).read_text(encoding="utf-8"))
@@ -33,7 +34,7 @@ def append_rows(path,rows):
 
 def run(config_path,output,resume=None,max_iterations=None):
     data=load_config(config_path); model_type=data["model_type"]
-    if model_type not in MODELS: raise ValueError("H3 pilot supports only rgcn and rgat")
+    if model_type not in MODELS: raise ValueError("Supported models: rgcn, rgat, cnn_baseline")
     seed_everything(data["seed"]); cfg=as_training_config(data)
     model=MODELS[model_type](board_size=cfg.board_size,hidden_dim=cfg.hidden_dim,attention_heads=cfg.attention_heads)
     optimizer=torch.optim.Adam(model.parameters(),lr=cfg.learning_rate,weight_decay=cfg.weight_decay); replay=ReplayBuffer(cfg.replay_capacity)
