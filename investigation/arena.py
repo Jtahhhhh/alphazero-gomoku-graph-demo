@@ -16,6 +16,7 @@ from azgomoku.game import GomokuState
 from azgomoku.h3_checkpoint import model_from_bundle
 from azgomoku.mcts import search
 from azgomoku.reproducibility import seed_everything
+from azgomoku.tensorboard_logging import create_writer
 from models.cnn_baseline import CNNBaseline
 from models.rgat import RGAT
 from models.rgcn import RGCN
@@ -143,11 +144,12 @@ def summarize(raw_rows):
 
 
 def run_arena(models, output, games=1000, board_size=15, win_length=5, mcts_playouts=400,
-              epsilon=0.1, depth=2, seed=7, checkpoint_iteration=100):
+              epsilon=0.1, depth=2, seed=7, checkpoint_iteration=100, tensorboard_logdir=None):
     if games < 2 or games % 2:
         raise ValueError("games must be an even number so first/second sides are balanced")
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
+    writer = create_writer(tensorboard_logdir) if tensorboard_logdir else None
     raw_rows = []
     for matchup_index, (model_name, model) in enumerate(models.items(), 1):
         model.eval()
@@ -187,6 +189,17 @@ def run_arena(models, output, games=1000, board_size=15, win_length=5, mcts_play
     _write_csv(output / "arena_games.csv", RAW_FIELDS, raw_rows)
     _write_csv(output / "arena_summary.csv", SUMMARY_FIELDS, summaries)
     (output / "arena_elo.json").write_text(json.dumps({"reference": {"agent": reference, "elo": ratings[reference]}, "ratings": ratings, "delta_vs_cnn": {name: round(value - ratings.get("cnn_baseline", 0.0), 3) for name, value in ratings.items()}}, indent=2), encoding="utf-8")
+    if writer:
+        for item in summaries:
+            prefix=f"arena/{item['model']}_vs_{item['opponent']}"
+            for metric in ("wins","draws","losses","win_rate","arena_score","first_score","second_score","delta_elo"):
+                writer.add_scalar(f"{prefix}/{metric}",item[metric],checkpoint_iteration)
+        for agent,rating in ratings.items():
+            writer.add_scalar(f"elo/{agent}",rating,checkpoint_iteration)
+            writer.add_scalar(f"evaluation/elo/{agent}",rating,checkpoint_iteration)
+        for item in summaries:
+            writer.add_scalar(f"evaluation/arena_score/{item['model']}_vs_{item['opponent']}",item["arena_score"],checkpoint_iteration)
+        writer.flush(); writer.close()
     return summaries, ratings
 
 

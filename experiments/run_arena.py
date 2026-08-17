@@ -21,13 +21,14 @@ def main():
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument("--checkpoint-iteration", type=int, default=100)
     parser.add_argument("--device", choices=("cpu", "cuda"), default="cpu")
+    parser.add_argument("--tensorboard-logdir", type=Path)
     args = parser.parse_args()
     if args.device == "cuda":
         import torch
         if not torch.cuda.is_available():
             raise RuntimeError("--device cuda requested, but CUDA is not available")
     models = load_models({"cnn_baseline": args.cnn_checkpoint, "rgcn": args.rgcn_checkpoint, "rgat": args.rgat_checkpoint}, args.device)
-    run_arena(models, args.output, games=args.games, board_size=args.board_size, win_length=args.win_length, mcts_playouts=args.mcts_playouts, epsilon=args.epsilon, depth=args.depth, seed=args.seed, checkpoint_iteration=args.checkpoint_iteration)
+    run_arena(models, args.output, games=args.games, board_size=args.board_size, win_length=args.win_length, mcts_playouts=args.mcts_playouts, epsilon=args.epsilon, depth=args.depth, seed=args.seed, checkpoint_iteration=args.checkpoint_iteration, tensorboard_logdir=args.tensorboard_logdir or args.output / "tensorboard")
 
 
 if __name__ == "__main__":

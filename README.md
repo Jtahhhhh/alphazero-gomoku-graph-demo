@@ -136,6 +136,21 @@ results/arena/arena_elo.json     # global Elo, anchor e_greedy = 0
 `--games` phải là số chẵn để giữ cân bằng lượt đi. Draw được tính `0.5` trong
 Arena Score, còn Win Rate chỉ tính số trận thắng.
 
+### TensorBoard
+
+H3 tự ghi event files vào `results/<run>/tensorboard`; Arena ghi thêm W/D/L,
+Arena Score và Elo vào thư mục TensorBoard của run. Cài dependency rồi chạy:
+
+```bash
+pip install -r requirements.txt
+tensorboard --logdir results
+```
+
+Có thể chỉ định thư mục riêng cho H3 hoặc Arena bằng `--tensorboard-logdir` để
+overlay nhiều seed/checkpoint. TensorBoard là
+lớp quan sát bổ sung; `training_log.csv`, raw Arena CSV/JSON và checkpoint vẫn
+được giữ làm nguồn reproducibility.
+
 ## Train H3
 
 Config chính:

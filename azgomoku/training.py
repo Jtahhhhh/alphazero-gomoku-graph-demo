@@ -17,8 +17,9 @@ def symmetry_augment(features,policy):
     return augmented
 
 def self_play(model,cfg,iteration=None):
-    samples=[]; lengths=[]; opening_actions=[]; opening_corner_mass=[]; opening_edge_mass=[]; start=time.perf_counter()
+    samples=[]; lengths=[]; winners=[]; game_seconds=[]; opening_actions=[]; opening_corner_mass=[]; opening_edge_mass=[]; start=time.perf_counter()
     for game_index in range(cfg.self_play_games):
+        game_started=time.perf_counter()
         if iteration is not None:
             print(f"[SELFPLAY] iter={iteration} game={game_index + 1}/{cfg.self_play_games} started",flush=True)
         state=GomokuState.initial(cfg.board_size,cfg.win_length); game=[]; ply=0
@@ -32,6 +33,7 @@ def self_play(model,cfg,iteration=None):
             if ply==0: opening_actions.append(action)
             game.append((state.features(),pi,state.to_play)); state=state.play(action); ply+=1
         winner=state.winner(); lengths.append(len(game))
+        winners.append(winner); game_seconds.append(time.perf_counter()-game_started)
         for x,pi,p in game:
             value=float(int(winner==p)-int(winner==-p))
             transformed=symmetry_augment(x,pi) if cfg.symmetry_augmentation else ((x,pi),)
@@ -42,11 +44,13 @@ def self_play(model,cfg,iteration=None):
             avg=elapsed/completed
             eta=avg*(cfg.self_play_games-completed)
             print(f"[SELFPLAY] iter={iteration} game={completed}/{cfg.self_play_games} done moves={len(game)} "
-                  f"samples={len(samples)} games/sec={completed/elapsed:.3f} avg={avg:.1f}s/game ETA={eta:.1f}s",flush=True)
+                  f"samples={len(samples)} winner={winner} time={game_seconds[-1]:.1f}s "
+                  f"games/sec={completed/elapsed:.3f} avg={avg:.1f}s/game ETA={eta:.1f}s",flush=True)
     opening_counts=np.bincount(opening_actions,minlength=cfg.board_size**2) if opening_actions else np.zeros(cfg.board_size**2)
     opening_probs=opening_counts/opening_counts.sum() if opening_counts.sum() else opening_counts
     opening_entropy=float(-(opening_probs[opening_probs>0]*np.log(opening_probs[opening_probs>0])).sum())
-    return samples,{"game_length":float(np.mean(lengths)),"self_play_time":time.perf_counter()-start,"opening_unique_actions":int(np.count_nonzero(opening_counts)),"opening_entropy":opening_entropy,"opening_corner_mass":float(np.mean(opening_corner_mass)),"opening_edge_mass":float(np.mean(opening_edge_mass))}
+    games=len(lengths); elapsed=time.perf_counter()-start
+    return samples,{"game_length":float(np.mean(lengths)),"avg_game_length":float(np.mean(lengths)),"self_play_time":elapsed,"game_seconds":float(np.mean(game_seconds)),"avg_game_seconds":float(np.mean(game_seconds)),"black_win_rate":float(sum(w==1 for w in winners)/games),"white_win_rate":float(sum(w==-1 for w in winners)/games),"draw_rate":float(sum(w==0 for w in winners)/games),"opening_unique_actions":int(np.count_nonzero(opening_counts)),"opening_entropy":opening_entropy,"opening_corner_mass":float(np.mean(opening_corner_mass)),"opening_edge_mass":float(np.mean(opening_edge_mass))}
 
 def train(model,replay,cfg,opt=None,iteration=None,device=None):
     opt=opt or torch.optim.Adam(model.parameters(),lr=cfg.learning_rate,weight_decay=cfg.weight_decay); rows=[]
@@ -61,11 +65,15 @@ def train(model,replay,cfg,opt=None,iteration=None,device=None):
     return rows
 
 def latency_ms(model,size,runs=20):
-    x=torch.zeros(1,6,size,size); model.eval()
+    device=next(model.parameters()).device; x=torch.zeros(1,6,size,size,device=device); was_training=model.training; model.eval()
+    if device.type == "cuda": torch.cuda.synchronize(device)
     with torch.no_grad():
         for _ in range(3): model(x)
+        if device.type == "cuda": torch.cuda.synchronize(device)
         t=time.perf_counter()
         for _ in range(runs): model(x)
+        if device.type == "cuda": torch.cuda.synchronize(device)
+    model.train(was_training)
     return 1000*(time.perf_counter()-t)/runs
 
 def run_experiment(name,model,cfg,outdir):
