@@ -2,6 +2,27 @@
 
 import numpy as np
 
+from azgomoku.tactics import mandatory_defenses
+
+
+def _preferred_block_move(state, candidates):
+    """Pick a deterministic block among multiple immediate threat cells."""
+
+    candidate_list = [int(move) for move in candidates]
+    if not candidate_list:
+        return None
+    if len(candidate_list) == 1:
+        return candidate_list[0]
+
+    center = (state.size - 1) / 2.0
+    return min(
+        candidate_list,
+        key=lambda move: (
+            abs(move // state.size - center) + abs(move % state.size - center),
+            -move,
+        ),
+    )
+
 
 def evaluate_position(state, board_size=15, win_length=5):
     """
@@ -16,6 +37,7 @@ def evaluate_position(state, board_size=15, win_length=5):
     Returns: score in range [-1, 1] where 1 = strong for current player.
     """
     board = state.board
+    board_size = state.size
     to_play = state.to_play
     opponent = -to_play
 
@@ -146,23 +168,12 @@ class EGreedyAgent:
             if next_state.winner() == state.to_play:
                 return int(move)
 
-        # If the opponent has a tactical response after our move, reject that move
-        # and choose the first legal response that leaves the opponent without an
-        # immediate win.
-        valid_block_moves = []
-        for move in legal_moves:
-            next_state = state.play(move)
-            opponent_can_win_after = False
-            for opp_move in next_state.legal_actions():
-                opp_state = next_state.play(opp_move)
-                if opp_state.winner() == -state.to_play:
-                    opponent_can_win_after = True
-                    break
-            if not opponent_can_win_after:
-                valid_block_moves.append(int(move))
-
-        if valid_block_moves:
-            return int(valid_block_moves[0])
+        # If the opponent has a forced immediate win, blocking is mandatory.
+        defense = mandatory_defenses(state, -state.to_play)
+        if defense.completions:
+            return _preferred_block_move(
+                state, defense.blocking_moves or defense.completions
+            )
 
         # Exploration: with probability epsilon, select random move
         if self.rng.rand() < self.epsilon:
@@ -174,7 +185,7 @@ class EGreedyAgent:
 
         for move in legal_moves:
             next_state = state.play(move)
-            score = evaluate_position(next_state, self.board_size, self.win_length)
+            score = -evaluate_position(next_state, self.board_size, self.win_length)
 
             if score > best_score:
                 best_score = score

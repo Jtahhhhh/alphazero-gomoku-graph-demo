@@ -2,6 +2,27 @@
 
 import numpy as np
 
+from azgomoku.tactics import mandatory_defenses
+
+
+def _preferred_block_move(state, candidates):
+    """Pick a deterministic block among multiple immediate threat cells."""
+
+    candidate_list = [int(move) for move in candidates]
+    if not candidate_list:
+        return None
+    if len(candidate_list) == 1:
+        return candidate_list[0]
+
+    center = (state.size - 1) / 2.0
+    return min(
+        candidate_list,
+        key=lambda move: (
+            abs(move // state.size - center) + abs(move % state.size - center),
+            -move,
+        ),
+    )
+
 
 def evaluate_position(state, board_size=15, win_length=5):
     """
@@ -16,6 +37,7 @@ def evaluate_position(state, board_size=15, win_length=5):
     Returns: score in range [-1, 1] where 1 = strong for current player.
     """
     board = state.board
+    board_size = state.size
     to_play = state.to_play
     opponent = -to_play
 
@@ -151,84 +173,60 @@ class AlphaBetaAgent:
             if next_state.winner() == state.to_play:
                 return int(move)
 
-        # If the opponent has an immediate winning move after our move,
-        # reject that move and choose a response that removes all tactical threats.
-        valid_block_moves = []
-        for move in legal_moves:
-            next_state = state.play(move)
-            opponent_can_win_after = False
-            for opp_move in next_state.legal_actions():
-                opp_state = next_state.play(opp_move)
-                if opp_state.winner() == -state.to_play:
-                    opponent_can_win_after = True
-                    break
-            if not opponent_can_win_after:
-                valid_block_moves.append(int(move))
+        # If the opponent has a forced immediate win, block it before searching.
+        defense = mandatory_defenses(state, -state.to_play)
+        if defense.completions:
+            return _preferred_block_move(
+                state, defense.blocking_moves or defense.completions
+            )
 
-        if valid_block_moves:
-            return int(valid_block_moves[0])
-
+        ordered_moves = self.get_ordered_moves(state)
+        search_depth = max(self.depth - 1, 0)
         best_score = float("-inf")
-        best_move = int(legal_moves[0])
+        best_move = int(ordered_moves[0])
 
-        for move in legal_moves:
+        for move in ordered_moves:
             next_state = state.play(move)
-            score = self._alpha_beta(next_state, self.depth - 1, float("-inf"), float("inf"), False)
+            score = -self._alpha_beta(next_state, search_depth, float("-inf"), float("inf"))
             if score > best_score:
                 best_score = score
                 best_move = int(move)
 
         return best_move
 
-    def _alpha_beta(self, state, depth, alpha, beta, is_maximizing):
+    def _alpha_beta(self, state, depth, alpha, beta):
         """
-        Alpha-beta search with depth limit.
+        Alpha-beta search with depth limit using negamax form.
         
         Args:
             state: Current game state
             depth: Remaining search depth
             alpha: Alpha value for pruning
             beta: Beta value for pruning
-            is_maximizing: True if maximizing player (current player), False otherwise
             
         Returns:
             Heuristic score for this state
         """
         self.nodes_explored += 1
 
-        # Terminal conditions
-        winner = state.winner()
-        if winner == state.to_play:
-            return 1.0  # Current player wins
-        elif winner == -state.to_play:
-            return -1.0  # Opponent wins
-        elif winner == 0 and len(state.legal_actions()) == 0:
-            return 0.0  # Draw
-        elif depth == 0:
+        if state.terminal():
+            return float(state.outcome_for(state.to_play))
+
+        if depth <= 0:
             return evaluate_position(state, self.board_size, self.win_length)
 
         legal_moves = self.get_ordered_moves(state)
+        best_eval = float("-inf")
 
-        if is_maximizing:
-            max_eval = float("-inf")
-            for move in legal_moves:
-                next_state = state.play(move)
-                eval = self._alpha_beta(next_state, depth - 1, alpha, beta, False)
-                max_eval = max(max_eval, eval)
-                alpha = max(alpha, eval)
-                if beta <= alpha:
-                    break  # Beta cutoff
-            return max_eval
-        else:
-            min_eval = float("inf")
-            for move in legal_moves:
-                next_state = state.play(move)
-                eval = self._alpha_beta(next_state, depth - 1, alpha, beta, True)
-                min_eval = min(min_eval, eval)
-                beta = min(beta, eval)
-                if beta <= alpha:
-                    break  # Alpha cutoff
-            return min_eval
+        for move in legal_moves:
+            next_state = state.play(move)
+            eval_score = -self._alpha_beta(next_state, depth - 1, -beta, -alpha)
+            best_eval = max(best_eval, eval_score)
+            alpha = max(alpha, eval_score)
+            if alpha >= beta:
+                break  # Beta cutoff
+
+        return best_eval
 
     def get_ordered_moves(self, state):
         """

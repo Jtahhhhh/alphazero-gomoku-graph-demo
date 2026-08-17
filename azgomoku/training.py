@@ -16,9 +16,11 @@ def symmetry_augment(features,policy):
         augmented.append((np.flip(x,axis=-1).copy(),np.fliplr(pi).copy().reshape(-1)))
     return augmented
 
-def self_play(model,cfg):
+def self_play(model,cfg,iteration=None):
     samples=[]; lengths=[]; opening_actions=[]; opening_corner_mass=[]; opening_edge_mass=[]; start=time.perf_counter()
-    for _ in range(cfg.self_play_games):
+    for game_index in range(cfg.self_play_games):
+        if iteration is not None:
+            print(f"[SELFPLAY] iter={iteration} game={game_index + 1}/{cfg.self_play_games} started",flush=True)
         state=GomokuState.initial(cfg.board_size,cfg.win_length); game=[]; ply=0
         while not state.terminal():
             temperature=cfg.temperature if ply<cfg.opening_temperature_moves else cfg.late_temperature
@@ -34,18 +36,28 @@ def self_play(model,cfg):
             value=float(int(winner==p)-int(winner==-p))
             transformed=symmetry_augment(x,pi) if cfg.symmetry_augmentation else ((x,pi),)
             samples.extend((tx,tpi,value) for tx,tpi in transformed)
+        if iteration is not None:
+            elapsed=time.perf_counter()-start
+            completed=game_index+1
+            avg=elapsed/completed
+            eta=avg*(cfg.self_play_games-completed)
+            print(f"[SELFPLAY] iter={iteration} game={completed}/{cfg.self_play_games} done moves={len(game)} "
+                  f"samples={len(samples)} games/sec={completed/elapsed:.3f} avg={avg:.1f}s/game ETA={eta:.1f}s",flush=True)
     opening_counts=np.bincount(opening_actions,minlength=cfg.board_size**2) if opening_actions else np.zeros(cfg.board_size**2)
     opening_probs=opening_counts/opening_counts.sum() if opening_counts.sum() else opening_counts
     opening_entropy=float(-(opening_probs[opening_probs>0]*np.log(opening_probs[opening_probs>0])).sum())
     return samples,{"game_length":float(np.mean(lengths)),"self_play_time":time.perf_counter()-start,"opening_unique_actions":int(np.count_nonzero(opening_counts)),"opening_entropy":opening_entropy,"opening_corner_mass":float(np.mean(opening_corner_mass)),"opening_edge_mass":float(np.mean(opening_edge_mass))}
 
-def train(model,replay,cfg,opt=None):
+def train(model,replay,cfg,opt=None,iteration=None,device=None):
     opt=opt or torch.optim.Adam(model.parameters(),lr=cfg.learning_rate,weight_decay=cfg.weight_decay); rows=[]
-    for _ in range(cfg.train_epochs):
-        batch=replay.sample(cfg.batch_size); x=torch.tensor(np.stack([b[0] for b in batch])); pi=torch.tensor(np.stack([b[1] for b in batch])); z=torch.tensor([b[2] for b in batch])
+    device=device or next(model.parameters()).device
+    for update in range(cfg.train_epochs):
+        batch=replay.sample(cfg.batch_size); x=torch.as_tensor(np.stack([b[0] for b in batch]),device=device); pi=torch.as_tensor(np.stack([b[1] for b in batch]),device=device); z=torch.as_tensor([b[2] for b in batch],device=device)
         logits,v=model(x); logp=torch.log_softmax(logits,1); pl=-(pi*logp).sum(1).mean(); vl=torch.mean((z-v)**2); loss=pl+vl
         opt.zero_grad(); loss.backward(); opt.step(); entropy=-(torch.softmax(logits,1)*logp).sum(1).mean()
         rows.append({"policy_loss":pl.item(),"value_loss":vl.item(),"total_loss":loss.item(),"policy_entropy":entropy.item()})
+        if iteration is not None:
+            print(f"[TRAIN] iter={iteration} update={update + 1}/{cfg.train_epochs} loss={loss.item():.6f} policy={pl.item():.6f} value={vl.item():.6f}",flush=True)
     return rows
 
 def latency_ms(model,size,runs=20):

@@ -31,11 +31,21 @@ def save_bundle(run_dir,bundle):
     return path
 
 
-def load_bundle(path,model,optimizer,replay,expected_model_type=None):
-    bundle=torch.load(path,map_location="cpu",weights_only=False)
+def load_bundle(path,model,optimizer,replay,expected_model_type=None,device=None):
+    """Restore a bundle without changing its on-disk schema.
+
+    ``device`` is a runtime concern: old CPU checkpoints can be resumed on a
+    GPU and GPU checkpoints can be loaded on a CPU.
+    """
+    map_location = device if device is not None else "cpu"
+    bundle=torch.load(path,map_location=map_location,weights_only=False)
     if bundle.get("format_version")!=FORMAT_VERSION: raise ValueError("unsupported checkpoint format")
     if expected_model_type and bundle["model_type"]!=expected_model_type: raise ValueError("checkpoint model type mismatch")
     model.load_state_dict(bundle["model_state"]); optimizer.load_state_dict(bundle["optimizer_state"])
+    if device is not None:
+        for state in optimizer.state.values():
+            for key,value in state.items():
+                if isinstance(value,torch.Tensor): state[key]=value.to(device)
     snapshot=bundle["replay_snapshot"]; replay.data.clear(); replay.data.extend(snapshot["samples"])
     if replay.data.maxlen!=snapshot["capacity"]: raise ValueError("replay capacity mismatch")
     restore_rng_state(bundle["rng_state"])
