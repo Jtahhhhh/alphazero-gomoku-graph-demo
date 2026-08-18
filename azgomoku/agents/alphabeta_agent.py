@@ -27,36 +27,19 @@ def _preferred_block_move(state, candidates):
 def evaluate_position(state, board_size=15, win_length=5):
     """
     Heuristic evaluation of board state from perspective of current player.
-    
+
     Scoring based on:
     - Threat patterns (open-three, open-four, etc.)
     - Attacked patterns (blocked sequences)
     - Center control bonus
     - Basic connectivity
-    
+
     Returns: score in range [-1, 1] where 1 = strong for current player.
     """
     board = state.board
     board_size = state.size
     to_play = state.to_play
     opponent = -to_play
-
-    # Check for immediate win/loss
-    # If current player can win in 1 move
-    for action in state.legal_actions():
-        next_state = state.play(action)
-        if next_state.winner() == to_play:
-            return 1.0  # Winning move
-
-    # If opponent can win in 1 move (block it)
-    for action in state.legal_actions():
-        # Simulate opponent move
-        board_copy = state.board.copy()
-        board_copy.reshape(-1)[action] = opponent
-        from azgomoku.game import GomokuState
-        test_state = GomokuState(board=board_copy, to_play=opponent, last_move=action, win_length=state.win_length)
-        if test_state.winner() == opponent:
-            return -0.95  # Critical defense needed
 
     score = 0.0
 
@@ -130,29 +113,33 @@ def evaluate_position(state, board_size=15, win_length=5):
 class AlphaBetaAgent:
     """
     Depth-limited alpha-beta search agent.
-    
+
     Does NOT use exact solver for 15x15 boards (computationally infeasible).
     Uses heuristic evaluation instead.
-    
+
     Args:
         depth: Search depth (typically 4, 6, or 8)
         board_size: Board size (default 15 for arena)
         win_length: Win condition length (default 5 for gomoku)
     """
 
-    def __init__(self, depth=4, board_size=15, win_length=5):
+    def __init__(self, depth=4, board_size=15, win_length=5, max_candidates=12):
         self.depth = depth
         self.board_size = board_size
         self.win_length = win_length
         self.nodes_explored = 0
+        # Only expand the N closest-to-play candidate moves at every search
+        # node. Gomoku play is local, so this bounds the branching factor
+        # without materially changing move quality at shallow depths.
+        self.max_candidates = max_candidates
 
     def select_move(self, state):
         """
         Select best move using alpha-beta search.
-        
+
         Args:
             state: GameState object
-            
+
         Returns:
             action: Integer index of selected move
         """
@@ -180,7 +167,7 @@ class AlphaBetaAgent:
                 state, defense.blocking_moves or defense.completions
             )
 
-        ordered_moves = self.get_ordered_moves(state)
+        ordered_moves = self.get_ordered_moves(state, max_candidates=self.max_candidates)
         search_depth = max(self.depth - 1, 0)
         best_score = float("-inf")
         best_move = int(ordered_moves[0])
@@ -197,13 +184,13 @@ class AlphaBetaAgent:
     def _alpha_beta(self, state, depth, alpha, beta):
         """
         Alpha-beta search with depth limit using negamax form.
-        
+
         Args:
             state: Current game state
             depth: Remaining search depth
             alpha: Alpha value for pruning
             beta: Beta value for pruning
-            
+
         Returns:
             Heuristic score for this state
         """
@@ -215,7 +202,7 @@ class AlphaBetaAgent:
         if depth <= 0:
             return evaluate_position(state, self.board_size, self.win_length)
 
-        legal_moves = self.get_ordered_moves(state)
+        legal_moves = self.get_ordered_moves(state, max_candidates=self.max_candidates)
         best_eval = float("-inf")
 
         for move in legal_moves:
@@ -228,43 +215,47 @@ class AlphaBetaAgent:
 
         return best_eval
 
-    def get_ordered_moves(self, state):
+    def get_ordered_moves(self, state, max_candidates=None):
         """
         Return legal moves ordered by heuristic quality.
-        
+
         Orders moves by proximity to existing stones to reduce branching factor.
-        
+        Vectorized with numpy: distance to the nearest stone is computed for
+        every candidate move in one pass instead of a nested Python loop over
+        the whole board, which is the dominant cost of the previous
+        implementation (it used to run at every node of the search tree).
+
         Args:
             state: Current game state
-            
-        Returns:
-            List of moves ordered by heuristic priority
-        """
-        legal_moves = state.legal_actions()
+            max_candidates: If set, only the this many closest-to-play moves
+                are returned. Caps the branching factor explored by
+                ``_alpha_beta`` at every depth, which is where most of the
+                search time is actually spent.
 
-        if len(legal_moves) == 0:
+        Returns:
+            List of moves ordered by heuristic priority (closest first)
+        """
+        legal_moves = np.asarray(state.legal_actions())
+
+        if legal_moves.size == 0:
             return []
 
         board = state.board
         board_size = state.size
 
-        # Score each move based on proximity to existing stones
-        move_scores = []
-        for move in legal_moves:
-            row, col = divmod(move, board_size)
-            
-            # Find minimum distance to any existing stone
-            min_dist = float("inf")
-            for r in range(board_size):
-                for c in range(board_size):
-                    if board[r, c] != 0:
-                        dist = abs(row - r) + abs(col - c)
-                        min_dist = min(min_dist, dist)
-            
-            # Moves closer to existing stones have higher priority
-            priority = -min_dist if min_dist != float("inf") else 0
-            move_scores.append((priority, move))
+        occupied = np.argwhere(board != 0)
+        if occupied.size == 0:
+            # Empty board: no proximity signal, keep natural order.
+            ordered = legal_moves.tolist()
+            return ordered[:max_candidates] if max_candidates else ordered
 
-        # Sort by priority (descending) and return moves
-        move_scores.sort(reverse=True)
-        return [move for _, move in move_scores]
+        rows, cols = np.divmod(legal_moves, board_size)
+        # Manhattan distance from every legal move to every occupied cell,
+        # then take the minimum per move. Shapes: (n_moves, n_occupied).
+        row_dist = np.abs(rows[:, None] - occupied[None, :, 0])
+        col_dist = np.abs(cols[:, None] - occupied[None, :, 1])
+        min_dist = (row_dist + col_dist).min(axis=1)
+
+        order = np.argsort(min_dist, kind="stable")
+        ordered = legal_moves[order].tolist()
+        return ordered[:max_candidates] if max_candidates else ordered

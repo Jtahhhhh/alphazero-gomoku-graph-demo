@@ -63,16 +63,17 @@ def _opponent(kind, epsilon, depth, board_size, win_length, seed):
 
 def play_game(model, opponent, board_size, win_length, mcts_playouts, model_first):
     state = GomokuState.initial(board_size, win_length)
-    if not model_first:
-        state = GomokuState(state.board.copy(), to_play=-1, last_move=-1, win_length=win_length)
     moves = []
     started = time.perf_counter()
     model_player = 1 if model_first else -1
     while not state.terminal():
         if state.to_play == model_player:
-            action = int(search(model, state, mcts_playouts, temperature=0.0).argmax())
+            action = int(search(model, state, mcts_playouts, temperature=1).argmax())
+            side = "model"
         else:
             action = opponent.select_move(state)
+            side = "opponent"
+        print(f"[MOVE {len(moves)+1:03d}] {side} -> {action}", flush=True)
         moves.append(action)
         state = state.play(action)
     winner_value = state.winner()
