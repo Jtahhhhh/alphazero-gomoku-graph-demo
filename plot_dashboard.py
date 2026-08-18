@@ -2,10 +2,11 @@
 
 The dashboard understands the repo's current CSV logs and also accepts JSONL
 evaluation traces when the eval harness writes one. It groups repeated rows by
-iteration and builds a three-column view:
+iteration and builds a dashboard with:
 1) self-play health
 2) training losses
 3) evaluation quality
+4) a dedicated game-length panel
 """
 
 from __future__ import annotations
@@ -34,7 +35,8 @@ else:
 
 
 TRAIN_PANEL_TOP = ("selfplay_games_seen", "positions_seen", "replay_size")
-TRAIN_PANEL_BOTTOM = ("selfplay_seconds", "training_seconds", "iteration_seconds", "game_length")
+TRAIN_PANEL_BOTTOM = ("selfplay_seconds", "training_seconds", "iteration_seconds")
+GAME_LENGTH_PANEL = ("game_length",)
 LOSS_PANEL_TOP = ("policy_loss", "value_loss", "total_loss")
 LOSS_PANEL_BOTTOM = ("policy_entropy", "opening_entropy", "opening_corner_mass", "opening_edge_mass")
 EVAL_PANEL_TOP = ("policy_top1_correct", "policy_top3_correct", "policy_optimal_mass", "mcts_top1_correct", "mcts_top3_correct", "mcts_optimal_mass")
@@ -287,12 +289,14 @@ def build_dashboard(train_series: dict[str, list[dict]], eval_series: dict[str, 
     if plt is None:
         raise RuntimeError(f"matplotlib is required for plot_dashboard.py: {_MATPLOTLIB_ERROR}")
 
-    fig = plt.figure(figsize=(18, 10), dpi=dpi, facecolor="#f8fafc")
+    fig = plt.figure(figsize=(18, 11), dpi=dpi, facecolor="#f8fafc")
     grid = fig.add_gridspec(2, 3, hspace=0.28, wspace=0.18)
 
+    left_stack = grid[1, 0].subgridspec(2, 1, hspace=0.32)
     axes = [
         fig.add_subplot(grid[0, 0]),
-        fig.add_subplot(grid[1, 0]),
+        fig.add_subplot(left_stack[0, 0]),
+        fig.add_subplot(left_stack[1, 0]),
         fig.add_subplot(grid[0, 1]),
         fig.add_subplot(grid[1, 1]),
         fig.add_subplot(grid[0, 2]),
@@ -301,10 +305,11 @@ def build_dashboard(train_series: dict[str, list[dict]], eval_series: dict[str, 
 
     plot_panel(axes[0], train_series, TRAIN_PANEL_TOP, "Self-play progress", "Count")
     plot_panel(axes[1], train_series, TRAIN_PANEL_BOTTOM, "Self-play timing", "Seconds")
-    plot_panel(axes[2], train_series, LOSS_PANEL_TOP, "Training loss", "Loss")
-    plot_panel(axes[3], train_series, LOSS_PANEL_BOTTOM, "Training entropy / openings", "Value")
-    plot_panel(axes[4], eval_series or train_series, EVAL_PANEL_TOP, "Evaluation quality", "Score")
-    plot_panel(axes[5], eval_series or train_series, EVAL_PANEL_BOTTOM, "Evaluation diagnostics", "Value")
+    plot_panel(axes[2], train_series, GAME_LENGTH_PANEL, "Game length", "Moves")
+    plot_panel(axes[3], train_series, LOSS_PANEL_TOP, "Training loss", "Loss")
+    plot_panel(axes[4], train_series, LOSS_PANEL_BOTTOM, "Training entropy / openings", "Value")
+    plot_panel(axes[5], eval_series or train_series, EVAL_PANEL_TOP, "Evaluation quality", "Score")
+    plot_panel(axes[6], eval_series or train_series, EVAL_PANEL_BOTTOM, "Evaluation diagnostics", "Value")
 
     fig.suptitle(title, fontsize=16, fontweight="bold", color="#0f172a")
     fig.text(0.5, 0.02, "Iteration", ha="center", fontsize=11, color="#334155")

@@ -105,6 +105,34 @@ Nếu `auto` chọn CUDA, terminal sẽ in tên GPU. Dùng `--device cpu` để 
 reproducibility hoặc khi không có CUDA; dùng `--device cuda` khi muốn fail ngay
 nếu GPU không khả dụng.
 
+### 3b. Vẽ dashboard ngay sau khi train
+
+Không cần đợi Arena để xem tiến độ H3. Ngay sau khi một iteration đã ghi được
+`training_log.csv`, chạy dashboard training:
+
+```bash
+python plot_dashboard.py \
+  --output results/figures/h3_training.png \
+  --title "H3 training progress"
+```
+
+Dashboard này đọc đệ quy các file `results/**/training_log.csv` và hiển thị:
+
+```text
+self-play games/positions/replay size
+self-play timing và game length
+policy/value/total loss
+entropy và opening diagnostics
+```
+
+Có thể chạy lại lệnh này sau mỗi checkpoint hoặc bất kỳ lúc nào train đang tạm
+dừng. Đây là ảnh snapshot, không realtime; dùng TensorBoard ở bước 3 để theo
+dõi realtime.
+
+Các panel evaluation/Arena chỉ có dữ liệu sau khi chạy quick eval hoặc Arena.
+Nếu chưa có các log đó, panel evaluation sẽ trống hoặc không phản ánh sức mạnh
+chơi; điều này không ngăn dashboard training được tạo.
+
 ### 4. Train ba model chính
 
 Chạy ba lệnh tuần tự để tránh tranh chấp GPU/RAM. Chỉ chạy bước này sau khi
@@ -290,13 +318,15 @@ for model_name, spec in MODEL_SPECS.items():
         print(json.dumps(item.to_dict(), ensure_ascii=False))
 PY
 
-python investigation/plot_dashboard.py \
-  --results-dir results \
-  --eval-dir results/eval_logs \
-  --output-dir results/figures
+python plot_dashboard.py \
+  --output results/figures/h3_training.png \
+  --title "H3 training and evaluation"
 ```
 
-Block trên là cách chạy chung cho cả 3 model trong một lần. Nếu checkpoint khác tên hoặc ở iteration khác, chỉ cần sửa `checkpoint` bên trong `MODEL_SPECS` cho phù hợp.
+Block trên là cách chạy quick eval chung cho cả 3 model trong một lần. Sau khi
+block hoàn tất, chạy lại `plot_dashboard.py` để dashboard có thêm evaluation
+series. Nếu checkpoint khác tên hoặc ở iteration khác, chỉ cần sửa `checkpoint`
+bên trong `MODEL_SPECS` cho phù hợp.
 
 ### Arena strength và Elo (1.000 game/matchup)
 
