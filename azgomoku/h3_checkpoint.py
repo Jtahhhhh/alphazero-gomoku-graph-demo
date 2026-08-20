@@ -37,8 +37,10 @@ def load_bundle(path,model,optimizer,replay,expected_model_type=None,device=None
     ``device`` is a runtime concern: old CPU checkpoints can be resumed on a
     GPU and GPU checkpoints can be loaded on a CPU.
     """
-    map_location = device if device is not None else "cpu"
-    bundle=torch.load(path,map_location=map_location,weights_only=False)
+    # Always deserialize checkpoint tensors onto CPU first so the saved CPU RNG
+    # state stays a CPU ByteTensor for restore_rng_state(). Model/optimizer
+    # tensors are moved to ``device`` after loading when requested.
+    bundle=torch.load(path,map_location="cpu",weights_only=False)
     if bundle.get("format_version")!=FORMAT_VERSION: raise ValueError("unsupported checkpoint format")
     if expected_model_type and bundle["model_type"]!=expected_model_type: raise ValueError("checkpoint model type mismatch")
     model.load_state_dict(bundle["model_state"]); optimizer.load_state_dict(bundle["optimizer_state"])
